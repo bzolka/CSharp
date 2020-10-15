@@ -33,7 +33,7 @@ static void Main(string[] args)
 }
 ```
 
-## Statikus tagváltozó
+### Statikus tagváltozó
 
 A feladat legyen a következő. Tartsuk nyilván egy számlálóban, hogy hány objektumot hoztunk létre a Teglalap osztályból. Ha bárhol a programban létrehozunk egy új Téglalap objektumot, akkor ennek a számlálónak eggyel nőnie kell. A fenti Main függvény példát nézve, amíg a `// #1` megjegyzéssel ellátott sorban az objektumot nem hoztuk létre, addig a számláló értéke 0, ezt követően 1, majd a `// #2` sor után 2 kell legyen.
 Egy nagy, komplex alkalmazásban sok ezer helyen hozhatunk létre Teglalap objektumot, nem akarunk minden helyen számlálót növelni, csak egy központi helyen. Így tegyük bele ezt a számlálót magába a Teglalap osztályba, és növeljük annak konstruktorában, hiszen a konstruktor pont akkor hívódik, amikor egy új objektum létrejön:
@@ -108,7 +108,7 @@ static void Main(string[] args)
 }
 ```
 
-## Statikus tagfüggény
+### Statikus tagfüggény
 
 A megoldásunk még nem tökéletes. A `Szamlalo` tag publikus a `Teglalap` osztályban. Így bárhol  valaki véletlen vagy szándéskosan elronthatja a számláló értékét, pl. ki tudja nullázni az alábbis sorral, akkor is, ha már volt belőle objektum, így értéke hamis lesz:
 `Teglalap.Szamlalo = 0;`
@@ -200,7 +200,7 @@ Ilyen a `string.Join(",", elemek)`, ahol a '.'-t előtt a string a string osztá
 
 Az alkalmazások belépési pontja, a Program osztály Main függénye is statikus.
 
-## Szabályok
+### Szabályok
 
 Fontos: **Statikus tagfüggvényből a normál (vagyis nem statikus) tagváltozókat és tagfüggvényeket nem lehet elérni.**
 
@@ -229,7 +229,7 @@ A probléma az, hogy a `Terulet()` előtt nem objektum, hanem osztály áll, íg
 
 A másik irányba nincs ilyen megkötés (ez is logikus): **nem statikus tagfüggvényből statikus tagváltozókat és tagfüggvényeket el lehet érni.**
 
-## Feladat
+### Feladat
 
 1. Írj egy Matek osztályt, melynek van egy Osszead és Kivon művelete (melyek visszatérnek két eégsz szám összegével, ill. különbségével). A Matek osztályt kényelmesen lehessen használni, ne kelljen ehhez objektumokat a new-val létrehozni. Mutass példákat a kér művelet használatára.
 
