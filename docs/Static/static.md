@@ -83,7 +83,7 @@ class Teglalap
 
 Így a `Szamlalo` már az osztályhoz tartozik  (nem objektumonként foglalódik neki tárhely), minden objektumára közös, és akkor is létezik, ha még egy `Teglalap` objektumot sem hoztunk létre. Valami ilyesmi a memóriakép a fenti, Main függvénybeli használat során:
 
-![image](static-szamlalo.png){: align=center }
+![image](static-szamlalo.png)
 
 Az ilyen változók eléréséhez nem kell objektumot létrehozni, hanem az osztály nevén keresztül érjük el a "."-tal, a példánkban így: `Teglalap.Szamlalo`
 
