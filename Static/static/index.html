@@ -1,0 +1,804 @@
+
+
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Benedek Zoltán">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>Statikus tagok - C# alapok</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../extra-material-theme.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#statikus-tagok" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="C# alapok" class="md-header-nav__button md-logo" aria-label="C# alapok">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            C# alapok
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Statikus tagok
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/bzolka/CSharp/" title="Főoldalra ugrás" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bzolka/CSharp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        C# alapok
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../StringAlapgyakorlatok/string-alapok-feladatcsoport-1/" class="md-tabs__link">
+          Stringek
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Statikus tagok
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Linq/Linq-attekinto/" class="md-tabs__link">
+          Linq
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="C# alapok" class="md-nav__button md-logo" aria-label="C# alapok">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    C# alapok
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/bzolka/CSharp/" title="Főoldalra ugrás" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bzolka/CSharp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="C# alapok" class="md-nav__link">
+      C# alapok
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Stringek
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Stringek" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Stringek
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../StringAlapgyakorlatok/string-alapok-feladatcsoport-1/" title="String alapok 1" class="md-nav__link">
+      String alapok 1
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Statikus tagok
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Statikus tagok" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Statikus tagok
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Statikus tagok
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Statikus tagok" class="md-nav__link md-nav__link--active">
+      Statikus tagok
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#statikus-tagvaltozo" class="md-nav__link">
+    Statikus tagváltozó
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statikus-tagfuggeny" class="md-nav__link">
+    Statikus tagfüggény
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#szabalyok" class="md-nav__link">
+    Szabályok
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osszefoglalo" class="md-nav__link">
+    Összefoglaló
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static-feladatok/" title="Statikus tagok - feladatok" class="md-nav__link">
+      Statikus tagok - feladatok
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Linq
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Linq" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Linq
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Linq/Linq-attekinto/" title="LINQ - áttekintő" class="md-nav__link">
+      LINQ - áttekintő
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Linq/Linq-csoportositas-feladatok/" title="LINQ - feladatok" class="md-nav__link">
+      LINQ - feladatok
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#statikus-tagvaltozo" class="md-nav__link">
+    Statikus tagváltozó
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#statikus-tagfuggeny" class="md-nav__link">
+    Statikus tagfüggény
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#szabalyok" class="md-nav__link">
+    Szabályok
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#osszefoglalo" class="md-nav__link">
+    Összefoglaló
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/bzolka/CSharp/edit/master/docs/Static/static.md" title="Oldal szerkesztése" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="statikus-tagok">Statikus tagok<a class="headerlink" href="#statikus-tagok" title="Permanent link">&para;</a></h1>
+<p>Induljunk ki egy olyan osztályból, melynek van két közönséges tagváltozója és tagfüggvénye (művelete):</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Teglalap</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Szelesseg</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Magassag</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">double</span> <span class="nf">Terulet</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Szelesseg</span> <span class="p">*</span> <span class="n">Magassag</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Az alábbiakban létrehozuk a <code>Teglalap</code> osztályból két egymástól független <code>t1</code> és <code>t2</code> nevű téglalap objektumot, eltérő szélesség és magasság értékekkel, majd kiírjuk ezek területét a konzolra.</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Teglalap</span> <span class="n">t1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Teglalap</span><span class="p">();</span>       <span class="c1">// #1</span>
+    <span class="n">t1</span><span class="p">.</span><span class="n">Szelesseg</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+    <span class="n">t1</span><span class="p">.</span><span class="n">Magassag</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span> <span class="n">t1</span><span class="p">.</span><span class="n">Terulet</span><span class="p">()</span> <span class="p">);</span>
+
+    <span class="n">Teglalap</span> <span class="n">t2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Teglalap</span><span class="p">();</span>       <span class="c1">// #2</span>
+    <span class="n">t2</span><span class="p">.</span><span class="n">Szelesseg</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+    <span class="n">t2</span><span class="p">.</span><span class="n">Magassag</span> <span class="p">=</span> <span class="m">30</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t2</span><span class="p">.</span><span class="n">Terulet</span><span class="p">());</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="statikus-tagvaltozo">Statikus tagváltozó<a class="headerlink" href="#statikus-tagvaltozo" title="Permanent link">&para;</a></h3>
+<p>A feladat legyen a következő. Tartsuk nyilván egy számlálóban, hogy hány objektumot hoztunk létre a <code>Teglalap</code> osztályból. Ha bárhol a programban létrehozunk egy új <code>Teglalap</code> objektumot, akkor ennek a számlálónak eggyel nőnie kell. A fenti Main függvény példát nézve, amíg a <code>// #1</code> megjegyzéssel ellátott sorban az objektumot nem hoztuk létre, addig a számláló értéke 0, ezt követően 1, majd a <code>// #2</code> sor után 2 kell legyen.
+Egy nagy, komplex alkalmazásban sok ezer helyen hozhatunk létre <code>Teglalap</code> objektumot, nem akarunk minden helyen számlálót növelni, csak egy központi helyen. Így tegyük bele ezt a számlálót magába a <code>Teglalap</code> osztályba, és növeljük annak konstruktorában, hiszen a konstruktor pont akkor hívódik, amikor egy új objektum létrejön:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Teglalap</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Szelesseg</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Magassag</span><span class="p">;</span>
+
+<span class="hll">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Szamlalo</span><span class="p">;</span>
+</span>
+<span class="hll">    <span class="k">public</span> <span class="nf">Teglalap</span><span class="p">()</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="n">Szamlalo</span><span class="p">++;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="nf">Terulet</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Szelesseg</span> <span class="p">*</span> <span class="n">Magassag</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Ez így még nem lesz jó. A probléma az, hogy a <code>Szamlalo</code> egy közönséges tagváltozó, minden téglalap objektumhoz külön értéke lesz 0 kezdőértékkel (a fenti példánkban a <code>t1</code> és <code>t2</code> objektumoknál külön-külön), pont úgy, mint a <code>Szelesseg</code> és <code>Magassag</code> tagváltozók esetén. Ehelyett nekünk egy olyan változó kell, ami nem <code>Teglalap</code> objektumonként van, hanem minden <code>Teglalap</code> objektumra közös, magához az osztályhoz tartozik egyetlen érték, és már akkor is létezik, amikor még egyetlen objektumot sem hoztunk létre (ekkor az értéke esetünkben 0).
+Ehhez a Szamlalo tagot statikussá kell tenni, elé kell írni a <strong><code>static</code></strong> kulcsszót:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Teglalap</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Szelesseg</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Magassag</span><span class="p">;</span>
+
+<span class="hll">    <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">Szamlalo</span><span class="p">;</span>
+</span>
+    <span class="k">public</span> <span class="nf">Teglalap</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Szamlalo</span><span class="p">++;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">double</span> <span class="nf">Terulet</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Szelesseg</span> <span class="p">*</span> <span class="n">Magassag</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Így a <code>Szamlalo</code> már az osztályhoz tartozik  (nem objektumonként foglalódik neki tárhely), minden objektumára közös, és akkor is léterzik, ha még egy <code>Teglalap</code> objektumot sem hoztunk létre.</p>
+<p>Az ilyen változók eléréséhez nem kell objektumot létrehozni, hanem az osztály nevén keresztül érjük el a "."-tal, a példánkban így: <code>Teglalap.Szamlalo</code></p>
+<p>A teljes példa, mely ki is írja több helyen is a számláló értékét.</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">teglalapokSzama</span> <span class="p">=</span> <span class="n">Teglalap</span><span class="p">.</span><span class="n">Szamlalo</span><span class="p">;</span>
+</span><span class="hll">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">teglalapokSzama</span><span class="p">);</span>  <span class="c1">// 0-t ír ki</span>
+</span>
+    <span class="n">Teglalap</span> <span class="n">t1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Teglalap</span><span class="p">();</span>
+<span class="hll">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Teglalap</span><span class="p">.</span><span class="n">Szamlalo</span><span class="p">);</span> <span class="c1">// 1-et ír ki</span>
+</span>    <span class="n">t1</span><span class="p">.</span><span class="n">Szelesseg</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+    <span class="n">t1</span><span class="p">.</span><span class="n">Magassag</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">Terulet</span><span class="p">());</span>
+
+    <span class="n">Teglalap</span> <span class="n">t2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Teglalap</span><span class="p">();</span>
+<span class="hll">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Teglalap</span><span class="p">.</span><span class="n">Szamlalo</span><span class="p">);</span> <span class="c1">// 2-t ír ki</span>
+</span>    <span class="n">t2</span><span class="p">.</span><span class="n">Szelesseg</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+    <span class="n">t2</span><span class="p">.</span><span class="n">Magassag</span> <span class="p">=</span> <span class="m">30</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t2</span><span class="p">.</span><span class="n">Terulet</span><span class="p">());</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="statikus-tagfuggeny">Statikus tagfüggény<a class="headerlink" href="#statikus-tagfuggeny" title="Permanent link">&para;</a></h3>
+<p>A megoldásunk még nem tökéletes. A <code>Szamlalo</code> tag publikus a <code>Teglalap</code> osztályban. Így bárhol  valaki véletlen vagy szándéskosan elronthatja a számláló értékét, pl. ki tudja nullázni az alábbis sorral, akkor is, ha már volt belőle objektum, így értéke hamis lesz:
+<code>Teglalap.Szamlalo = 0;</code></p>
+<p>Ezt úgy tudjuk megakadályozni, hogy a <code>Szamlalo</code>-t a <code>Teglalap</code> osztályban védetté, priváttá tesszük, ekkor ha más osztályban próbáljuk megváltoztatni az értékét, akkor a kód le sem fordul (a privát tagokhoz csak az adott osztály férhet hozzá, esetünkben <code>Teglalap</code>, ez persze a normál, nem statikus tagokra is igaz).</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Teglalap</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Szelesseg</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Magassag</span><span class="p">;</span>
+
+<span class="hll">    <span class="k">private</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">Szamlalo</span><span class="p">;</span>
+</span>
+    <span class="k">public</span> <span class="nf">Teglalap</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Szamlalo</span><span class="p">++;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">double</span> <span class="nf">Terulet</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Szelesseg</span> <span class="p">*</span> <span class="n">Magassag</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Most már nem lehet elrontani más osztályból a számlálót. De mivel private, lekérdezni sem lehet már. Ez probléma, hiszen az pont célunk volt, hogy az aktuális számláló értéket le lehessen kérdezni, bárhonnan, pl. a Main függvényből is, ahogy azt eddig is tettük. A megoldás egyszerű: vezezzünk be egy tagfüggvényt (legyen a neve SzamlaloErtek), ami publikus, és le lehet vele kérdezni a védett Szamlalo értékét:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Teglalap</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Szelesseg</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Magassag</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="kt">int</span> <span class="n">Szamlalo</span><span class="p">;</span>
+
+<span class="hll">    <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">SzamlaloErtek</span><span class="p">()</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">Szamlalo</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+    <span class="k">public</span> <span class="nf">Teglalap</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Szamlalo</span><span class="p">++;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">double</span> <span class="nf">Terulet</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Szelesseg</span> <span class="p">*</span> <span class="n">Magassag</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>A <code>SzamlaloErtek</code> tagfüggvényt <strong>statikussá</strong> is tettük a <code>static</code> kulcsszóval! Ez nagyon fontos, hiszen a statikus tagváltozókhoz hasonlóan csak így tudjuk meghívni objektumok nélkül az osztály nevén keresztül (akár akkor is, ha még egy objektum sem létezik belőle): <code>Teglalap.SzamlaloErtek()</code></p>
+<p>A Main függvényt is alakítsuk át, hogy ezt a statikus tagfüggvényt használja:</p>
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">teglalapokSzama</span> <span class="p">=</span> <span class="n">Teglalap</span><span class="p">.</span><span class="n">SzamlaloErtek</span><span class="p">();</span>
+</span><span class="hll">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">teglalapokSzama</span><span class="p">);</span>  <span class="c1">// 0-t ír ki</span>
+</span>
+    <span class="n">Teglalap</span> <span class="n">t1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Teglalap</span><span class="p">();</span>
+<span class="hll">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Teglalap</span><span class="p">.</span><span class="n">SzamlaloErtek</span><span class="p">());</span> <span class="c1">// 1-et ír ki</span>
+</span>    <span class="n">t1</span><span class="p">.</span><span class="n">Szelesseg</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+    <span class="n">t1</span><span class="p">.</span><span class="n">Magassag</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">Terulet</span><span class="p">());</span>
+
+    <span class="n">Teglalap</span> <span class="n">t2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Teglalap</span><span class="p">();</span>
+<span class="hll">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Teglalap</span><span class="p">.</span><span class="n">SzamlaloErtek</span><span class="p">());</span> <span class="c1">// 2-t ír ki</span>
+</span>    <span class="n">t2</span><span class="p">.</span><span class="n">Szelesseg</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+    <span class="n">t2</span><span class="p">.</span><span class="n">Magassag</span> <span class="p">=</span> <span class="m">30</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t2</span><span class="p">.</span><span class="n">Terulet</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Statikus tagfüggvényt már jópár alkalommal használtunk. Pl. a Console.WriteLine() esetén. A Console egy beépített osztály, a WriteLine ennek egy statikus tagfüggvénye. Ha nem lenne statikus, akkor csak objektumra lehetne hívni, vagyis előbb létre kellene hozni a new-val egy Console objektumot, így:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Console</span> <span class="n">c1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Console</span><span class="p">();</span>
+<span class="n">c1</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+</code></pre></div>
+
+<p>Ez itt feleslegesen macerás lenne, mi nem akarunk különböző <code>Console</code> objektumokkal bajlódni.
+Hasonló a beépített <code>Math</code> osztály is, ennek is egy csomós statikus tagfüggvénye van, így kényelmesen a <code>Math.Abs(-12)</code>, nem kell <code>Math</code> objektumokat létrehozni. Ez így kényelmesebb, és értelmesebb is, hiszen a Math osztálynak nincsenek állapotot adó tagváltozói, szemben pl. a <code>Teglalap</code> osztályunkkal, aminek van, hiszen a <code>Szelesseg</code> és <code>Magassag</code> esetén fontos, hogy az minden <code>Tegalalap</code> objektumra külön tárolódjon.</p>
+<p>Ilyen a <code>string.Join(",", elemek)</code>, ahol a '.'-t előtt a string a string osztály neve (Megjegyzés: C#-ban a kis és nagybetűvel kezdődő <code>string</code>/<code>String</code> ugyanazt jelenti.)</p>
+<p>Az alkalmazások belépési pontja, a <code>Program</code> osztály <code>Main</code> függénye is statikus.</p>
+<h3 id="szabalyok">Szabályok<a class="headerlink" href="#szabalyok" title="Permanent link">&para;</a></h3>
+<p>Fontos: <strong>Statikus tagfüggvényből a normál (vagyis nem statikus) tagváltozókat és tagfüggvényeket nem lehet elérni.</strong></p>
+<p>Ezt meg kell tanulni, mert különben gyakran beleszalad az ember. De egy példa érthetővé is teszi:</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Teglalap</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Szelesseg</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Magassag</span><span class="p">;</span>
+
+      <span class="k">public</span> <span class="k">static</span> <span class="kt">double</span> <span class="nf">Terulet</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Szelesseg</span> <span class="p">*</span> <span class="n">Magassag</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>A példában a Terulet() statikus tagfüggvény, ebből próbálunk elérni két nem statikus tagot (Szelesseg, és Magassag). Mivel a Terulet() statikus, nem objektumokre, hanem a Teglalap osztályra tudjuk meghívni:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span> <span class="n">ter</span> <span class="p">=</span> <span class="n">Teglalap</span><span class="p">.</span><span class="n">Terulet</span><span class="p">();</span>
+</code></pre></div>
+
+<p>A probléma az, hogy a <code>Terulet()</code> előtt nem objektum, hanem osztály áll, így amikor a Terulet() függvényben hivatkozunk a nem statikus Szelesseg és Magassag tagokra, akkor azok melyik tégalalap objektum szélességét és magasságát is jelentenék? Még az is lehet, egyetlen Teglalap objektum sem létezik ekkor. Ha a Terület() hívásakor a '.' előtt egy adott teglalap objektum állna, akkor adná magát, de így ennek nincs értelme.</p>
+<p>A másik irányba nincs ilyen megkötés (ez is logikus): <strong>nem statikus tagfüggvényből statikus tagváltozókat és tagfüggvényeket el lehet érni.</strong></p>
+<h3 id="osszefoglalo">Összefoglaló<a class="headerlink" href="#osszefoglalo" title="Permanent link">&para;</a></h3>
+<div class="admonition done">
+<p class="admonition-title"><strong>A legfontosabb gondolatok</strong></p>
+<ul>
+<li>A statikus tagváltozók az osztályhoz tartoznak, annak minden objektumára közösek</li>
+<li>Az osztály nevén keresztül érhetők el, pl. Teglalap.Szamlalo, Teglalap.SzamlaloErtek(), Console.WriteLine(...), Math.Abs(...)</li>
+<li>Statikus tagfüggvényből nem statikus tagokat nem lehet elérni (nincs is értelme)</li>
+</ul>
+</div>
+<p>A statikus tagváltozók és tagfüggvények használata sokszor kényelmes, de nem szabad túlzásba esni. Leggyakrabban olyan osztályok esetén használjuk, mint a Math, ahol az osztály állapottal (tagváltozókkal) nem rendelkezik, hanem csak egyszerű függvények gyűjteménye.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        
+        <div class="md-footer-copyright__highlight">
+          Copyright &copy; Benedek Zoltán
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "search.config.lang": "hu", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
