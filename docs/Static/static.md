@@ -219,7 +219,7 @@ class Teglalap
 }
 ```
 
-A példában a Terulet() statikus tagfüggvény, ebből próbálunk elérni két nem statikus tagot (Szelesseg, és Magassag). Mivel a Terulet() statikus, nem objektumokre, hanem a Teglalap osztályra tudjuk meghívni:
+A példában a `Terulet()` statikus tagfüggvény, ebből próbálunk elérni két nem statikus tagot (`Szelesseg`, és `Magassag`). Mivel a `Terulet()` statikus, nem objektumokre, hanem a `Teglalap` osztályra tudjuk meghívni:
 
 ```csharp
 double ter = Teglalap.Terulet();
