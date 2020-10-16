@@ -38,7 +38,7 @@ static void Main(string[] args)
 A feladat legyen a következő. Tartsuk nyilván egy számlálóban, hogy hány objektumot hoztunk létre a Teglalap osztályból. Ha bárhol a programban létrehozunk egy új Téglalap objektumot, akkor ennek a számlálónak eggyel nőnie kell. A fenti Main függvény példát nézve, amíg a `// #1` megjegyzéssel ellátott sorban az objektumot nem hoztuk létre, addig a számláló értéke 0, ezt követően 1, majd a `// #2` sor után 2 kell legyen.
 Egy nagy, komplex alkalmazásban sok ezer helyen hozhatunk létre Teglalap objektumot, nem akarunk minden helyen számlálót növelni, csak egy központi helyen. Így tegyük bele ezt a számlálót magába a Teglalap osztályba, és növeljük annak konstruktorában, hiszen a konstruktor pont akkor hívódik, amikor egy új objektum létrejön:
 
-```csharp
+```csharp hl_lines="6 8-11"
 class Teglalap
 {
     public double Szelesseg;
@@ -61,7 +61,7 @@ class Teglalap
 Ez így még nem lesz jó. A probléma az, hogy a Szamlalo egy közönséges tagváltozó, minden téglalap objektumhoz külön értéke lesz 0 kezdőértékkel (a fenti példánkban a `t1` és `t2` objektumoknál külön-külön), pont úgy, mint a Szelesseg és Magassag tagváltozók esetén. Ehelyett nekünk egy olyan változó kell, ami nem Teglalap objektumonként van, hanem minden Teglalap objektumra közös, magához az osztályhoz tartozik egyetlen érték, és már akkor is létezik, amikor még egyetlen objektumot sem hoztunk létre (ekkor az értéke esetünkben 0).
 Ehhez a Szamlalo tagot statikussá kell tenni, elé kell írni a static kulcsszót:
 
-```csharp
+```csharp hl_lines="6"
 class Teglalap
 {
     public double Szelesseg;
@@ -87,7 +87,7 @@ Az ilyen változók eléréséhez nem kell objektumot létrehozni, hanem az oszt
 
 A teljes példa, mely ki is írja több helyen is a számláló értékét.
 
-```csharp
+```csharp  hl_lines="3-4 7 13"
 static void Main(string[] args)
 {
     int teglalapokSzama = Teglalap.Szamlalo;
@@ -115,7 +115,7 @@ A megoldásunk még nem tökéletes. A `Szamlalo` tag publikus a `Teglalap` oszt
 
 Ezt úgy tudjuk megakadályozni, hogy a `Szamlalo`-t a `Teglalap` osztályban védetté, priváttá tesszük, ekkor ha más osztályban próbáljuk megváltoztatni az értékét, akkor a kód le sem fordul (a privát tagokhoz csak az adott osztály férhet hozzá, esetünkben `Teglalap`, ez persze a normál, nem statikus tagokra is igaz).
 
-```csharp
+```csharp  hl_lines="6"
 class Teglalap
 {
     public double Szelesseg;
@@ -137,7 +137,7 @@ class Teglalap
 
 Most már nem lehet elrontani más osztályból a számlálót. De mivel private, lekérdezni sem lehet már. Ez probléma, hiszen az pont célunk volt, hogy az aktuális számláló értéket le lehessen kérdezni, bárhonnan, pl. a Main függvényből is, ahogy azt eddig is tettük. A megoldás egyszerű: vezezzünk be egy tagfüggvényt (legyen a neve SzamlaloErtek), ami publikus, és le lehet vele kérdezni a védett Szamlalo értékét:
 
-```csharp
+```csharp hl_lines="8-11"
 class Teglalap
 {
     public double Szelesseg;
@@ -166,7 +166,7 @@ A `SzamlaloErtek` tagfüggvényt **statikussá** is tettük a `static` kulcsszó
 
 A Main függvényt is alakítsuk át, hogy ezt a statikus tagfüggvényt használja:
 
-```csharp
+```csharp hl_lines="3-4 7 13"
 static void Main(string[] args)
 {
     int teglalapokSzama = Teglalap.SzamlaloErtek();
@@ -229,8 +229,11 @@ A probléma az, hogy a `Terulet()` előtt nem objektum, hanem osztály áll, íg
 
 A másik irányba nincs ilyen megkötés (ez is logikus): **nem statikus tagfüggvényből statikus tagváltozókat és tagfüggvényeket el lehet érni.**
 
-### Feladat
+### Összefoglaló
 
-1. Írj egy Matek osztályt, melynek van egy Osszead és Kivon művelete (melyek visszatérnek két eégsz szám összegével, ill. különbségével). A Matek osztályt kényelmesen lehessen használni, ne kelljen ehhez objektumokat a new-val létrehozni. Mutass példákat a kér művelet használatára.
+!!! done "**A legfontosabb gondolatok**"
+    * A statikus tagváltozók az osztályhoz tartoznak, annak minden objektumára közösek
+    * Az osztály nevén keresztül érhetők el, pl. Teglalap.Szamlalo, Teglalap.SzamlaloErtek(), Console.WriteLine(...), Math.Abs(...)
+    * Statikus tagfüggvényből nem statikus tagokat nem lehet elérni (nincs is értelme)
 
-2. Írj egy Bomba osztályt. Minden bombáról rátolni kell a robbanóerejét (int) és fel felrobbant-e (bool). Egy bombát felrobbantan a Robban() műveletével lehet, ez a felrobbant állapotát igazba teszi. Az alkalmazásban lekérdezhetővé kell tenni, hogy összesen hány bomba robbant fel! Ennek nyilvántartását/lekérdezhetőségét rá lehetne bízni egy külön osztályba, de a gyakorlás kedvéért építsd be magába a Bomba osztályba. A megoldásod teszteld a Main függvényben: hozz létre pár bombát, robbantsd fel és pár helyen írd ki a felrobbant bombák darabszámát!
+A statikus tagváltozók és tagfüggvények használata sokszor kényelmes, de nem szabad túlzásba esni. Leggyakrabban olyan osztályok esetén használjuk, mint a Math, ahol az osztály állapottal (tagváltozókkal) nem rendelkezik, hanem csak egyszerű függvények gyűjteménye.
