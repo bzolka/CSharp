@@ -619,7 +619,7 @@ Ehhez a Szamlalo tagot statikussá kell tenni, elé kell írni a <strong><code>s
 </code></pre></div>
 
 <p>Így a <code>Szamlalo</code> már az osztályhoz tartozik  (nem objektumonként foglalódik neki tárhely), minden objektumára közös, és akkor is létezik, ha még egy <code>Teglalap</code> objektumot sem hoztunk létre. Valami ilyesmi a memóriakép a fenti, Main függvénybeli használat során:</p>
-<p><img alt="image" src="../static-szamlalo.png" />{: align=center }</p>
+<p><img alt="image" src="../static-szamlalo.png" /></p>
 <p>Az ilyen változók eléréséhez nem kell objektumot létrehozni, hanem az osztály nevén keresztül érjük el a "."-tal, a példánkban így: <code>Teglalap.Szamlalo</code></p>
 <p>A teljes példa, mely ki is írja több helyen is a számláló értékét.</p>
 <div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
