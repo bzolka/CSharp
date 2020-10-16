@@ -15,7 +15,7 @@ class Teglalap
 }
 ```
 
-Az alábbiakban létrehozuk a Téglalap osztályból két egymástól független `t1` és `t2` nevű téglalap objektumot, eltérő szélesség és magasság értékekkel, majd kiírjuk ezek területét a konzolra.
+Az alábbiakban létrehozuk a `Teglalap` osztályból két egymástól független `t1` és `t2` nevű téglalap objektumot, eltérő szélesség és magasság értékekkel, majd kiírjuk ezek területét a konzolra.
 
 ```csharp
 static void Main(string[] args)
@@ -35,8 +35,8 @@ static void Main(string[] args)
 
 ### Statikus tagváltozó
 
-A feladat legyen a következő. Tartsuk nyilván egy számlálóban, hogy hány objektumot hoztunk létre a Teglalap osztályból. Ha bárhol a programban létrehozunk egy új Téglalap objektumot, akkor ennek a számlálónak eggyel nőnie kell. A fenti Main függvény példát nézve, amíg a `// #1` megjegyzéssel ellátott sorban az objektumot nem hoztuk létre, addig a számláló értéke 0, ezt követően 1, majd a `// #2` sor után 2 kell legyen.
-Egy nagy, komplex alkalmazásban sok ezer helyen hozhatunk létre Teglalap objektumot, nem akarunk minden helyen számlálót növelni, csak egy központi helyen. Így tegyük bele ezt a számlálót magába a Teglalap osztályba, és növeljük annak konstruktorában, hiszen a konstruktor pont akkor hívódik, amikor egy új objektum létrejön:
+A feladat legyen a következő. Tartsuk nyilván egy számlálóban, hogy hány objektumot hoztunk létre a `Teglalap` osztályból. Ha bárhol a programban létrehozunk egy új `Teglalap` objektumot, akkor ennek a számlálónak eggyel nőnie kell. A fenti Main függvény példát nézve, amíg a `// #1` megjegyzéssel ellátott sorban az objektumot nem hoztuk létre, addig a számláló értéke 0, ezt követően 1, majd a `// #2` sor után 2 kell legyen.
+Egy nagy, komplex alkalmazásban sok ezer helyen hozhatunk létre `Teglalap` objektumot, nem akarunk minden helyen számlálót növelni, csak egy központi helyen. Így tegyük bele ezt a számlálót magába a `Teglalap` osztályba, és növeljük annak konstruktorában, hiszen a konstruktor pont akkor hívódik, amikor egy új objektum létrejön:
 
 ```csharp hl_lines="6 8-11"
 class Teglalap
@@ -58,8 +58,8 @@ class Teglalap
 }
 ```
 
-Ez így még nem lesz jó. A probléma az, hogy a Szamlalo egy közönséges tagváltozó, minden téglalap objektumhoz külön értéke lesz 0 kezdőértékkel (a fenti példánkban a `t1` és `t2` objektumoknál külön-külön), pont úgy, mint a Szelesseg és Magassag tagváltozók esetén. Ehelyett nekünk egy olyan változó kell, ami nem Teglalap objektumonként van, hanem minden Teglalap objektumra közös, magához az osztályhoz tartozik egyetlen érték, és már akkor is létezik, amikor még egyetlen objektumot sem hoztunk létre (ekkor az értéke esetünkben 0).
-Ehhez a Szamlalo tagot statikussá kell tenni, elé kell írni a static kulcsszót:
+Ez így még nem lesz jó. A probléma az, hogy a `Szamlalo` egy közönséges tagváltozó, minden téglalap objektumhoz külön értéke lesz 0 kezdőértékkel (a fenti példánkban a `t1` és `t2` objektumoknál külön-külön), pont úgy, mint a `Szelesseg` és `Magassag` tagváltozók esetén. Ehelyett nekünk egy olyan változó kell, ami nem `Teglalap` objektumonként van, hanem minden `Teglalap` objektumra közös, magához az osztályhoz tartozik egyetlen érték, és már akkor is létezik, amikor még egyetlen objektumot sem hoztunk létre (ekkor az értéke esetünkben 0).
+Ehhez a Szamlalo tagot statikussá kell tenni, elé kell írni a **`static`** kulcsszót:
 
 ```csharp hl_lines="6"
 class Teglalap
@@ -196,9 +196,9 @@ c1.WriteLine();
 Ez itt feleslegesen macerás lenne, mi nem akarunk különböző `Console` objektumokkal bajlódni.
 Hasonló a beépített `Math` osztály is, ennek is egy csomós statikus tagfüggvénye van, így kényelmesen a `Math.Abs(-12)`, nem kell `Math` objektumokat létrehozni. Ez így kényelmesebb, és értelmesebb is, hiszen a Math osztálynak nincsenek állapotot adó tagváltozói, szemben pl. a `Teglalap` osztályunkkal, aminek van, hiszen a `Szelesseg` és `Magassag` esetén fontos, hogy az minden `Tegalalap` objektumra külön tárolódjon.
 
-Ilyen a `string.Join(",", elemek)`, ahol a '.'-t előtt a string a string osztály neve (Megjegyzés: C#-ban a kis és nagybetűvel kezdődő string/String ugyanazt jelenti.)
+Ilyen a `string.Join(",", elemek)`, ahol a '.'-t előtt a string a string osztály neve (Megjegyzés: C#-ban a kis és nagybetűvel kezdődő `string`/`String` ugyanazt jelenti.)
 
-Az alkalmazások belépési pontja, a Program osztály Main függénye is statikus.
+Az alkalmazások belépési pontja, a `Program` osztály `Main` függénye is statikus.
 
 ### Szabályok
 
