@@ -16,6 +16,7 @@ theme:
     code: Roboto Mono
   features:
     - tabs
+    - navigation.expand
 
 extra_css:
   - extra-material-theme.css
@@ -49,9 +50,16 @@ nav:
   - index.md
   - Stringek:
       - StringAlapgyakorlatok/string-alapok-feladatcsoport-1.md
-  - Statikus tagok:
+  - 'Objektumok létrehozása':
+      - Konstruktor:
+          - ObjektumokLetrehozasa/Konstruktor/konstruktor-alapok.md
+      - Inicializálás:
+          - ObjektumokLetrehozasa/Inicializalas/inicializalas-alapok.md        
+          - ObjektumokLetrehozasa/Inicializalas/inicializalas-feladatok.md
+  - 'Statikus tagok':
       - Static/static.md
       - Static/static-feladatok.md
   - Linq:
       - Linq/Linq-attekinto.md
+      - Linq/Linq-kiskerdesek.md
       - Linq/Linq-csoportositas-feladatok.md

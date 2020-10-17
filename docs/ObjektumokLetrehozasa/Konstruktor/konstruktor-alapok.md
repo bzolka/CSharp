@@ -1,0 +1,3 @@
+# Konstruktor alapok
+
+TODO
