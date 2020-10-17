@@ -9,9 +9,9 @@ theme:
   custom_dir: theme-overrides
   language: hu
   palette:
-    scheme: slate    
-    primary: teal
-    accent: teal
+    scheme: default    
+    primary: indigo
+    accent: indigo
   font:
     text: Roboto
     code: Roboto Mono
