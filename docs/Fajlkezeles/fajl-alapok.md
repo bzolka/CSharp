@@ -12,7 +12,7 @@ Pl. egy fájl nyers tartalma lehet a következő bithalmaz:
 01100001 01101100 01101101 01100001 00001101 00001010 01110011 01111010 01101001 01101100 01110110 01100001
 ```
 
-Szukjuk a gondolatot, hogy **minden** fájl a dolgok legmélyén hasonlóképpen bitek sorozatából áll... A bitek a háttértáron gyakran folytatólagosan helyezkednek el, de mivel számunka ez teljesen átláthatatlan lenne, így 8 bitenként csoportosítva jelenítettük meg fent.
+Szokjuk a gondolatot, hogy **minden** fájl a dolgok legmélyén hasonlóképpen bitek sorozatából áll... A bitek a háttértáron gyakran folytatólagosan helyezkednek el, de mivel számunka ez teljesen átláthatatlan lenne, így 8 bitenként csoportosítva jelenítettük meg fent.
 A gyakorlatban soha nem szoktunk fájlok tartalmával bitenként dolgozni. A biteket 8-as csoportokban dolgozzuk fel. 8 bit egy bájt. Egy bájt 0 és 255 között vehet fel értékeket. pl. a 00000000 bitsorozat bájtértéke 0, a 00000001-é 1, a 00000010-é 2, a 00000011-é 3, az 11111111-é pedig 255. A lényeg, hogy a fájlok tartalmára most már nem mint bitek, hanem bájtok sorozatára gondolunk. A fenti fájl példánk így néz ki bájtokkal reprezentálva (minden 8-as binárist átszámoltunk bájtra, ebben pédául a Windows-ban levő Számológép alkalmazás is segítségünkre lehet, csak át kell kapcsolni Programozó üzemmódra - érdemes kipróbálni):
 
 ```
@@ -189,4 +189,7 @@ Pl. itt találsz még jó magyarázatot és példákat szövegfájl írására �
 
 ## További lényeges információk
 
-TODO (Van még? - igen, a biztos fájl lezárás, using blokk) + Unicode
+TODO 
+* Biztos fájl lezárás, using blokk
+* Unicode
+* Memóriában is bitek vannak
