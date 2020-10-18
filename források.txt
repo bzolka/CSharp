@@ -1,5 +1,9 @@
-http://csharptk.ektf.hu/
-http://csharptk.ektf.hu/download/csharp-ekf.pdf
+Algoritmusok
+* http://aries.ektf.hu/~hz/wiki7/mprog1ea/algo
+
+Elmélet
+* http://csharptk.ektf.hu/
+* http://csharptk.ektf.hu/download/csharp-ekf.pdf
 
 Gyakolópéldák:
 * http://aries.ektf.hu/~hz/wiki7/mprog1gy

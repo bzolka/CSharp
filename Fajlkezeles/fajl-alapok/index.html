@@ -1,0 +1,1124 @@
+
+
+
+<!doctype html>
+<html lang="hu" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="Benedek Zoltán">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.4.0">
+    
+    
+      
+        <title>Fájlok (állományok) - C# alapok</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fe0cca5b.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a46bcfb3.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../extra-material-theme.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fajlok-allomanyok" class="md-skip">
+          Kihagyás
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="C# alapok" class="md-header-nav__button md-logo" aria-label="C# alapok">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            C# alapok
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Fájlok (állományok)
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Keresés" placeholder="Keresés" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/bzolka/CSharp/" title="Főoldalra ugrás" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bzolka/CSharp
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        C# alapok
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../AlapUtasitasok/felteteles-elagazasok/" class="md-tabs__link">
+          Alap utasítások
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../StringAlapgyakorlatok/string-alapok-feladatcsoport-1/" class="md-tabs__link">
+          Stringek
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Fájlkezelés (állományok)
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../ObjektumokLetrehozasa/Konstruktor/konstruktor-alapok/" class="md-tabs__link">
+          Objektumok létrehozása
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Static/static/" class="md-tabs__link">
+          Statikus tagok
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Linq/Linq-attekinto/" class="md-tabs__link">
+          Linq
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="C# alapok" class="md-nav__button md-logo" aria-label="C# alapok">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    C# alapok
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/bzolka/CSharp/" title="Főoldalra ugrás" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bzolka/CSharp
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="C# alapok" class="md-nav__link">
+      C# alapok
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Alap utasítások
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Alap utasítások" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Alap utasítások
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../AlapUtasitasok/felteteles-elagazasok/" title="Felteteles elagazasok" class="md-nav__link">
+      Felteteles elagazasok
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../AlapUtasitasok/ciklusok/" title="Ciklusok" class="md-nav__link">
+      Ciklusok
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Stringek
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Stringek" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Stringek
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../StringAlapgyakorlatok/string-alapok-feladatcsoport-1/" title="String alapok 1" class="md-nav__link">
+      String alapok 1
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Fájlkezelés (állományok)
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Fájlkezelés (állományok)" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Fájlkezelés (állományok)
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Fájlok (állományok)
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Fájlok (állományok)" class="md-nav__link md-nav__link--active">
+      Fájlok (állományok)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fajlkezeles-altalanossagaban" class="md-nav__link">
+    Fájlkezelés általánosságában
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#szovegfajlok" class="md-nav__link">
+    Szövegfájlok
+  </a>
+  
+    <nav class="md-nav" aria-label="Szövegfájlok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#szovegfajl-irasa" class="md-nav__link">
+    Szövegfájl írása
+  </a>
+  
+    <nav class="md-nav" aria-label="Szövegfájl írása">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#teljes-szovegfajl-irasa-egyben" class="md-nav__link">
+    Teljes szövegfájl írása egyben
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#szovegfajl-olvasasa" class="md-nav__link">
+    Szövegfájl olvasása
+  </a>
+  
+    <nav class="md-nav" aria-label="Szövegfájl olvasása">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#teljes-szovegfajl-olvasasa-egyben" class="md-nav__link">
+    Teljes szövegfájl olvasása egyben
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tovabbi-lenyeges-informaciok" class="md-nav__link">
+    További lényeges információk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feladat" class="md-nav__link">
+    Feladat
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Objektumok létrehozása
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Objektumok létrehozása" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Objektumok létrehozása
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      Konstruktor
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Konstruktor" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Konstruktor
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ObjektumokLetrehozasa/Konstruktor/konstruktor-alapok/" title="Konstruktor alapok" class="md-nav__link">
+      Konstruktor alapok
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Inicializálás
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Inicializálás" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Inicializálás
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ObjektumokLetrehozasa/Inicializalas/inicializalas-alapok/" title="Inicializálás alapok" class="md-nav__link">
+      Inicializálás alapok
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ObjektumokLetrehozasa/Inicializalas/inicializalas-feladatok/" title="Inicializálás feladatok" class="md-nav__link">
+      Inicializálás feladatok
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Statikus tagok
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Statikus tagok" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Statikus tagok
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Static/static/" title="Statikus tagok" class="md-nav__link">
+      Statikus tagok
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Static/static-feladatok/" title="Statikus tagok - feladatok" class="md-nav__link">
+      Statikus tagok - feladatok
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Linq
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Linq" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Linq
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Linq/Linq-attekinto/" title="LINQ - áttekintő" class="md-nav__link">
+      LINQ - áttekintő
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Linq/Linq-kiskerdesek/" title="LINQ - kiskérdések" class="md-nav__link">
+      LINQ - kiskérdések
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Linq/Linq-csoportositas-feladatok/" title="LINQ - feladatok" class="md-nav__link">
+      LINQ - feladatok
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fajlkezeles-altalanossagaban" class="md-nav__link">
+    Fájlkezelés általánosságában
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#szovegfajlok" class="md-nav__link">
+    Szövegfájlok
+  </a>
+  
+    <nav class="md-nav" aria-label="Szövegfájlok">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#szovegfajl-irasa" class="md-nav__link">
+    Szövegfájl írása
+  </a>
+  
+    <nav class="md-nav" aria-label="Szövegfájl írása">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#teljes-szovegfajl-irasa-egyben" class="md-nav__link">
+    Teljes szövegfájl írása egyben
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#szovegfajl-olvasasa" class="md-nav__link">
+    Szövegfájl olvasása
+  </a>
+  
+    <nav class="md-nav" aria-label="Szövegfájl olvasása">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#teljes-szovegfajl-olvasasa-egyben" class="md-nav__link">
+    Teljes szövegfájl olvasása egyben
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tovabbi-lenyeges-informaciok" class="md-nav__link">
+    További lényeges információk
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feladat" class="md-nav__link">
+    Feladat
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/bzolka/CSharp/edit/master/docs/Fajlkezeles/fajl-alapok.md" title="Oldal szerkesztése" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="fajlok-allomanyok">Fájlok (állományok)<a class="headerlink" href="#fajlok-allomanyok" title="Permanent link">&para;</a></h1>
+<p>A program futása során sokszor adatokat állít elő, adatokat kér be, ezekkel számításokat végez. Gyakran van igény arra, hogy ezen adatokat valamilyen formában kiírjuk egy fájlban háttértárra (diszkre). Míg a memóriában tárolt adatok az alkalmazás újraindulása során elvesznek, a háttértáron levő adatok megmaradnak, még akkor is, ha a számítógép újraindul. Ezen felül a fájlok segítségével nagyon egyszerű módon tudnak alkalmazások egymással kommunikálni, adatot megosztani. Pl. az egyik alkalmazás kiírja az adatot egy fájlba, egy másik pedig beolvassa.</p>
+<p>Minden fájlt egy útvonal azonosít, mely megmondja, mely meghajtón, annak milyen mappájában van a fájl. Pl.: c:\work\temp\gyumolcsok.txt.</p>
+<p>A fájl tartalma, ha nagyon szigorúan nézzük, akkor bitek (igaz/hamis, 0/1) egymásutánja, mint minden a digitális világban. A számítógépek alcsony szinten csak a biteket értik, illetve a háttértárak is biteket tudnak nyersen tárolni.</p>
+<p>Pl. egy fájl nyers tartalma lehet a következő bithalmaz:</p>
+<div class="highlight"><pre><span></span><code>01100001 01101100 01101101 01100001 00001101 00001010 01110011 01111010 01101001 01101100 01110110 01100001
+</code></pre></div>
+
+<p>Szukjuk a gondolatot, hogy <strong>minden</strong> fájl a dolgok legmélyén hasonlóképpen bitek sorozatából áll... A bitek a háttértáron gyakran folytatólagosan helyezkednek el, de mivel számunka ez teljesen átláthatatlan lenne, így 8 bitenként csoportosítva jelenítettük meg fent.
+A gyakorlatban soha nem szoktunk fájlok tartalmával bitenként dolgozni. A biteket 8-as csoportokban dolgozzuk fel. 8 bit egy bájt. Egy bájt 0 és 255 között vehet fel értékeket. pl. a 00000000 bitsorozat bájtértéke 0, a 00000001-é 1, a 00000010-é 2, a 00000011-é 3, az 11111111-é pedig 255. A lényeg, hogy a fájlok tartalmára most már nem mint bitek, hanem fájlok sorozatára gondolunk. A fenti fájl példánk így néz ki bájtokkal reprezentálva (minden 8-as binárist átszámoltunk bájtra, ebben pédául a Windows-ban levő Számológép alkalmazás is segítségünkre lehet, csak át kell kapcsolni Programozó üzemmódra - érdemes kipróbálni):</p>
+<div class="highlight"><pre><span></span><code>97 108 109 97 13 10 115 122 105 108 118 97
+</code></pre></div>
+
+<p>Ez így más sokkal átláthatóbb. Mostantól úgy gondolunk minden fájlra, mint bájtok egymás után következő sorozatára. Pl. amikor egy kép fájról van szó, ezekbe a számokban a kép pixeljeinek színei vannak "belekódolva". Egy egyszerű szövegfájl esetén pedig ezek a számok a szöveg egyes karaktereit jelentik (erre még visszatérünk). Amikor valamilyen programozási nyelven fájlokat írunk és olvasunk nyersen, akkor bájtokat írunk ki és bájtokat olvasunk be. Pl. C# nyelven ki tudjuk írni egy bájl tömb tartalmát, vagy be tudunk olvasni fájlból részeket egy bájt tömbbe.</p>
+<h2 id="fajlkezeles-altalanossagaban">Fájlkezelés általánosságában<a class="headerlink" href="#fajlkezeles-altalanossagaban" title="Permanent link">&para;</a></h2>
+<p>Amikor valamilyen programozási nyelven fájlokkal dolgozunk, akkor lehetőségünk van:
+* A fájl tartalmát olvasni.
+* A fájl tartalmát írni (ez módosítja a tartalmat)
+* Fájlt létrehozni, törölni, átnevezni, mozgatni, stb.</p>
+<p>A fájl tartalmának olvasása/írása az alábbiaknak megfelelően történik:</p>
+<ol>
+<li>Fájlt megnyitása</li>
+<li>Tartalom olvasása vagy írása<ul>
+<li>C# kódból be tudunk olvasni adott poziciótól adott darabszámú bájtot (pl. mondhajuk, hogy a 10-edik bájttól kérünk 100-at), és az pl. egy bájt tömbbe kerül. Onnan tudjuk tovább alakítani számmá, sztringé, vagy ahogy értelmezni kívánjuk az adatokat. Arra vigyázni kell, hogy a fájl végén ne akarjunk túlolvasni (pl. ha 1000 bájlt van egy fájlban, ne akarjuk az 1001-ediket beolvasni.)</li>
+<li>Adott pozíciótól ki tudunk írni adott darab bájtot (pl. mondhajuk, hogy a 10-edik bájttól kiírunk 100 általunk mehatározott bájtot). Amikor nem bájtot/bájt tömböt írunk ki, fájlba, hanem pl. számot, sztringet, vagy más típust, azt is először bájtokká kell alakítani a fájlba írás előtt (szerencsére a .NET számunkra ezt sokszor elrejti).</li>
+</ul>
+</li>
+<li>Fájl lezárása. Ez is fontos, mert ha elmarad, akkor lehet ki sem íródnak a módosítások, vagy a fájl zárolva lesz, így nem tudjuk más alkalmazásokból megnyitni, módosítani, törölni (ez attól függ, hogy nyitottuk meg a fájlt).</li>
+</ol>
+<p>Kód és példa. Az alacsonyabb, bájtszintű fájlkezelésre ritkábban van szükség, így erre nem nézünk példákat. De itt van egyébként egy példa, az látszódik, hogy a File osztállyal nyitja meg a fájlt, és után byte tömbe teszi az adatot, és ezt írja ki a FileStream.Write műveletével (adott pozíciótól), az olvasás is bájtokkal dolgozik: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=netcore-3.1#examples">https://docs.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=netcore-3.1#examples</a>  </p>
+<h2 id="szovegfajlok">Szövegfájlok<a class="headerlink" href="#szovegfajlok" title="Permanent link">&para;</a></h2>
+<p>A szövegfájlok is fájlok, csak éppen a tartalmuk szöveg, így pl. az egyszerű Jegyzettömb alkalmazással is meg lehet értelmesen jeleníteni a tartalmukat. Lényeges, hogy nem a fájl kiterjesztésétől lesz a fájl szöveges, hanem a tartalmától, bámilyen kiterjesztésű fájlba lehet szöveges tartalmat kiírni (de természetesen logikus ilyen esetben a .txt kiterjesztés használata, vagy pl. a csv, ha valamilyen szepatárorral elválasztott struktrált szöveges tartalom van a fájlban).
+A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereket jelentenek. A klasszikus ASCII kódolású szövegfájlok esetén minden bájt pontosan egy karaktert jelent.</p>
+<p>Nézzük a fenti példánkat, amikor a fájl tartalma a következő:</p>
+<div class="highlight"><pre><span></span><code>97 108 109 97 13 10 115 122 105 108 118 97
+</code></pre></div>
+
+<p>Próbáljuk ezt most szövegfájltként értelmezni, ennekmegfelelően egy ASCII táblázatban nézzük meg minden egyes bájtra, milyen karakter tartozik hozzá (pl. itt <a href="https://hu.wikipedia.org/wiki/ASCII">https://hu.wikipedia.org/wiki/ASCII</a>):</p>
+<div class="highlight"><pre><span></span><code>a l m a CR LF s z i v l a
+</code></pre></div>
+
+<p>Vagyis egy CR+LF-vel elválasztott "alma" és "szilva". Egyben, ha mint C# string nézzük "alma\r\nszilva"
+Ez bizony szöveges tartalom, vagyis egy szövegfájllal van dolgunk. Ha megnyitjuk a Jegyzettömb (Notepad) alkalmazásban, így néz ki:</p>
+<p><img alt="image" src="../fajl-alapok-gyumolcsok-notepad.png" /></p>
+<p>A tisztázandó még, hogy mik a 10 (CR) és 13 (LF) bájt a közepén. Egyszerűen arról van szó, hogy van egy sortörés is az alma után, amit Windows operációs rendszerben két speciális karakter jelöl. C#-ban '\r' és egy '\n' karakter, egy stringbe írva "\r\n". A '\r' számértéke 13, a '\n'-né 10.</p>
+<p>Megjegyzés: Linux operációs rendszer alatt csak egy karakter használatos, a '\n'.</p>
+<p>Megjegyzés: A '\n' és a '\n', bár C# nyelven a forráskódban két karakterrel jelöljük, csak egy bájt hosszú  mindkettő: a C# nyelven a  egy escape szekvencia kezdetét jelöli, vagyis pl. a '\n' nem egy '\' és egy 'n' karakter egymásután, hanem a '\n' önmagában jelöl <strong>egyetlen</strong> speciális karaktert, melynek a számkódja 13.</p>
+<p>A szövegfájlok írására/olvasására egyszerűbb lehetőségünk is van, mint bájtokkal, bájtömbökkel dolkgozni. Egyszerű <strong>sztringekkel</strong> dolgozunk.</p>
+<h3 id="szovegfajl-irasa">Szövegfájl írása<a class="headerlink" href="#szovegfajl-irasa" title="Permanent link">&para;</a></h3>
+<p>Szövegfájlba írni a <code>StreamWriter</code> osztály <code>Write</code>, illetve <code>WriteLine</code> műveletével tudunk: a <code>Write</code> egyszerűen kiírja a fájl végére a paraméterként kapott stringet. A <code>WriteLine</code> is kiírja a paraméterként kapott stringet, de a végére még egy sortörést is hozzáfűz ("\r\n"), így a későbbi írás már egy új sorba történik majd (ha még írunk a fájlba).</p>
+<p>Példa a fenti, két gyümölcsöt tartalmazó fájl írására:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\gyumolcsok.txt&quot;</span><span class="p">;</span> <span class="c1">// #1</span>
+<span class="n">StreamWriter</span> <span class="n">writer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamWriter</span><span class="p">(</span><span class="n">fajlUtvonal</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// #2</span>
+<span class="n">writer</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;alma&quot;</span><span class="p">);</span> <span class="c1">// #3</span>
+<span class="n">writer</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;szilva&quot;</span><span class="p">);</span> <span class="c1">// #4</span>
+<span class="n">writer</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span> <span class="c1">// #5</span>
+</code></pre></div>
+
+<ul>
+<li>#1 - Útvonal a fájlhoz. A c:\temp mappának léteznie kell! Lényges, hogy @ karakterrel kezdjük az útvonalat, különben a \-t escape karakter kedetének veszi, és nem \ karakternek (vagy ha nem használjuk a @-ot, duplázzuk meg mindenhol a -t, így: \\)</li>
+<li>#2 - A <code>StreamWriter</code> egy .NET beépített osztály. Amikor létrehozunk belőle egy példányt, megnyitja a fájlt.<ul>
+<li>Az első paraméter (fajlnev) adja meg a fájl nevét, ebbe írunk majd</li>
+<li>A második paraméter egy bool. Ha false-t adunk meg, akkor amennyiben létezik már ilyen fájl, ezt törli és az elejétől kezdve írunk bele. Ha true (ez ún. append, hozzáfűzés mód), akkor a már létező file tartalma megmarad, és amit mi beleírunk, az a végéhez fűződik hozzá.</li>
+<li>Megjegyzés: ha akartunk volna, megadhattuk volna egy harmadik paraméterben, hogy milyen karakterkódolással írjuk a fájlt.</li>
+</ul>
+</li>
+<li>#3 - Kiírja az "alma" szöveget és egy sortörést a <code>writer</code> objektum által kezelt fájl végére ("\r\n"). Ha azt szerettük volna, hogy a rákövetkező sorban a "szilva" is az "alma" sorában jelenjen meg, akkor a <code>WriteLine</code> helyett a <code>Write</code> műveletet használtuk volna.</li>
+<li>#4 - Kiírja a "szilva" szöveget, és ennek a végére is tesz sortörést. Így most nem is az eredeti feladatunknak megfelelő fájlt kapjuk, abban nem volt a szilva után sortörés! Ha ez valakit zavar, a <code>WriteLine</code> helyett a <code>Write</code>-ot kell használni.</li>
+<li>#5 - Fájl lezárása. Ez is fontos, mert ha elmarad, akkor lehet ki sem íródnak a módosítások, vagy a fájl zárolva lesz, így nem tudjuk más alkalmazásokból megnyitni, módosítani, törölni (ez attól függ, hogy nyitottuk meg a fájlt).</li>
+</ul>
+<p>Ha nem stringet, hanem pl. számot szeretnénk kiírni, akkor azt előbb stringgé kell alakítani (pl. ToString() hívással). Vagy használhatjuk a <code>Write</code> és <code>WriteLine</code> kicsit haladóbb változatát:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\adatok.txt&quot;</span><span class="p">;</span>
+<span class="n">StreamWriter</span> <span class="n">writer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamWriter</span><span class="p">(</span><span class="n">fajlnev</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+<span class="c1">// A {0} helyére behelyettesíti a nulladik paramétert, vagyis a 3.14-et</span>
+<span class="c1">// A {1} helyére pedig az első paramétert, vagyis a 8.2-5, és így írja ki.</span>
+<span class="n">writer</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Pi: {0}, Terület: {1}&quot;</span><span class="p">,</span> <span class="m">3.14</span><span class="p">,</span> <span class="m">8.2</span><span class="p">);</span>
+<span class="n">writer</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
+</code></pre></div>
+
+<h4 id="teljes-szovegfajl-irasa-egyben">Teljes szövegfájl írása egyben<a class="headerlink" href="#teljes-szovegfajl-irasa-egyben" title="Permanent link">&para;</a></h4>
+<p>Alternatív lehetőség fájl írására. Ha nem darabokból akarjuk összerakni (pl. soronként) a fájlt és nem csak hozzáfűzni akarunk, hanem úgy ahogy van, a teljes tartalmat kiírni, erre is van nagyon egyszerű lehetőség:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\adatok.txt&quot;</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">szoveg</span> <span class="p">=</span> <span class="s">&quot;alma\r\nszilva&quot;</span><span class="p">;</span>
+<span class="n">File</span><span class="p">.</span><span class="n">WriteAllText</span><span class="p">(</span><span class="n">fajlUtvonal</span><span class="p">,</span> <span class="n">szoveg</span><span class="p">);</span>
+</code></pre></div>
+
+<p>A beépített File osztály statikus <code>WriteAllText</code> műveletét használjuk. Mivel ez statikus, a File-ból nem kell a new-val objektumot létrehozni. Csak megadjuk az útvonalat a fájlhoz és a stringet, aminek a tartalmát egy az egyben kiírja a fájlba. Ha akarunk, megadhatunk egy harmadik paramétert is (karakterkódolás).</p>
+<h3 id="szovegfajl-olvasasa">Szövegfájl olvasása<a class="headerlink" href="#szovegfajl-olvasasa" title="Permanent link">&para;</a></h3>
+<p>Szövegfájlból olvasni írni a <code>StreamReader</code> osztály <code>Read</code>, illetve <code>ReadLine</code> műveletével tudunk: a Read egyetlen karaktert olvas be az aktuális fájlpozíciótól, a ReadLine pedig az aktuális sort olvassa be egy stringbe (vagyis addig olvas az aktuális fájl pozíciótól, míg "\r\n"-t nem talál, vagy el nem ér a fájl végéig).</p>
+<p>Példa a fenti, két gyümölcsöt tartalmazó fájl soronként történő beolvasására:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\gyumolcsok.txt&quot;</span><span class="p">;</span> <span class="c1">// #1</span>
+<span class="n">StreamReader</span> <span class="n">reader</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamReader</span><span class="p">(</span><span class="n">fajlUtvonal</span><span class="p">);</span> <span class="c1">// #2</span>
+<span class="kt">string</span> <span class="n">gyumolcs1</span> <span class="p">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span> <span class="c1">// #3</span>
+<span class="kt">string</span> <span class="n">gyumolcs2</span> <span class="p">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span> <span class="c1">// #4</span>
+<span class="n">writer</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span> <span class="c1">// #5</span>
+</code></pre></div>
+
+<ul>
+<li>#1 - Útvonal a fájlhoz. A c:\temp mappának léteznie kell! Lényges, hogy @ karakterrel kezdjük az útvonalat, különben a \-t escape karakter kedetének veszi, és nem \ karakternek (vagy ha nem használjuk a @-ot, duplázzuk meg mindenhol a -t, így: \\)</li>
+<li>#2 - A <code>StreamReader</code> egy .NET beépített osztály. Amikor létrehozunk belőle egy példányt, megnyitja a fájlt.</li>
+<li>#3 - Beolvassa következő sort és visszatér vele, elmentjük egy stringben.</li>
+<li>#4 - Beolvassa következő sort és visszatér vele, elmentjük egy stringben.</li>
+<li>#5 - Fájl lezárása. Ez is fontos, mert ha elmarad, akkor lehet ki sem íródnak a módosítások, vagy a fájl zárolva lesz, így nem tudjuk más alkalmazásokból megnyitni, módosítani, törölni (ez attól függ, hogy nyitottuk meg a fájlt).</li>
+</ul>
+<p>Általában nem tudjuk, hány sorból áll egy fájl, ezért while ciklusban olvassuk a sorokat mindaddig, amíg el nem érünk a fájl végére:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\gyumolcsok.txt&quot;</span><span class="p">;</span>
+<span class="n">StreamReader</span> <span class="n">reader</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamReader</span><span class="p">(</span><span class="n">fajlUtvonal</span><span class="p">);</span>
+<span class="c1">// Ebben tároljuk majd az aktuális sort</span>
+<span class="kt">string</span> <span class="n">sor</span><span class="p">;</span>
+<span class="c1">// Beolvassuk a következő sort a sor változóba.</span>
+<span class="c1">// Ha elértük a fájl végét, a ReadLine() null-lal tér vissza, a sor is null lesz</span>
+<span class="c1">// így kilépünk a ciklusból.</span>
+<span class="k">while</span> <span class="p">((</span><span class="n">sor</span> <span class="p">=</span> <span class="n">sr</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">())</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// A line-ban ott az aktuális sor. Itt csak kiírjuk a konzolra.</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">line</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">writer</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>  <span class="c1">// Ne felejtsd el lezárni!</span>
+</code></pre></div>
+
+<p>A példa magyarázatát a kódba fűzött megjegyzésekben látod. A ciklus beljesében gyakran nem csak kiírjuk a konzolra az aktuális sort, hanem fel is dolgozzuk azt. Pl., ha valamilyen szeparátottal elválasztott "elemek" vannak benne, akkor a string.Splittel szét tudjuk vágni: itt string tömböt kapunk, ebből már megfelelő konverziókkal ki tudjuk nyerni a tartalmat. Pl.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span><span class="p">[]</span> <span class="n">elemek</span> <span class="p">=</span> <span class="n">sor</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="s">&quot;\t&quot;</span><span class="p">);</span>  <span class="c1">// tab mentén vágunk</span>
+<span class="kt">string</span> <span class="n">nev</span> <span class="p">=</span> <span class="n">elemek</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+<span class="kt">string</span> <span class="n">kor</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">elemek</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
+<span class="p">...</span>
+</code></pre></div>
+
+<p>Megjegyzés: így is lehet while ciklusban soronént felolvasni a fájlt, ugyanaz a lényege, mint a fentinek, csak másként detektálja a fájl végét:</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="p">(!</span><span class="n">r</span><span class="p">.</span><span class="n">EndOfStream</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">string</span> <span class="n">s</span> <span class="p">=</span> <span class="n">r</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h4 id="teljes-szovegfajl-olvasasa-egyben">Teljes szövegfájl olvasása egyben<a class="headerlink" href="#teljes-szovegfajl-olvasasa-egyben" title="Permanent link">&para;</a></h4>
+<p>Alternatív lehetőség fájl olvasására. Szövegfájlt lehetőségünk van egyben (és nem soronként), egyetlen stringbe beolvasni:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\adatok.txt&quot;</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">szoveg</span> <span class="p">=</span> <span class="n">File</span><span class="p">.</span><span class="n">ReadAllText</span><span class="p">(</span><span class="n">fajlUtvonal</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Ezzel csak óvatosan, ritkábban dolgozunk így: ha nagy a fájl, lehet nem fér ez a teljes tartalom a memóriába (hiszen itt nagyméretű, akár több gigabájtos fájlt is beolvashatunk), és ekkor csúnya hibát fogunk kapni!</p>
+<p>A szoveg sztringben megkapjuk a fájl teljes szöveges tartalmát egyben. Ha sortörések voltak a fájlban, azok a stringben "\r\n"-ek lesznek!
+Feladat: hogyan tudjuk ezt a stringet sortörések mentén vágni, és egy string tömbben a sorokat megkapni? (a válasz szoveg.Split("\r\n)).</p>
+<p>Itt találsz jó magyarázatot és példákat szövegfájl írására és olvasására is: <a href="http://aries.ektf.hu/~hz/wiki7/mprog1ea/text_file">http://aries.ektf.hu/~hz/wiki7/mprog1ea/text_file</a></p>
+<h2 id="tovabbi-lenyeges-informaciok">További lényeges információk<a class="headerlink" href="#tovabbi-lenyeges-informaciok" title="Permanent link">&para;</a></h2>
+<p>TODO (Van még? - igen, a biztos fájl lezárás, using blokk)</p>
+<h2 id="feladat">Feladat<a class="headerlink" href="#feladat" title="Permanent link">&para;</a></h2>
+<p>Írj egy függvényt, mely egy szöveges fájl tartalmát átmásolja egy másik fájlba. Két paramétere van: útvonal a forrásfájlhoz, illetve útvonal a célfájlhoz.</p>
+<p>Két változatát és készítsd el.</p>
+<ul>
+<li>Az első, egyszerű megoldásban a File.ReadAllText és File.WriteAllText-et használhatod.</li>
+<li>A második megoldás legyen takarékos a memóriával, működjön akkor is, ha óriási fájl kell másolni. Azt felteheted, hogy a fájl sok sorból áll (vagyis soronként célszerű a fájlt másolni).</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+        
+        <div class="md-footer-copyright__highlight">
+          Copyright &copy; Benedek Zoltán
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "M\u00e1sol\u00e1s v\u00e1g\u00f3lapra", "clipboard.copied": "V\u00e1g\u00f3lapra m\u00e1solva", "search.config.lang": "hu", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Keres\u00e9shez \u00edrj ide valamit", "search.result.none": "Nincs tal\u00e1lat", "search.result.one": "1 egyez\u0151 dokumentum", "search.result.other": "# egyez\u0151 dokumentum"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs", "navigation.expand"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
