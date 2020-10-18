@@ -532,13 +532,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#feladat" class="md-nav__link">
-    Feladat
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -913,13 +906,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#feladat" class="md-nav__link">
-    Feladat
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -941,7 +927,7 @@
                 
                 
                 <h1 id="fajlkezeles">Fájlkezelés<a class="headerlink" href="#fajlkezeles" title="Permanent link">&para;</a></h1>
-<p>A program futása során sokszor adatokat állít elő, adatokat kér be, ezekkel számításokat végez. Gyakran van igény arra, hogy ezen adatokat valamilyen formában kiírjuk egy fájlban háttértárra (diszkre). Míg a memóriában tárolt adatok az alkalmazás újraindulása során elvesznek, a háttértáron levő adatok megmaradnak, még akkor is, ha a számítógép újraindul. Ezen felül a fájlok segítségével nagyon egyszerű módon tudnak alkalmazások egymással kommunikálni, adatot megosztani. Pl. az egyik alkalmazás kiírja az adatot egy fájlba, egy másik pedig beolvassa. Egy fájlra más szóval **állomány**ként és szokás hivatkozni (így a fájlkezelés ugyanazt jelenti, mint az állománykezelés.)</p>
+<p>A program futása során sokszor adatokat állít elő, adatokat kér be, ezekkel számításokat végez. Gyakran van igény arra, hogy ezen adatokat valamilyen formában kiírjuk egy fájlban háttértárra (diszkre). Míg a memóriában tárolt adatok az alkalmazás újraindulása során elvesznek, a háttértáron levő adatok megmaradnak, még akkor is, ha a számítógép újraindul. Ezen felül a fájlok segítségével nagyon egyszerű módon tudnak alkalmazások egymással kommunikálni, adatot megosztani. Pl. az egyik alkalmazás kiírja az adatot egy fájlba, egy másik pedig beolvassa. Egy fájlra más szóval <strong>állományként</strong> és szokás hivatkozni (így a fájlkezelés ugyanazt jelenti, mint az állománykezelés.)</p>
 <p>Minden fájlt egy útvonal azonosít, mely megmondja, mely meghajtón, annak milyen mappájában van a fájl. Pl.: c:\work\temp\gyumolcsok.txt.</p>
 <p>A fájl tartalma, ha nagyon szigorúan nézzük, akkor bitek (igaz/hamis, 0/1) egymásutánja, mint minden a digitális világban. A számítógépek alcsony szinten csak a biteket értik, illetve a háttértárak is biteket tudnak nyersen tárolni.</p>
 <p>Pl. egy fájl nyers tartalma lehet a következő bithalmaz:</p>
@@ -949,19 +935,21 @@
 </code></pre></div>
 
 <p>Szukjuk a gondolatot, hogy <strong>minden</strong> fájl a dolgok legmélyén hasonlóképpen bitek sorozatából áll... A bitek a háttértáron gyakran folytatólagosan helyezkednek el, de mivel számunka ez teljesen átláthatatlan lenne, így 8 bitenként csoportosítva jelenítettük meg fent.
-A gyakorlatban soha nem szoktunk fájlok tartalmával bitenként dolgozni. A biteket 8-as csoportokban dolgozzuk fel. 8 bit egy bájt. Egy bájt 0 és 255 között vehet fel értékeket. pl. a 00000000 bitsorozat bájtértéke 0, a 00000001-é 1, a 00000010-é 2, a 00000011-é 3, az 11111111-é pedig 255. A lényeg, hogy a fájlok tartalmára most már nem mint bitek, hanem fájlok sorozatára gondolunk. A fenti fájl példánk így néz ki bájtokkal reprezentálva (minden 8-as binárist átszámoltunk bájtra, ebben pédául a Windows-ban levő Számológép alkalmazás is segítségünkre lehet, csak át kell kapcsolni Programozó üzemmódra - érdemes kipróbálni):</p>
+A gyakorlatban soha nem szoktunk fájlok tartalmával bitenként dolgozni. A biteket 8-as csoportokban dolgozzuk fel. 8 bit egy bájt. Egy bájt 0 és 255 között vehet fel értékeket. pl. a 00000000 bitsorozat bájtértéke 0, a 00000001-é 1, a 00000010-é 2, a 00000011-é 3, az 11111111-é pedig 255. A lényeg, hogy a fájlok tartalmára most már nem mint bitek, hanem bájtok sorozatára gondolunk. A fenti fájl példánk így néz ki bájtokkal reprezentálva (minden 8-as binárist átszámoltunk bájtra, ebben pédául a Windows-ban levő Számológép alkalmazás is segítségünkre lehet, csak át kell kapcsolni Programozó üzemmódra - érdemes kipróbálni):</p>
 <div class="highlight"><pre><span></span><code>97 108 109 97 13 10 115 122 105 108 118 97
 </code></pre></div>
 
-<p>Ez így más sokkal átláthatóbb. Mostantól úgy gondolunk minden fájlra, mint bájtok egymás után következő sorozatára. Pl. amikor egy kép fájról van szó, ezekbe a számokban a kép pixeljeinek színei vannak "belekódolva". Egy egyszerű szövegfájl esetén pedig ezek a számok a szöveg egyes karaktereit jelentik (erre még visszatérünk). Amikor valamilyen programozási nyelven fájlokat írunk és olvasunk nyersen, akkor bájtokat írunk ki és bájtokat olvasunk be. Pl. C# nyelven ki tudjuk írni egy bájl tömb tartalmát, vagy be tudunk olvasni fájlból részeket egy bájt tömbbe.</p>
+<p>Ez így már sokkal átláthatóbb. Mostantól úgy gondolunk minden fájlra, mint bájtok egymás után következő sorozatára. Pl. amikor egy kép fájról van szó, ezekbe a számokba a kép pixeljeinek színei vannak "belekódolva". Egy egyszerű szövegfájl esetén pedig ezek a számok a szöveg egyes karaktereit jelentik (erre még visszatérünk). Amikor valamilyen programozási nyelven fájlokat írunk és olvasunk nyersen, akkor alacsony szinten bájtokat írunk ki és bájtokat olvasunk be. Pl. C# nyelven ki tudjuk írni egy bájl tömb tartalmát, vagy be tudunk olvasni fájlból részeket egy bájt tömbbe.</p>
 <h2 id="fajlkezeles-altalanossagaban">Fájlkezelés általánosságában<a class="headerlink" href="#fajlkezeles-altalanossagaban" title="Permanent link">&para;</a></h2>
-<p>Amikor valamilyen programozási nyelven fájlokkal dolgozunk, akkor lehetőségünk van:
-* A fájl tartalmát olvasni.
-* A fájl tartalmát írni (ez módosítja a tartalmat)
-* Fájlt létrehozni, törölni, átnevezni, mozgatni, stb.</p>
+<p>Amikor valamilyen programozási nyelven fájlokkal dolgozunk, akkor lehetőségünk van:</p>
+<ul>
+<li>A fájl tartalmát olvasni</li>
+<li>A fájl tartalmát írni (ez módosítja a tartalmat)</li>
+<li>Fájlt létrehozni, törölni, átnevezni, mozgatni, stb.</li>
+</ul>
 <p>A fájl tartalmának olvasása/írása az alábbiaknak megfelelően történik:</p>
 <ol>
-<li>Fájlt megnyitása</li>
+<li>Fájl megnyitása</li>
 <li>Tartalom olvasása vagy írása<ul>
 <li>C# kódból be tudunk olvasni adott poziciótól adott darabszámú bájtot (pl. mondhajuk, hogy a 10-edik bájttól kérünk 100-at), és az pl. egy bájt tömbbe kerül. Onnan tudjuk tovább alakítani számmá, sztringé, vagy ahogy értelmezni kívánjuk az adatokat. Arra vigyázni kell, hogy a fájl végén ne akarjunk túlolvasni (pl. ha 1000 bájlt van egy fájlban, ne akarjuk az 1001-ediket beolvasni.)</li>
 <li>Adott pozíciótól ki tudunk írni adott darab bájtot (pl. mondhajuk, hogy a 10-edik bájttól kiírunk 100 általunk mehatározott bájtot). Amikor nem bájtot/bájt tömböt írunk ki, fájlba, hanem pl. számot, sztringet, vagy más típust, azt is először bájtokká kell alakítani a fájlba írás előtt (szerencsére a .NET számunkra ezt sokszor elrejti).</li>
@@ -969,26 +957,26 @@ A gyakorlatban soha nem szoktunk fájlok tartalmával bitenként dolgozni. A bit
 </li>
 <li>Fájl lezárása. Ez is fontos, mert ha elmarad, akkor lehet ki sem íródnak a módosítások, vagy a fájl zárolva lesz, így nem tudjuk más alkalmazásokból megnyitni, módosítani, törölni (ez attól függ, hogy nyitottuk meg a fájlt).</li>
 </ol>
-<p>Kód és példa. Az alacsonyabb, bájtszintű fájlkezelésre ritkábban van szükség, így erre nem nézünk példákat. De itt van egyébként egy példa, az látszódik, hogy a File osztállyal nyitja meg a fájlt, és után byte tömbe teszi az adatot, és ezt írja ki a FileStream.Write műveletével (adott pozíciótól), az olvasás is bájtokkal dolgozik: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=netcore-3.1#examples">https://docs.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=netcore-3.1#examples</a>  </p>
+<p>Kód és példa. Az alacsonyabb, bájtszintű fájlkezelésre ritkábban van szükség, így erre nem nézünk példákat. Mindenesetre itt van egyébként egy példa: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=netcore-3.1#examples">https://docs.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=netcore-3.1#examples</a>. Az látszódik, hogy a <code>File</code> osztállyal nyitja meg a fájlt, és után byte tömbe teszi az adatot, és ezt írja ki a FileStream.Write műveletével (adott pozíciótól), az olvasás is bájtokkal dolgozik.</p>
 <h2 id="szovegfajlok">Szövegfájlok<a class="headerlink" href="#szovegfajlok" title="Permanent link">&para;</a></h2>
-<p>A szövegfájlok is fájlok, csak éppen a tartalmuk szöveg, így pl. az egyszerű Jegyzettömb (Notepad) alkalmazással is meg lehet értelmesen jeleníteni a tartalmukat. Lényeges, hogy nem a fájl kiterjesztésétől lesz a fájl szöveges, hanem a tartalmától, bámilyen kiterjesztésű fájlba lehet szöveges tartalmat kiírni (de természetesen logikus ilyen esetben a .txt kiterjesztés használata, vagy pl. a csv, ha valamilyen szepatárorral elválasztott struktrált szöveges tartalom van a fájlban).
+<p>A szövegfájlok is fájlok, csak éppen a tartalmuk szöveg, így pl. az egyszerű Jegyzettömb (Notepad) alkalmazással is meg lehet értelmesen jeleníteni a tartalmukat. Lényeges, hogy nem a fájl kiterjesztésétől lesz a fájl szöveges, hanem a tartalmától. Bámilyen kiterjesztésű fájlba lehet szöveges tartalmat kiírni (de természetesen logikus ilyen esetben a .txt kiterjesztés használata, vagy pl. a csv, ha valamilyen szepatárorral elválasztott struktrált szöveges tartalom van a fájlban).
 A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereket jelentenek. A klasszikus ASCII kódolású szövegfájlok esetén minden bájt pontosan egy karaktert jelent.</p>
 <p>Nézzük a fenti példánkat, amikor a fájl tartalma a következő:</p>
 <div class="highlight"><pre><span></span><code>97 108 109 97 13 10 115 122 105 108 118 97
 </code></pre></div>
 
-<p>Próbáljuk ezt most szövegfájltként értelmezni, ennekmegfelelően egy ASCII táblázatban nézzük meg minden egyes bájtra, milyen karakter tartozik hozzá (pl. itt <a href="https://hu.wikipedia.org/wiki/ASCII">https://hu.wikipedia.org/wiki/ASCII</a>):</p>
-<div class="highlight"><pre><span></span><code>a l m a CR LF s z i v l a
+<p>Próbáljuk ezt most szövegfájltként értelmezni, ennek megfelelően egy ASCII táblázatban nézzük meg minden egyes bájtra, milyen karakter tartozik hozzá (pl. itt <a href="https://hu.wikipedia.org/wiki/ASCII">https://hu.wikipedia.org/wiki/ASCII</a>):</p>
+<div class="highlight"><pre><span></span><code>a l m a CR LF s z i l v a
 </code></pre></div>
 
 <p>Vagyis egy CR+LF-vel elválasztott "alma" és "szilva". Egyben, ha mint C# string nézzük "alma\r\nszilva".  Ez bizony szöveges tartalom, vagyis egy szövegfájllal van dolgunk. Ha megnyitjuk a Jegyzettömb (Notepad) alkalmazásban, így néz ki:</p>
 <p><img alt="image" src="../fajl-alapok-gyumolcsok-notepad.png" /></p>
-<p>A tisztázandó még, hogy mik a 10 (CR) és 13 (LF) bájt a közepén. Egyszerűen arról van szó, hogy van egy sortörés is az alma után, amit Windows operációs rendszerben két speciális karakter jelöl. C#-ban '\r' és egy '\n' karakter, egy stringbe írva "\r\n". A '\r' számértéke 13, a '\n'-né 10.</p>
-<p>Megjegyzés: Linux operációs rendszer alatt csak egy karakter használatos, a '\n'.</p>
-<p>Megjegyzés: A '\n' és a '\n', bár C# nyelven a forráskódban két karakterrel jelöljük, csak egy bájt hosszú  mindkettő: a C# nyelven a  egy escape szekvencia kezdetét jelöli, vagyis pl. a '\n' nem egy '\' és egy 'n' karakter egymásután, hanem a '\n' önmagában jelöl <strong>egyetlen</strong> speciális karaktert, melynek a számkódja 13.</p>
-<p>A szövegfájlok írására/olvasására egyszerűbb lehetőségünk is van, mint bájtokkal, bájtömbökkel dolkgozni. Egyszerű <strong>sztringekkel</strong> dolgozunk.</p>
+<p>A tisztázandó még, hogy mik a 10 (CR) és 13 (LF) bájt a közepén. Egyszerűen arról van szó, hogy van egy sortörés is az alma után, melyet Windows operációs rendszerben két speciális karakter jelöl. C#-ban '\r' és egy '\n' karakter, egy stringbe írva "\r\n". A '\r' számértéke 13, a '\n'-né 10.</p>
+<p>Megjegyzés: Linux operációs rendszer alatt csak egy karakter használatos sortörésre, a '\n'.</p>
+<p>Megjegyzés: A <code>'\n'</code> és a <code>'\n'</code>, bár C# nyelven a forráskódban két karakterrel jelöljük, csak egy bájt hosszú  mindkettő: a C# nyelven a <code>\</code> egy escape szekvencia kezdetét jelöli, vagyis pl. a <code>'\n'</code> nem egy <code>'\'</code> és egy <code>'n'</code> karakter egymásután, hanem a <code>'\n'</code> önmagában jelöl <strong>egyetlen</strong> speciális karaktert, melynek a számkódja 13.</p>
+<p>A szövegfájlok írására/olvasására egyszerűbb lehetőségünk is van, mint nyers bájtokkal, bájtömbökkel dolgozni. Egyszerű <strong>sztringekkel</strong> dolgozunk.</p>
 <h3 id="szovegfajl-irasa">Szövegfájl írása<a class="headerlink" href="#szovegfajl-irasa" title="Permanent link">&para;</a></h3>
-<p>Szövegfájlba írni a <code>StreamWriter</code> osztály <code>Write</code>, illetve <code>WriteLine</code> műveletével tudunk: a <code>Write</code> egyszerűen kiírja a fájl végére a paraméterként kapott stringet. A <code>WriteLine</code> is kiírja a paraméterként kapott stringet, de a végére még egy sortörést is hozzáfűz ("\r\n"), így a későbbi írás már egy új sorba történik majd (ha még írunk a fájlba).</p>
+<p>Szövegfájlba írni a <code>StreamWriter</code> osztály <code>Write</code>, illetve <code>WriteLine</code> műveletével tudunk: a <code>Write</code> egyszerűen kiírja a fájl végére a paraméterként kapott sztringet. A <code>WriteLine</code> is kiírja a paraméterként kapott stringet, de a végére még egy sortörést is hozzáfűz ("\r\n"), így a későbbi írás már egy új sorba történik majd (ha még írunk a fájlba).</p>
 <p>Példa a fenti, két gyümölcsöt tartalmazó fájl írására:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\gyumolcsok.txt&quot;</span><span class="p">;</span> <span class="c1">// #1</span>
 <span class="n">StreamWriter</span> <span class="n">writer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamWriter</span><span class="p">(</span><span class="n">fajlUtvonal</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// #2</span>
@@ -998,22 +986,22 @@ A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereke
 </code></pre></div>
 
 <ul>
-<li>#1 - Útvonal a fájlhoz. A c:\temp mappának léteznie kell! Lényges, hogy @ karakterrel kezdjük az útvonalat, különben a \-t escape karakter kedetének veszi, és nem \ karakternek (vagy ha nem használjuk a @-ot, duplázzuk meg mindenhol a -t, így: \\)</li>
+<li>#1 - Útvonal a fájlhoz. A c:\temp mappának léteznie kell! Lényges, hogy @ karakterrel kezdjük az útvonalat, különben a <code>\</code>-t escape szekvencia kezdetének veszi, és nem <code>\</code> karakternek (vagy ha nem használjuk a @-ot, duplázzuk meg mindenhol a <code>\</code>-t, így: <code>\\</code>).</li>
 <li>#2 - A <code>StreamWriter</code> egy .NET beépített osztály. Amikor létrehozunk belőle egy példányt, megnyitja a fájlt.<ul>
-<li>Az első paraméter (fajlnev) adja meg a fájl nevét, ebbe írunk majd.</li>
-<li>A második paraméter egy bool. Ha false-t adunk meg, akkor amennyiben létezik már ilyen fájl, ezt törli és az elejétől kezdve írunk bele. Ha true (ez ún. append, hozzáfűzés mód), akkor a már létező file tartalma megmarad, és amit mi beleírunk, az a végéhez fűződik hozzá.</li>
+<li>Az első paraméter (fajlUtvonal) adja meg a fájl nevét, ebbe írunk majd.</li>
+<li>A második paraméter egy <code>bool</code>. Ha <code>false</code>-t adunk meg, akkor amennyiben létezik már ilyen fájl, ezt törli és az elejétől kezdve írunk bele. Ha <code>true</code> (ez ún. append, hozzáfűzés mód), akkor a már létező file tartalma megmarad, és amit mi beleírunk, az a végéhez fűződik hozzá.</li>
 <li>Megjegyzés: ha akartunk volna, megadhattuk volna egy harmadik paraméterben, hogy milyen karakterkódolással írjuk a fájlt.</li>
 </ul>
 </li>
 <li>#3 - Kiírja az "alma" szöveget és egy sortörést a <code>writer</code> objektum által kezelt fájl végére ("\r\n"). Ha azt szerettük volna, hogy a rákövetkező sorban a "szilva" is az "alma" sorában jelenjen meg, akkor a <code>WriteLine</code> helyett a <code>Write</code> műveletet használtuk volna.</li>
-<li>#4 - Kiírja a "szilva" szöveget, és ennek a végére is tesz sortörést. Így most nem is az eredeti feladatunknak megfelelő fájlt kapjuk, abban nem volt a szilva után sortörés! Ha ez valakit zavar, a <code>WriteLine</code> helyett a <code>Write</code>-ot kell használni.</li>
+<li>#4 - Kiírja a "szilva" szöveget, és ennek a végére is tesz sortörést. Így most nem is az eredeti feladatunknak megfelelő fájlt kapjuk, abban nem volt a szilva után sortörés! Ha ez valakit zavar, a <code>WriteLine</code> helyett a <code>Write</code>-ot haszbáljon.</li>
 <li>#5 - Fájl lezárása. Ez is fontos, mert ha elmarad, akkor lehet ki sem íródnak a módosítások, vagy a fájl zárolva lesz, így nem tudjuk más alkalmazásokból megnyitni, módosítani, törölni (ez attól függ, hogy nyitottuk meg a fájlt).</li>
 </ul>
-<p>Ha nem stringet, hanem pl. számot szeretnénk kiírni, akkor azt előbb stringgé kell alakítani (pl. ToString() hívással). Vagy használhatjuk a <code>Write</code> és <code>WriteLine</code> kicsit haladóbb változatát:</p>
+<p>Ha nem stringet, hanem pl. számot szeretnénk kiírni, akkor azt előbb stringgé kell alakítani (pl. <code>ToString()</code> hívással). Vagy használhatjuk a <code>Write</code> és <code>WriteLine</code> kicsit haladóbb változatát:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\adatok.txt&quot;</span><span class="p">;</span>
 <span class="n">StreamWriter</span> <span class="n">writer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamWriter</span><span class="p">(</span><span class="n">fajlnev</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
 <span class="c1">// A {0} helyére behelyettesíti a nulladik paramétert, vagyis a 3.14-et</span>
-<span class="c1">// A {1} helyére pedig az első paramétert, vagyis a 8.2-5, és így írja ki.</span>
+<span class="c1">// A {1} helyére pedig az első paramétert, vagyis a 8.2-t, és így írja ki.</span>
 <span class="n">writer</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Pi: {0}, Terület: {1}&quot;</span><span class="p">,</span> <span class="m">3.14</span><span class="p">,</span> <span class="m">8.2</span><span class="p">);</span>
 <span class="n">writer</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>
 </code></pre></div>
@@ -1025,9 +1013,9 @@ A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereke
 <span class="n">File</span><span class="p">.</span><span class="n">WriteAllText</span><span class="p">(</span><span class="n">fajlUtvonal</span><span class="p">,</span> <span class="n">szoveg</span><span class="p">);</span>
 </code></pre></div>
 
-<p>A beépített File osztály statikus <code>WriteAllText</code> műveletét használjuk. Mivel ez statikus, a File-ból nem kell a new-val objektumot létrehozni. Csak megadjuk az útvonalat a fájlhoz és a stringet, aminek a tartalmát egy az egyben kiírja a fájlba. Ha akarunk, megadhatunk egy harmadik paramétert is (karakterkódolás).</p>
+<p>A beépített <code>File</code> osztály statikus <code>WriteAllText</code> műveletét használjuk. Mivel ez statikus, a <code>File</code>-ból nem kell a new-val objektumot létrehozni. Csak megadjuk az útvonalat a fájlhoz és a sztringet, melynek a tartalmát egy az egyben kiírja a fájlba. Ha akarunk, megadhatunk egy harmadik paramétert is (karakterkódolás).</p>
 <h3 id="szovegfajl-olvasasa">Szövegfájl olvasása<a class="headerlink" href="#szovegfajl-olvasasa" title="Permanent link">&para;</a></h3>
-<p>Szövegfájlból olvasni írni a <code>StreamReader</code> osztály <code>Read</code>, illetve <code>ReadLine</code> műveletével tudunk: a Read egyetlen karaktert olvas be az aktuális fájlpozíciótól, a ReadLine pedig az aktuális sort olvassa be egy stringbe (vagyis addig olvas az aktuális fájl pozíciótól, míg "\r\n"-t nem talál, vagy el nem ér a fájl végéig).</p>
+<p>Szövegfájlból olvasni a <code>StreamReader</code> osztály <code>Read</code>, illetve <code>ReadLine</code> műveletével tudunk: a <code>Read</code> egyetlen karaktert olvas be az aktuális fájlpozíciótól, a <code>ReadLine</code> pedig az aktuális sort olvassa be egy stringbe (vagyis addig olvas az aktuális fájl pozíciótól, míg "\r\n"-t nem talál, vagy el nem ér a fájl végéig).</p>
 <p>Példa a fenti, két gyümölcsöt tartalmazó fájl soronként történő beolvasására:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\gyumolcsok.txt&quot;</span><span class="p">;</span> <span class="c1">// #1</span>
 <span class="n">StreamReader</span> <span class="n">reader</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StreamReader</span><span class="p">(</span><span class="n">fajlUtvonal</span><span class="p">);</span> <span class="c1">// #2</span>
@@ -1037,11 +1025,11 @@ A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereke
 </code></pre></div>
 
 <ul>
-<li>#1 - Útvonal a fájlhoz. A c:\temp mappának léteznie kell! Lényges, hogy @ karakterrel kezdjük az útvonalat, különben a \-t escape karakter kedetének veszi, és nem \ karakternek (vagy ha nem használjuk a @-ot, duplázzuk meg mindenhol a -t, így: \\)</li>
+<li>#1 - Útvonal a fájlhoz. A c:\temp mappának léteznie kell! Lényges, hogy @ karakterrel kezdjük az útvonalat, különben a <code>\</code>-t escape szekvencia kezdetének veszi, és nem <code>\</code> karakternek (vagy ha nem használjuk a @-ot, duplázzuk meg mindenhol a <code>\</code>-t, így: <code>\\</code>)</li>
 <li>#2 - A <code>StreamReader</code> egy .NET beépített osztály. Amikor létrehozunk belőle egy példányt, megnyitja a fájlt.</li>
-<li>#3 - Beolvassa következő sort és visszatér vele, elmentjük egy stringben.</li>
-<li>#4 - Beolvassa következő sort és visszatér vele, elmentjük egy stringben.</li>
-<li>#5 - Fájl lezárása. Ez is fontos, mert ha elmarad, akkor lehet ki sem íródnak a módosítások, vagy a fájl zárolva lesz, így nem tudjuk más alkalmazásokból megnyitni, módosítani, törölni (ez attól függ, hogy nyitottuk meg a fájlt).</li>
+<li>#3 - Beolvassa következő sort és visszatér vele, elmentjük egy sztringben.</li>
+<li>#4 - Beolvassa következő sort és visszatér vele, elmentjük egy sztringben.</li>
+<li>#5 - Fájl lezárása. Ez is fontos, mert ha elmarad, a fájl nyitva marad, lehet nem tudjuk más alkalmazásokból megnyitni, módosítani, törölni (ez attól függ, hogy pontosan nyitottuk meg a fájlt).</li>
 </ul>
 <p>Általában nem tudjuk, hány sorból áll egy fájl, ezért while ciklusban olvassuk a sorokat mindaddig, amíg el nem érünk a fájl végére:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">fajlUtvonal</span> <span class="p">=</span> <span class="s">@&quot;c:\temp\gyumolcsok.txt&quot;</span><span class="p">;</span>
@@ -1059,7 +1047,7 @@ A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereke
 <span class="n">writer</span><span class="p">.</span><span class="n">Close</span><span class="p">();</span>  <span class="c1">// Ne felejtsd el lezárni!</span>
 </code></pre></div>
 
-<p>A példa magyarázatát a kódba fűzött megjegyzésekben látod. A ciklus beljesében gyakran nem csak kiírjuk a konzolra az aktuális sort, hanem fel is dolgozzuk azt. Pl., ha valamilyen szeparátottal elválasztott "elemek" vannak benne, akkor a string.Splittel szét tudjuk vágni: itt string tömböt kapunk, ebből már megfelelő konverziókkal ki tudjuk nyerni a tartalmat. Pl.</p>
+<p>A példa magyarázatát a kódba fűzött megjegyzésekben látjuk. A ciklus beljesében gyakran nem csak kiírjuk a konzolra az aktuális sort, hanem fel is dolgozzuk azt. Pl., ha valamilyen szeparátottal elválasztott "elemek" vannak benne, akkor a <code>string.Split</code>-tel szét tudjuk vágni: ez egy sztring tömböt ad vissza, ebből már megfelelő konverziókkal ki tudjuk nyerni a tartalmat. Pl.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span><span class="p">[]</span> <span class="n">elemek</span> <span class="p">=</span> <span class="n">sor</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="s">&quot;\t&quot;</span><span class="p">);</span>  <span class="c1">// tab mentén vágunk</span>
 <span class="kt">string</span> <span class="n">nev</span> <span class="p">=</span> <span class="n">elemek</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
 <span class="kt">string</span> <span class="n">kor</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">elemek</span><span class="p">[</span><span class="m">1</span><span class="p">]);</span>
@@ -1081,18 +1069,11 @@ A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereke
 </code></pre></div>
 
 <p>Ezzel csak óvatosan, ritkábban dolgozunk így: ha nagy a fájl, lehet nem fér ez a teljes tartalom a memóriába (hiszen itt nagyméretű, akár több gigabájtos fájlt is beolvashatunk), és ekkor csúnya hibát fogunk kapni!</p>
-<p>A szoveg sztringben megkapjuk a fájl teljes szöveges tartalmát egyben. Ha sortörések voltak a fájlban, azok a stringben "\r\n"-ek lesznek!
-Feladat: hogyan tudjuk ezt a stringet sortörések mentén vágni, és egy string tömbben a sorokat megkapni? (a válasz szoveg.Split("\r\n)).</p>
-<p>Itt találsz jó magyarázatot és példákat szövegfájl írására és olvasására is: <a href="http://aries.ektf.hu/~hz/wiki7/mprog1ea/text_file">http://aries.ektf.hu/~hz/wiki7/mprog1ea/text_file</a></p>
+<p>A <code>szoveg</code> sztringben megkapjuk a fájl teljes szöveges tartalmát egyben. Ha sortörések voltak a fájlban, azok a <code>szoveg</code> sztringben "\r\n"-ek lesznek!
+Feladat: hogyan tudjuk ezt a stringet sortörések mentén vágni, és egy sztring tömbben a sorokat megkapni? (a válasz szoveg.Split("\r\n")).</p>
+<p>Pl. itt találsz még jó magyarázatot és példákat szövegfájl írására és olvasására is: <a href="http://aries.ektf.hu/~hz/wiki7/mprog1ea/text_file">http://aries.ektf.hu/~hz/wiki7/mprog1ea/text_file</a></p>
 <h2 id="tovabbi-lenyeges-informaciok">További lényeges információk<a class="headerlink" href="#tovabbi-lenyeges-informaciok" title="Permanent link">&para;</a></h2>
-<p>TODO (Van még? - igen, a biztos fájl lezárás, using blokk)</p>
-<h2 id="feladat">Feladat<a class="headerlink" href="#feladat" title="Permanent link">&para;</a></h2>
-<p>Írj egy függvényt, mely egy szöveges fájl tartalmát átmásolja egy másik fájlba. Két paramétere van: útvonal a forrásfájlhoz, illetve útvonal a célfájlhoz.</p>
-<p>Két változatát és készítsd el.</p>
-<ul>
-<li>Az első, egyszerű megoldásban a File.ReadAllText és File.WriteAllText-et használhatod.</li>
-<li>A második megoldás legyen takarékos a memóriával, működjön akkor is, ha óriási fájl kell másolni. Azt felteheted, hogy a fájl sok sorból áll (vagyis soronként célszerű a fájlt másolni).</li>
-</ul>
+<p>TODO (Van még? - igen, a biztos fájl lezárás, using blokk) + Unicode</p>
                 
               
               
