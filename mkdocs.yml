@@ -49,6 +49,9 @@ plugins:
 
 nav:
   - index.md
+  - Alap utasítások:
+      - AlapUtasitasok/felteteles-elagazasok.md  
+      - AlapUtasitasok/ciklusok.md
   - Stringek:
       - StringAlapgyakorlatok/string-alapok-feladatcsoport-1.md
   - 'Objektumok létrehozása':
