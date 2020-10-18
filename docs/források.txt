@@ -1,0 +1,11 @@
+http://csharptk.ektf.hu/
+http://csharptk.ektf.hu/download/csharp-ekf.pdf
+
+Gyakolópéldák:
+* http://aries.ektf.hu/~hz/wiki7/mprog1gy
+* http://aries.ektf.hu/~hz/pdf-tamop/pdf-02/download/csharp-gyak.pdf
+* http://csharptk.ektf.hu/download/csharp-ekf.pdf
+
+Videók
+* http://csharptk.ektf.hu/index.php?p=2
+

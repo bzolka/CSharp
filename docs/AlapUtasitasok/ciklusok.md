@@ -1,5 +1,12 @@
 # Ciklusok
 
+## Lehetőségek
+
+* foreach
+* for
+* while
+* do while
+
 ## foreach
 
 A legkényelmesebb, legegyszerűbb módja annak, hogy bármiyen gyűjteményen egyesével sorban előre haladva elérjük az elemeket. A gyakorlatban messze ezt használjuk a leggyakrabban.
