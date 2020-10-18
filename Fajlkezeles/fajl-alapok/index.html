@@ -17,7 +17,7 @@
     
     
       
-        <title>Fájlok (állományok) - C# alapok</title>
+        <title>Fájlkezelés - C# alapok</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fajlok-allomanyok" class="md-skip">
+        <a href="#fajlkezeles" class="md-skip">
           Kihagyás
         </a>
       
@@ -90,7 +90,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Fájlok (állományok)
+              Fájlkezelés
             
           </span>
         </div>
@@ -440,14 +440,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Fájlok (állományok)
+        Fájlkezelés
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="Fájlok (állományok)" class="md-nav__link md-nav__link--active">
-      Fájlok (állományok)
+    <a href="./" title="Fájlkezelés" class="md-nav__link md-nav__link--active">
+      Fájlkezelés
     </a>
     
       
@@ -543,6 +543,30 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fajl-feladatok/" title="Feladatok" class="md-nav__link">
+      Feladatok
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../fajl-feladat-megoldasok/" title="Feladat megolások" class="md-nav__link">
+      Feladat megolások
+    </a>
   </li>
 
         
@@ -916,8 +940,8 @@
                   
                 
                 
-                <h1 id="fajlok-allomanyok">Fájlok (állományok)<a class="headerlink" href="#fajlok-allomanyok" title="Permanent link">&para;</a></h1>
-<p>A program futása során sokszor adatokat állít elő, adatokat kér be, ezekkel számításokat végez. Gyakran van igény arra, hogy ezen adatokat valamilyen formában kiírjuk egy fájlban háttértárra (diszkre). Míg a memóriában tárolt adatok az alkalmazás újraindulása során elvesznek, a háttértáron levő adatok megmaradnak, még akkor is, ha a számítógép újraindul. Ezen felül a fájlok segítségével nagyon egyszerű módon tudnak alkalmazások egymással kommunikálni, adatot megosztani. Pl. az egyik alkalmazás kiírja az adatot egy fájlba, egy másik pedig beolvassa.</p>
+                <h1 id="fajlkezeles">Fájlkezelés<a class="headerlink" href="#fajlkezeles" title="Permanent link">&para;</a></h1>
+<p>A program futása során sokszor adatokat állít elő, adatokat kér be, ezekkel számításokat végez. Gyakran van igény arra, hogy ezen adatokat valamilyen formában kiírjuk egy fájlban háttértárra (diszkre). Míg a memóriában tárolt adatok az alkalmazás újraindulása során elvesznek, a háttértáron levő adatok megmaradnak, még akkor is, ha a számítógép újraindul. Ezen felül a fájlok segítségével nagyon egyszerű módon tudnak alkalmazások egymással kommunikálni, adatot megosztani. Pl. az egyik alkalmazás kiírja az adatot egy fájlba, egy másik pedig beolvassa. Egy fájlra más szóval **állomány**ként és szokás hivatkozni (így a fájlkezelés ugyanazt jelenti, mint az állománykezelés.)</p>
 <p>Minden fájlt egy útvonal azonosít, mely megmondja, mely meghajtón, annak milyen mappájában van a fájl. Pl.: c:\work\temp\gyumolcsok.txt.</p>
 <p>A fájl tartalma, ha nagyon szigorúan nézzük, akkor bitek (igaz/hamis, 0/1) egymásutánja, mint minden a digitális világban. A számítógépek alcsony szinten csak a biteket értik, illetve a háttértárak is biteket tudnak nyersen tárolni.</p>
 <p>Pl. egy fájl nyers tartalma lehet a következő bithalmaz:</p>
@@ -947,7 +971,7 @@ A gyakorlatban soha nem szoktunk fájlok tartalmával bitenként dolgozni. A bit
 </ol>
 <p>Kód és példa. Az alacsonyabb, bájtszintű fájlkezelésre ritkábban van szükség, így erre nem nézünk példákat. De itt van egyébként egy példa, az látszódik, hogy a File osztállyal nyitja meg a fájlt, és után byte tömbe teszi az adatot, és ezt írja ki a FileStream.Write műveletével (adott pozíciótól), az olvasás is bájtokkal dolgozik: <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=netcore-3.1#examples">https://docs.microsoft.com/en-us/dotnet/api/system.io.file.openwrite?view=netcore-3.1#examples</a>  </p>
 <h2 id="szovegfajlok">Szövegfájlok<a class="headerlink" href="#szovegfajlok" title="Permanent link">&para;</a></h2>
-<p>A szövegfájlok is fájlok, csak éppen a tartalmuk szöveg, így pl. az egyszerű Jegyzettömb alkalmazással is meg lehet értelmesen jeleníteni a tartalmukat. Lényeges, hogy nem a fájl kiterjesztésétől lesz a fájl szöveges, hanem a tartalmától, bámilyen kiterjesztésű fájlba lehet szöveges tartalmat kiírni (de természetesen logikus ilyen esetben a .txt kiterjesztés használata, vagy pl. a csv, ha valamilyen szepatárorral elválasztott struktrált szöveges tartalom van a fájlban).
+<p>A szövegfájlok is fájlok, csak éppen a tartalmuk szöveg, így pl. az egyszerű Jegyzettömb (Notepad) alkalmazással is meg lehet értelmesen jeleníteni a tartalmukat. Lényeges, hogy nem a fájl kiterjesztésétől lesz a fájl szöveges, hanem a tartalmától, bámilyen kiterjesztésű fájlba lehet szöveges tartalmat kiírni (de természetesen logikus ilyen esetben a .txt kiterjesztés használata, vagy pl. a csv, ha valamilyen szepatárorral elválasztott struktrált szöveges tartalom van a fájlban).
 A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereket jelentenek. A klasszikus ASCII kódolású szövegfájlok esetén minden bájt pontosan egy karaktert jelent.</p>
 <p>Nézzük a fenti példánkat, amikor a fájl tartalma a következő:</p>
 <div class="highlight"><pre><span></span><code>97 108 109 97 13 10 115 122 105 108 118 97
@@ -957,8 +981,7 @@ A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereke
 <div class="highlight"><pre><span></span><code>a l m a CR LF s z i v l a
 </code></pre></div>
 
-<p>Vagyis egy CR+LF-vel elválasztott "alma" és "szilva". Egyben, ha mint C# string nézzük "alma\r\nszilva"
-Ez bizony szöveges tartalom, vagyis egy szövegfájllal van dolgunk. Ha megnyitjuk a Jegyzettömb (Notepad) alkalmazásban, így néz ki:</p>
+<p>Vagyis egy CR+LF-vel elválasztott "alma" és "szilva". Egyben, ha mint C# string nézzük "alma\r\nszilva".  Ez bizony szöveges tartalom, vagyis egy szövegfájllal van dolgunk. Ha megnyitjuk a Jegyzettömb (Notepad) alkalmazásban, így néz ki:</p>
 <p><img alt="image" src="../fajl-alapok-gyumolcsok-notepad.png" /></p>
 <p>A tisztázandó még, hogy mik a 10 (CR) és 13 (LF) bájt a közepén. Egyszerűen arról van szó, hogy van egy sortörés is az alma után, amit Windows operációs rendszerben két speciális karakter jelöl. C#-ban '\r' és egy '\n' karakter, egy stringbe írva "\r\n". A '\r' számértéke 13, a '\n'-né 10.</p>
 <p>Megjegyzés: Linux operációs rendszer alatt csak egy karakter használatos, a '\n'.</p>
@@ -977,7 +1000,7 @@ Ez bizony szöveges tartalom, vagyis egy szövegfájllal van dolgunk. Ha megnyit
 <ul>
 <li>#1 - Útvonal a fájlhoz. A c:\temp mappának léteznie kell! Lényges, hogy @ karakterrel kezdjük az útvonalat, különben a \-t escape karakter kedetének veszi, és nem \ karakternek (vagy ha nem használjuk a @-ot, duplázzuk meg mindenhol a -t, így: \\)</li>
 <li>#2 - A <code>StreamWriter</code> egy .NET beépített osztály. Amikor létrehozunk belőle egy példányt, megnyitja a fájlt.<ul>
-<li>Az első paraméter (fajlnev) adja meg a fájl nevét, ebbe írunk majd</li>
+<li>Az első paraméter (fajlnev) adja meg a fájl nevét, ebbe írunk majd.</li>
 <li>A második paraméter egy bool. Ha false-t adunk meg, akkor amennyiben létezik már ilyen fájl, ezt törli és az elejétől kezdve írunk bele. Ha true (ez ún. append, hozzáfűzés mód), akkor a már létező file tartalma megmarad, és amit mi beleírunk, az a végéhez fűződik hozzá.</li>
 <li>Megjegyzés: ha akartunk volna, megadhattuk volna egy harmadik paraméterben, hogy milyen karakterkódolással írjuk a fájlt.</li>
 </ul>
