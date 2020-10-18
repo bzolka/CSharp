@@ -56,6 +56,8 @@ nav:
       - StringAlapgyakorlatok/string-alapok-feladatcsoport-1.md
   - 'Fájlkezelés (állományok)':
       - Fajlkezeles/fajl-alapok.md
+      - "Feladatok": Fajlkezeles/fajl-feladatok.md
+      - "Feladat megolások": Fajlkezeles/fajl-feladat-megoldasok.md
   - 'Objektumok létrehozása':
       - Konstruktor:
           - ObjektumokLetrehozasa/Konstruktor/konstruktor-alapok.md

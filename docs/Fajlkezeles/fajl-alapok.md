@@ -1,6 +1,6 @@
-# Fájlok (állományok)
+# Fájlkezelés
 
-A program futása során sokszor adatokat állít elő, adatokat kér be, ezekkel számításokat végez. Gyakran van igény arra, hogy ezen adatokat valamilyen formában kiírjuk egy fájlban háttértárra (diszkre). Míg a memóriában tárolt adatok az alkalmazás újraindulása során elvesznek, a háttértáron levő adatok megmaradnak, még akkor is, ha a számítógép újraindul. Ezen felül a fájlok segítségével nagyon egyszerű módon tudnak alkalmazások egymással kommunikálni, adatot megosztani. Pl. az egyik alkalmazás kiírja az adatot egy fájlba, egy másik pedig beolvassa.
+A program futása során sokszor adatokat állít elő, adatokat kér be, ezekkel számításokat végez. Gyakran van igény arra, hogy ezen adatokat valamilyen formában kiírjuk egy fájlban háttértárra (diszkre). Míg a memóriában tárolt adatok az alkalmazás újraindulása során elvesznek, a háttértáron levő adatok megmaradnak, még akkor is, ha a számítógép újraindul. Ezen felül a fájlok segítségével nagyon egyszerű módon tudnak alkalmazások egymással kommunikálni, adatot megosztani. Pl. az egyik alkalmazás kiírja az adatot egy fájlba, egy másik pedig beolvassa. Egy fájlra más szóval **állomány**ként és szokás hivatkozni (így a fájlkezelés ugyanazt jelenti, mint az állománykezelés.)
 
 Minden fájlt egy útvonal azonosít, mely megmondja, mely meghajtón, annak milyen mappájában van a fájl. Pl.: c:\work\temp\gyumolcsok.txt.
 
@@ -40,7 +40,7 @@ Kód és példa. Az alacsonyabb, bájtszintű fájlkezelésre ritkábban van sz�
 
 ## Szövegfájlok
 
-A szövegfájlok is fájlok, csak éppen a tartalmuk szöveg, így pl. az egyszerű Jegyzettömb alkalmazással is meg lehet értelmesen jeleníteni a tartalmukat. Lényeges, hogy nem a fájl kiterjesztésétől lesz a fájl szöveges, hanem a tartalmától, bámilyen kiterjesztésű fájlba lehet szöveges tartalmat kiírni (de természetesen logikus ilyen esetben a .txt kiterjesztés használata, vagy pl. a csv, ha valamilyen szepatárorral elválasztott struktrált szöveges tartalom van a fájlban).
+A szövegfájlok is fájlok, csak éppen a tartalmuk szöveg, így pl. az egyszerű Jegyzettömb (Notepad) alkalmazással is meg lehet értelmesen jeleníteni a tartalmukat. Lényeges, hogy nem a fájl kiterjesztésétől lesz a fájl szöveges, hanem a tartalmától, bámilyen kiterjesztésű fájlba lehet szöveges tartalmat kiírni (de természetesen logikus ilyen esetben a .txt kiterjesztés használata, vagy pl. a csv, ha valamilyen szepatárorral elválasztott struktrált szöveges tartalom van a fájlban).
 A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereket jelentenek. A klasszikus ASCII kódolású szövegfájlok esetén minden bájt pontosan egy karaktert jelent.
 
 Nézzük a fenti példánkat, amikor a fájl tartalma a következő:
@@ -56,8 +56,7 @@ a l m a CR LF s z i v l a
 ```
 
 
-Vagyis egy CR+LF-vel elválasztott "alma" és "szilva". Egyben, ha mint C# string nézzük "alma\r\nszilva"
-Ez bizony szöveges tartalom, vagyis egy szövegfájllal van dolgunk. Ha megnyitjuk a Jegyzettömb (Notepad) alkalmazásban, így néz ki:
+Vagyis egy CR+LF-vel elválasztott "alma" és "szilva". Egyben, ha mint C# string nézzük "alma\r\nszilva".  Ez bizony szöveges tartalom, vagyis egy szövegfájllal van dolgunk. Ha megnyitjuk a Jegyzettömb (Notepad) alkalmazásban, így néz ki:
 
 ![image](fajl-alapok-gyumolcsok-notepad.png)
 
@@ -85,7 +84,7 @@ writer.Close(); // #5
 
 * \#1 - Útvonal a fájlhoz. A c:\temp mappának léteznie kell! Lényges, hogy @ karakterrel kezdjük az útvonalat, különben a \\-t escape karakter kedetének veszi, és nem \\ karakternek (vagy ha nem használjuk a @-ot, duplázzuk meg mindenhol a \-t, így: \\\\)
 * \#2 - A `StreamWriter` egy .NET beépített osztály. Amikor létrehozunk belőle egy példányt, megnyitja a fájlt.
-    * Az első paraméter (fajlnev) adja meg a fájl nevét, ebbe írunk majd
+    * Az első paraméter (fajlnev) adja meg a fájl nevét, ebbe írunk majd.
     * A második paraméter egy bool. Ha false-t adunk meg, akkor amennyiben létezik már ilyen fájl, ezt törli és az elejétől kezdve írunk bele. Ha true (ez ún. append, hozzáfűzés mód), akkor a már létező file tartalma megmarad, és amit mi beleírunk, az a végéhez fűződik hozzá.
     * Megjegyzés: ha akartunk volna, megadhattuk volna egy harmadik paraméterben, hogy milyen karakterkódolással írjuk a fájlt.
 * \#3 - Kiírja az "alma" szöveget és egy sortörést a `writer` objektum által kezelt fájl végére ("\r\n"). Ha azt szerettük volna, hogy a rákövetkező sorban a "szilva" is az "alma" sorában jelenjen meg, akkor a `WriteLine` helyett a `Write` műveletet használtuk volna.
