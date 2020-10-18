@@ -54,6 +54,8 @@ nav:
       - AlapUtasitasok/ciklusok.md
   - Stringek:
       - StringAlapgyakorlatok/string-alapok-feladatcsoport-1.md
+  - 'Fájlkezelés (állományok)':
+      - Fajlkezeles/fajl-alapok.md
   - 'Objektumok létrehozása':
       - Konstruktor:
           - ObjektumokLetrehozasa/Konstruktor/konstruktor-alapok.md
