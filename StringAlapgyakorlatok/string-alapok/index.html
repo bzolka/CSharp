@@ -490,6 +490,40 @@
     Egyebek (tisztázandó)
   </a>
   
+    <nav class="md-nav" aria-label="Egyebek (tisztázandó)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ascii-karakterekkel-munka-minden-karakter-egy-szam-is" class="md-nav__link">
+    ASCII karakterekkel munka (minden karakter egy szám is)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-sensitive-tolowertoupper" class="md-nav__link">
+    Case sensitive + ToLower/ToUpper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitespace-ek-eltavolitasa" class="md-nav__link">
+    whitespace-ek eltávolítása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sztring-hossz" class="md-nav__link">
+    Sztring hossz
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -927,6 +961,40 @@
     Egyebek (tisztázandó)
   </a>
   
+    <nav class="md-nav" aria-label="Egyebek (tisztázandó)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ascii-karakterekkel-munka-minden-karakter-egy-szam-is" class="md-nav__link">
+    ASCII karakterekkel munka (minden karakter egy szám is)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-sensitive-tolowertoupper" class="md-nav__link">
+    Case sensitive + ToLower/ToUpper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whitespace-ek-eltavolitasa" class="md-nav__link">
+    whitespace-ek eltávolítása
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sztring-hossz" class="md-nav__link">
+    Sztring hossz
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1046,18 +1114,36 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 </code></pre></div>
 
 <h3 id="fontosabb-string-muveletek">Fontosabb string műveletek<a class="headerlink" href="#fontosabb-string-muveletek" title="Permanent link">&para;</a></h3>
-<p>Console műveletek:</p>
+<p>Console-ra írás, Console-ról olvasás</p>
 <ul>
 <li><code>Console.Write(string)</code> - Ez nem kezd új sort, ritkábban használt, de fontos!!!</li>
 <li><code>Console.WriteLine(string)</code></li>
 <li><code>Console.ReadLine()</code></li>
 </ul>
-<p>Sztring rész meghatározása:
- <code>Substring</code> - TODO</p>
-<p>Keresés stringben:
- <code>IndexOf</code>,<code>LastIndexOf</code> - TODO</p>
-<p>Csere:
- <code>Replace</code> - TODO</p>
+<p>Sztring adott részének kinyerése - <code>Substring</code>. Van egy és kétparaméteres változata is, az alábbi példában mindkettő szerepel:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma körte szilva&quot;</span><span class="p">;</span>
+<span class="c1">// Egyparaméteres SubString, adott indextől a végéig minden </span>
+<span class="c1">// karaktert visszaad. Pl.:Substring</span>
+<span class="kt">string</span> <span class="n">subString</span> <span class="p">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="n">s1</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">6</span><span class="p">);</span>
+<span class="c1">// Ezt írja ki: &quot;szilva&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">subString</span><span class="p">);</span>
+
+<span class="c1">// 6. -tól 4 darab karaktert vesz</span>
+<span class="kt">string</span> <span class="n">subString2</span> <span class="p">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">Substring</span><span class="p">(</span><span class="m">6</span><span class="p">,</span> <span class="m">4</span><span class="p">);</span>
+<span class="c1">// Ezt írja ki: &quot;örte&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">subString2</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Sztring részének lecserélése - <code>Replace</code></p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma körte szilva&quot;</span><span class="p">;</span>
+<span class="c1">// Minden &quot;körte&quot; előfordulás cseréje &quot;barack&quot;-ra</span>
+<span class="n">s1</span> <span class="p">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;körte&quot;</span><span class="p">,</span> <span class="s">&quot;barack&quot;</span><span class="p">);</span>
+<span class="c1">// Ezt írja ki: &quot;alma barack szilva&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">subString</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Keresés stringben: <code>IndexOf</code>, <code>LastIndexOf</code> - TODO PÉLDA</p>
+<p>Tartalmazás vizsgálat - <code>Contains</code>, <code>StartsWidth</code>, <code>EndsWidth</code> - TODO PÉLDA</p>
 <h3 id="specialis-karakterek-escape-karakterek-specialis-stringek">Speciális karakterek, escape karakterek, speciális stringek<a class="headerlink" href="#specialis-karakterek-escape-karakterek-specialis-stringek" title="Permanent link">&para;</a></h3>
 <p>Alapesetben a <code>'\'</code> egy escape szekvencia kezdetét jelzi. Példák:</p>
 <ul>
@@ -1209,9 +1295,51 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 </code></pre></div>
 
 <h2 id="egyebek-tisztazando">Egyebek (tisztázandó)<a class="headerlink" href="#egyebek-tisztazando" title="Permanent link">&para;</a></h2>
-<p>ASCII karakterekkel munka (minden karakter egy szám is)</p>
-<p>Case sensitive + ToLower/ToUpper</p>
-<p>whitespace-ek eltávolítása</p>
+<h3 id="ascii-karakterekkel-munka-minden-karakter-egy-szam-is">ASCII karakterekkel munka (minden karakter egy szám is)<a class="headerlink" href="#ascii-karakterekkel-munka-minden-karakter-egy-szam-is" title="Permanent link">&para;</a></h3>
+<p>C#-ban minden karakter egy szám is, az adott karakter ASCII kódja. Erre építve hatékonyan lehet pár "trükkös" feladatot megoldani.
+Pl. Az <code>'a'</code> ASCII kódja 97, az <code>'A'</code> kódja pedig 65.
+Példa  annak eldöntése, valami betű-e (és nem szám, vagy speciális karakter), ha nem foglalkozunk az ékezetes karakterekkel:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">char</span> <span class="n">c</span> <span class="p">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">c</span> <span class="p">&gt;=</span> <span class="sc">&#39;a&#39;</span> <span class="p">&amp;&amp;</span> <span class="n">c</span> <span class="p">&lt;=</span> <span class="sc">&#39;z&#39;</span><span class="p">)</span> <span class="p">||</span> <span class="p">(</span><span class="n">c</span> <span class="p">&gt;=</span> <span class="sc">&#39;A&#39;</span> <span class="p">&amp;&amp;</span> <span class="n">c</span> <span class="p">&lt;=</span> <span class="sc">&#39;Z&#39;</span><span class="p">)</span> <span class="p">)</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Betű&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">// Írjuk az alábbi c változó ASCII kódját</span>
+<span class="kt">char</span> <span class="n">c</span> <span class="p">=</span> <span class="sc">&#39;a&#39;</span><span class="p">;</span>
+<span class="c1">// 97-et ír ki</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">c</span> <span class="p">);</span>
+</code></pre></div>
+
+<h3 id="case-sensitive-tolowertoupper">Case sensitive + ToLower/ToUpper<a class="headerlink" href="#case-sensitive-tolowertoupper" title="Permanent link">&para;</a></h3>
+<p>A sztringek ú.n. case sensitive-ek, vagyis a kis és nagybetűk megkülönböztetettek. Vagyis az <code>'a'</code> nem egyenlő az <code>'A'</code> karakterrel, vagy az "Alma" sem az "alma" sztringgel.
+Egy sztringet csupa nagybetűssé alakítani a <code>ToUpper()</code>-rel, csupa kisbetűssé a <code>ToLower()</code>-rel lehet.</p>
+<p>Ha például két sztringre a kis és nagybetűket nem megkülönböztetve szeretnénk eldönteni, egyenlők-e, akkor alakítsuk mindkettőt csupa kis vagy nagybetűssé, és így hasonlítsuk össze őket. Pl.:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;Alma&quot;</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">s2</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">s1</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">()</span> <span class="p">==</span> <span class="n">s2</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">())</span>
+   <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Egyformák&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Ez azonban nem a leghatékonyabb módja a probléma megoldásának, helyette ez, vagy ehhez hasonló megoldás javasolt:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;Alma&quot;</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">s2</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">StringComparison</span><span class="p">.</span><span class="n">CurrentCultureIgnoreCase</span><span class="p">))</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Egyformák&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="whitespace-ek-eltavolitasa">whitespace-ek eltávolítása<a class="headerlink" href="#whitespace-ek-eltavolitasa" title="Permanent link">&para;</a></h3>
+<p>Gyakran van szükség arra, hogy a szting elején/végén levő space/tab karaktereket (ezek ún. whitespace kaarkterek) eltávolítsuk. Erre a string osztály <code>Trim</code> művelete való:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">nev</span> <span class="p">=</span> <span class="s">&quot;  Körte\t   &quot;</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">whitespaceNelkul</span> <span class="p">=</span> <span class="n">nev</span><span class="p">.</span><span class="n">Trim</span><span class="p">();</span>
+<span class="c1">// Ezt írja ki: &quot;Körte&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">whitespaceNelkul</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="sztring-hossz">Sztring hossz<a class="headerlink" href="#sztring-hossz" title="Permanent link">&para;</a></h3>
+<p>A sztring <code>Length</code> tulajdonsága adja vissza.</p>
 <h2 id="extra">Extra<a class="headerlink" href="#extra" title="Permanent link">&para;</a></h2>
 <p><a href="http://csharptk.ektf.hu/download/csharp-ekf.pdf">http://csharptk.ektf.hu/download/csharp-ekf.pdf</a>
 <a href="http://aries.ektf.hu/~hz/wiki7/mprog1ea/adattipusok">http://aries.ektf.hu/~hz/wiki7/mprog1ea/adattipusok</a>
