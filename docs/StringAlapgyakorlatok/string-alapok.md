@@ -131,7 +131,7 @@ Alapesetben a `'\'` egy escape szekvencia kezdetét jelzi. Példák:
 
 * `'\t'`: egy tab karakter
 * `"alma\tszilva"`: alma és szilva tabbal elválasztva
-* `"\r\n"`: Sortörés Windows operációs rendszerben. Két karakterből áll (`'\r'` és egy `'\n'` egymás után, melyek bájbeli értéke 13 és 10).
+* `"\r\n"`: Sortörés Windows operációs rendszerben. Két karakterből áll (`'\r'` és egy `'\n'` egymás után, melyek bájtbeli értéke 13 és 10).
 * `"alma\r\nszilva\r\nkörte" `: három gyümölcs külön sorban (vagyis sortörésekkel elválasztva).
 
 Adódik a kérdés, hogyan tudunk akkor egyáltalán `'\'` karaktert megadni stringben. Két lehetőség van:
@@ -161,9 +161,9 @@ C#-ban minden típusra meghívható a `ToString()` művelet, ami az adott válto
     Console.WriteLine(sz);
     ```
 
-    Most írjuk felül a ToString() műveletet a Szemely osztályban (publikus kell legyen és az **override** szót is ki kell írni):
+    Most írjuk felül a `ToString()` műveletet a `Szemely` osztályban (publikus kell legyen és az **override** szót is ki kell írni):
 
-    ```csharp hl_lines="5-9 15 17"
+    ```csharp hl_lines="6-11 17 19"
     class Szemely
     {
         public int Kor;
@@ -173,7 +173,7 @@ C#-ban minden típusra meghívható a `ToString()` művelet, ami az adott válto
         public override string ToString()
         {
             // A saját igényünknem megfelelően formázzuk az adatokat
-            return "Kor: " + Kor + " Nev: " + Nev;
+            return "Kor: " + Kor + ", Nev: " + Nev;
         }
     }
     ...
@@ -182,7 +182,7 @@ C#-ban minden típusra meghívható a `ToString()` művelet, ami az adott válto
     szemely1.Nev = "István";
     // Az általunk megírt ToString()-et hívja
     string sz = szemely1.ToString();
-    // Ezt írja ki: "Kor: 10Nev: István"
+    // Ezt írja ki: "Kor: 10, Nev: István"
     Console.WriteLine(sz);
     ```
 
@@ -221,7 +221,8 @@ C#-ban minden típusra meghívható a `ToString()` művelet, ami az adott válto
             new Szemely { Kor = 15, Nev = "Géza" }
         };
 
-        // Gyársunk egy sztringet, melyben minden személy adata benne van külön sorokban, de egyetlen stringben
+        // Gyársunk egy sztringet, melyben minden személy adata benne van külön 
+        // sorokban, de egyetlen stringben
         // Belülről kifele érdemes haladni:
         // * a Select-tel a minden személyt egyesével leképezünk stringre
         // * majd a string.Joinnal egyetlen sztringbe fűzzük
@@ -272,7 +273,8 @@ A fenti megoldás működik, de kicst nehezen átlátható, könnyű elrontani. 
 ```csharp
 string nev = "István";
 int kor = 35;
-// $-ral kezdjük, és {} között bármilyen változót megadva behelyettesítődik a változó értéke
+// $-ral kezdjük, és {} között bármilyen változót megadva behelyettesítődik
+// a változó értéke
 string formazottString = $"Név: {nev}, Kor: {kor}";
 // Ezt írja ki: "Név: István, Kor: 35"
 Console.WriteLine(formazottString);
@@ -283,7 +285,8 @@ Egy harmadik lehetőség a `string.Format` statikus művelet használata. Ennél
 ```csharp
 string nev = "István";
 int kor = 35;
-// {} között számot adunk meg, a {0} helyébe a 0. paramétert írja be (esetünkben nev), 
+// {} között számot adunk meg, a {0} helyébe a 0. paramétert írja be
+//  (esetünkben nev), 
 // az {1} helyébe az elsőt (esetünkben kor), stb.
 string formazottString = string.Format("Név: {0}, Kor: {1}", nev, kor);
 // Ezt írja ki: "Név: István, Kor: 35"
