@@ -17,9 +17,10 @@ string s2 = s1;
 string s3 = null;
 ```
 
-Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként. A sztring ugyanakkor kicsit speciális, mert nem kötelező a `new`-val létrehozni:
+Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként (ez sokkal gyorsabb és hatékonyabb, mint a teljes sztring tartalmat átmásolni a függvény számára). A sztring ugyanakkor kicsit speciális, mert a többi referencia típussal (pl. osztályok) szemben nem kötelező a `new`-val létrehozni:
 
 ```csharp
+// Lehet ugyan a new-val, de nem így szoktuk
 string s1 = new string("alma");
 // Így szoktuk, new nélkül
 string s1 = "alma";
@@ -33,9 +34,6 @@ string s1 = "";
 
 // Vagy így, ez pontosan ""-nek felel meg
 string s1 = string.Empty;
-
-// Így szoktuk, new nélkül
-string s1 = "alma";
 ```
 
 Lényeges, hogy az üres sztring és a null string teljesen mást jelent! Ha egy sztring hivatkozás `null`, akkor nem hivatkozik semmilyen sztringre, ha üres (""), akkor pedig egy nulla hosszú sztringre hivatkozik.
