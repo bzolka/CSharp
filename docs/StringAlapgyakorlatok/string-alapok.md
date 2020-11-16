@@ -1,21 +1,23 @@
 # Stringkezelés alapok
 
-## Jellemzők
+## Alapjellemzők
 
 A sztring típus neve `string` vagy `String`, a kettő ugyanazt jelenti.
 
-A sztring referencia típus. Vagyis a sztring változók hivatkozások, melynek értéke lehet null, vagy több hivatkozás is hivatkozhat ugyanarra a sztringre.
+### A string referencia típus
+
+A sztring referencia típus, vagyis a sztring változók hivatkozások, melynek értéke lehet `null`, vagy több hivatkozás is hivatkozhat ugyanarra a sztringre.
 
 ```csharp
 string s1 = "alma";
-// Az s2 is az s1 stringre hivatkozik, értéke "alma"
+// Az s2 is az s1 által hivatkozott "alma" stringre hivatkozik
 string s2 = s1;
 
 // Az s3 értéke null, nem hivatkozik semmilyen stringre
 string s3 = null;
 ```
 
-Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként. A szting ugyanakkor kicsit speciális, mert nem kötelező a new-val létrehozni:
+Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként. A sztring ugyanakkor kicsit speciális, mert nem kötelező a `new`-val létrehozni:
 
 ```csharp
 string s1 = new string("alma");
@@ -23,7 +25,7 @@ string s1 = new string("alma");
 string s1 = "alma";
 ```
 
-Üres string:
+### Üres string
 
 ```csharp
 // Lehet így: ""
@@ -43,7 +45,7 @@ Lényeges, hogy az üres sztring és a null string teljesen mást jelent! Ha egy
 Egy string több karakterből áll. A string konstansokat dupla idézőjelbe tesszük (`"alma"`), a char konstansokat szimplába `'a'`);
 A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdezhetők).
 
-### A string immutable (nem megváltoztatható) típus
+### A stringek nem megváltoztathatók (immutable)
 
 A sztringek **nem megváltoztathatók** (angolul úgy mondjuk, hogy a sztring "immutable" típus).
 
@@ -53,9 +55,9 @@ string s1 = "alma";
 s1[0] = 'b';
 ```
 
-Ha meg kell változtatni egy string tartalmát, két lehetőségünk van:
+Ha meg kellene változtatni egy sztring tartalmát, két fő alternatív út van:
 
-Az első lehetőség, ha **string helyett karakter tömböt (char[]) használunk**. Vagy már eleve `char[]`-öt hozunk létre, vagy ha sztringből kell kiindulni, akkor karakter tömbbé alakítjuk és a végén vissza (ha szükséges):
+I. Az első lehetőség, ha **string helyett karakter tömböt (char[]) használunk**. Vagy már eleve `char[]`-öt hozunk létre, vagy ha sztringből kell kiindulni, akkor karakter tömbbé alakítjuk és a végén vissza (ha szükséges):
 
 ```csharp
 // cseréljük le az első betűt b-re
@@ -72,7 +74,7 @@ Console.WriteLine(s2);
 
 A fenti kód alapján jegyezd meg, hogyan lehet sztringet karakter tömbbé alakítani (`ToCharArray()` művelet), illetve karatker tömböt sztringgé (ehhez létre kell hozni egy új sztringet a new-val, lásd fent a példában)!
 
-De ritkábban szoktunk karakter tömbbel dolgozni, a második lehetőség a string műveleteinek használata: pl. `Substring`, `Replace`, stb. Ezek becsapósak, nem az eredeti sztringet módosítják, hanem mindig egy új sztringet állítanak elő és azzal térnek vissza, vagyis **ezek sem változtatják meg az eredeti sztringet!** Íme egy példa a `Replace`-re:
+II. De ritkábban szoktunk karakter tömbbel dolgozni. A másik lehetőség: nem megváltozattjuk a sztringet (mert az nem lehet), hanem egy újat hozunk létre, mely a módosításnak megfelelő karaktereket tartalmazza. Így működik pl. a string  `Replace` művelete is. A  neve becsapós, nem az eredeti sztringet módosítja, hanem mindig egy új sztringet állít elő és azzal tér vissza. Íme egy példa a `Replace`-re:
 
 ```csharp
 string s1 = "alma körte szilva";
