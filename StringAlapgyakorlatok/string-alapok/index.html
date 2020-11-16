@@ -1065,8 +1065,9 @@
 <span class="kt">string</span> <span class="n">s3</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
 </code></pre></div>
 
-<p>Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként. A sztring ugyanakkor kicsit speciális, mert nem kötelező a <code>new</code>-val létrehozni:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;alma&quot;</span><span class="p">);</span>
+<p>Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként (ez sokkal gyorsabb és hatékonyabb, mint a teljes sztring tartalmat átmásolni a függvény számára). A sztring ugyanakkor kicsit speciális, mert a többi referencia típussal (pl. osztályok) szemben nem kötelező a <code>new</code>-val létrehozni:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Lehet ugyan a new-val, de nem így szoktuk</span>
+<span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;alma&quot;</span><span class="p">);</span>
 <span class="c1">// Így szoktuk, new nélkül</span>
 <span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
 </code></pre></div>
@@ -1077,9 +1078,6 @@
 
 <span class="c1">// Vagy így, ez pontosan &quot;&quot;-nek felel meg</span>
 <span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
-
-<span class="c1">// Így szoktuk, new nélkül</span>
-<span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Lényeges, hogy az üres sztring és a null string teljesen mást jelent! Ha egy sztring hivatkozás <code>null</code>, akkor nem hivatkozik semmilyen sztringre, ha üres (""), akkor pedig egy nulla hosszú sztringre hivatkozik.</p>
