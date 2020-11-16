@@ -1,7 +1,0 @@
-Alap string műveletek:
-* Immutable
-* StartsWidth
-* Üres string
-* string.Format("PI={0}",Math.PI);, Console.WriteLine, StreamWriter.WriteLine
-
-Konverziók:

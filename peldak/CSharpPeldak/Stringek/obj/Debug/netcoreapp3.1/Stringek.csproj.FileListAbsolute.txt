@@ -1,0 +1,13 @@
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\bin\Debug\netcoreapp3.1\Stringek.exe
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\bin\Debug\netcoreapp3.1\Stringek.deps.json
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\bin\Debug\netcoreapp3.1\Stringek.runtimeconfig.json
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\bin\Debug\netcoreapp3.1\Stringek.runtimeconfig.dev.json
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\bin\Debug\netcoreapp3.1\Stringek.dll
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\bin\Debug\netcoreapp3.1\Stringek.pdb
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\obj\Debug\netcoreapp3.1\Stringek.AssemblyInfoInputs.cache
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\obj\Debug\netcoreapp3.1\Stringek.AssemblyInfo.cs
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\obj\Debug\netcoreapp3.1\Stringek.csproj.CoreCompileInputs.cache
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\obj\Debug\netcoreapp3.1\Stringek.dll
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\obj\Debug\netcoreapp3.1\Stringek.pdb
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\obj\Debug\netcoreapp3.1\Stringek.genruntimeconfig.cache
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\Stringek\obj\Debug\netcoreapp3.1\Stringek.csprojAssemblyReference.cache

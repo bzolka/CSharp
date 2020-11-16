@@ -53,6 +53,7 @@ nav:
       - AlapUtasitasok/felteteles-elagazasok.md  
       - AlapUtasitasok/ciklusok.md
   - Stringek:
+      - StringAlapgyakorlatok/string-alapok.md
       - StringAlapgyakorlatok/string-alapok-feladatcsoport-1.md
   - 'Fájlkezelés (állományok)':
       - Fajlkezeles/fajl-alapok.md

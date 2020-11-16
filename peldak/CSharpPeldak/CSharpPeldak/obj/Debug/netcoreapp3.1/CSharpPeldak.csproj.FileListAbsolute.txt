@@ -1,0 +1,13 @@
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\bin\Debug\netcoreapp3.1\CSharpPeldak.exe
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\bin\Debug\netcoreapp3.1\CSharpPeldak.deps.json
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\bin\Debug\netcoreapp3.1\CSharpPeldak.runtimeconfig.json
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\bin\Debug\netcoreapp3.1\CSharpPeldak.runtimeconfig.dev.json
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\bin\Debug\netcoreapp3.1\CSharpPeldak.dll
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\bin\Debug\netcoreapp3.1\CSharpPeldak.pdb
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\obj\Debug\netcoreapp3.1\CSharpPeldak.csprojAssemblyReference.cache
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\obj\Debug\netcoreapp3.1\CSharpPeldak.AssemblyInfoInputs.cache
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\obj\Debug\netcoreapp3.1\CSharpPeldak.AssemblyInfo.cs
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\obj\Debug\netcoreapp3.1\CSharpPeldak.csproj.CoreCompileInputs.cache
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\obj\Debug\netcoreapp3.1\CSharpPeldak.dll
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\obj\Debug\netcoreapp3.1\CSharpPeldak.pdb
+d:\Data\Szemelyes\Csalad\Zozi\CSharp\peldak\CSharpPeldak\CSharpPeldak\obj\Debug\netcoreapp3.1\CSharpPeldak.genruntimeconfig.cache

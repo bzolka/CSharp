@@ -60,11 +60,11 @@ Vagyis egy CR+LF-vel elválasztott "alma" és "szilva". Egyben, ha mint C# strin
 
 ![image](fajl-alapok-gyumolcsok-notepad.png)
 
- A tisztázandó még, hogy mik a 10 (CR) és 13 (LF) bájt a közepén. Egyszerűen arról van szó, hogy van egy sortörés is az alma után, melyet Windows operációs rendszerben két speciális karakter jelöl. C#-ban '\r' és egy '\n' karakter, egy stringbe írva "\r\n". A '\r' számértéke 13, a '\n'-né 10.
+ A tisztázandó még, hogy mik a 10 (CR) és 13 (LF) bájt a közepén. Egyszerűen arról van szó, hogy van egy sortörés is az alma után, melyet Windows operációs rendszerben két speciális karakter jelöl. C#-ban `'\r'` és egy `'\n'` karakter, egy stringbe írva `"\r\n"`. A '\r' számértéke 13, a '\n'-né 10.
 
 Megjegyzés: Linux operációs rendszer alatt csak egy karakter használatos sortörésre, a '\n'.
 
-Megjegyzés: A `'\n'` és a `'\n'`, bár C# nyelven a forráskódban két karakterrel jelöljük, csak egy bájt hosszú  mindkettő: a C# nyelven a `\` egy escape szekvencia kezdetét jelöli, vagyis pl. a `'\n'` nem egy `'\'` és egy `'n'` karakter egymásután, hanem a `'\n'` önmagában jelöl **egyetlen** speciális karaktert, melynek a számkódja 13.
+Megjegyzés: A `'\n'` és a `'\n'`, bár C# nyelven a forráskódban két karakterrel jelöljük,  mindkettő magában csak egy bájt hosszú: a C# nyelven a `\` egy escape szekvencia kezdetét jelöli, vagyis pl. a `'\n'` nem egy `'\'` és egy `'n'` karakter egymásután, hanem a `'\n'` önmagában jelöl **egyetlen** speciális karaktert, melynek a számkódja 13.
 
 A szövegfájlok írására/olvasására egyszerűbb lehetőségünk is van, mint nyers bájtokkal, bájtömbökkel dolgozni. Egyszerű **sztringekkel** dolgozunk.
 
@@ -189,7 +189,8 @@ Pl. itt találsz még jó magyarázatot és példákat szövegfájl írására �
 
 ## További lényeges információk
 
-TODO 
+TODO
+
 * Biztos fájl lezárás, using blokk
 * Unicode
 * Memóriában is bitek vannak

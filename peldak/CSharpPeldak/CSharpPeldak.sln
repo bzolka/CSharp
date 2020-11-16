@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpPeldak", "CSharpPeldak\CSharpPeldak.csproj", "{2E0BBE19-59A9-4760-8066-73BCBAA412F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stringek", "Stringek\Stringek.csproj", "{E26DBD6E-42A8-415B-907C-5D44449A2892}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E0BBE19-59A9-4760-8066-73BCBAA412F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0BBE19-59A9-4760-8066-73BCBAA412F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0BBE19-59A9-4760-8066-73BCBAA412F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0BBE19-59A9-4760-8066-73BCBAA412F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E26DBD6E-42A8-415B-907C-5D44449A2892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E26DBD6E-42A8-415B-907C-5D44449A2892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E26DBD6E-42A8-415B-907C-5D44449A2892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E26DBD6E-42A8-415B-907C-5D44449A2892}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D52E278-256B-4CD1-8875-6FA238D04FFA}
+	EndGlobalSection
+EndGlobal
