@@ -424,12 +424,26 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jellemzok" class="md-nav__link">
-    Jellemzők
+  <a href="#alapjellemzok" class="md-nav__link">
+    Alapjellemzők
   </a>
   
-    <nav class="md-nav" aria-label="Jellemzők">
+    <nav class="md-nav" aria-label="Alapjellemzők">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-string-referencia-tipus" class="md-nav__link">
+    A string referencia típus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ures-string" class="md-nav__link">
+    Üres string
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#string-vs-char-vs-char-tomb" class="md-nav__link">
@@ -439,8 +453,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#a-string-immutable-nem-megvaltoztathato-tipus" class="md-nav__link">
-    A string immutable (nem megváltoztatható) típus
+  <a href="#a-stringek-nem-megvaltoztathatok-immutable" class="md-nav__link">
+    A stringek nem megváltoztathatók (immutable)
   </a>
   
 </li>
@@ -895,12 +909,26 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#jellemzok" class="md-nav__link">
-    Jellemzők
+  <a href="#alapjellemzok" class="md-nav__link">
+    Alapjellemzők
   </a>
   
-    <nav class="md-nav" aria-label="Jellemzők">
+    <nav class="md-nav" aria-label="Alapjellemzők">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-string-referencia-tipus" class="md-nav__link">
+    A string referencia típus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ures-string" class="md-nav__link">
+    Üres string
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#string-vs-char-vs-char-tomb" class="md-nav__link">
@@ -910,8 +938,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#a-string-immutable-nem-megvaltoztathato-tipus" class="md-nav__link">
-    A string immutable (nem megváltoztatható) típus
+  <a href="#a-stringek-nem-megvaltoztathatok-immutable" class="md-nav__link">
+    A stringek nem megváltoztathatók (immutable)
   </a>
   
 </li>
@@ -1025,24 +1053,25 @@
                 
                 
                 <h1 id="stringkezeles-alapok">Stringkezelés alapok<a class="headerlink" href="#stringkezeles-alapok" title="Permanent link">&para;</a></h1>
-<h2 id="jellemzok">Jellemzők<a class="headerlink" href="#jellemzok" title="Permanent link">&para;</a></h2>
+<h2 id="alapjellemzok">Alapjellemzők<a class="headerlink" href="#alapjellemzok" title="Permanent link">&para;</a></h2>
 <p>A sztring típus neve <code>string</code> vagy <code>String</code>, a kettő ugyanazt jelenti.</p>
-<p>A sztring referencia típus. Vagyis a sztring változók hivatkozások, melynek értéke lehet null, vagy több hivatkozás is hivatkozhat ugyanarra a sztringre.</p>
+<h3 id="a-string-referencia-tipus">A string referencia típus<a class="headerlink" href="#a-string-referencia-tipus" title="Permanent link">&para;</a></h3>
+<p>A sztring referencia típus, vagyis a sztring változók hivatkozások, melynek értéke lehet <code>null</code>, vagy több hivatkozás is hivatkozhat ugyanarra a sztringre.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
-<span class="c1">// Az s2 is az s1 stringre hivatkozik, értéke &quot;alma&quot;</span>
+<span class="c1">// Az s2 is az s1 által hivatkozott &quot;alma&quot; stringre hivatkozik</span>
 <span class="kt">string</span> <span class="n">s2</span> <span class="p">=</span> <span class="n">s1</span><span class="p">;</span>
 
 <span class="c1">// Az s3 értéke null, nem hivatkozik semmilyen stringre</span>
 <span class="kt">string</span> <span class="n">s3</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
 </code></pre></div>
 
-<p>Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként. A szting ugyanakkor kicsit speciális, mert nem kötelező a new-val létrehozni:</p>
+<p>Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként. A sztring ugyanakkor kicsit speciális, mert nem kötelező a <code>new</code>-val létrehozni:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;alma&quot;</span><span class="p">);</span>
 <span class="c1">// Így szoktuk, new nélkül</span>
 <span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
 </code></pre></div>
 
-<p>Üres string:</p>
+<h3 id="ures-string">Üres string<a class="headerlink" href="#ures-string" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// Lehet így: &quot;&quot;</span>
 <span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
 
@@ -1057,15 +1086,15 @@
 <h3 id="string-vs-char-vs-char-tomb">String vs. char vs. char tömb<a class="headerlink" href="#string-vs-char-vs-char-tomb" title="Permanent link">&para;</a></h3>
 <p>Egy string több karakterből áll. A string konstansokat dupla idézőjelbe tesszük (<code>"alma"</code>), a char konstansokat szimplába <code>'a'</code>);
 A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdezhetők).</p>
-<h3 id="a-string-immutable-nem-megvaltoztathato-tipus">A string immutable (nem megváltoztatható) típus<a class="headerlink" href="#a-string-immutable-nem-megvaltoztathato-tipus" title="Permanent link">&para;</a></h3>
+<h3 id="a-stringek-nem-megvaltoztathatok-immutable">A stringek nem megváltoztathatók (immutable)<a class="headerlink" href="#a-stringek-nem-megvaltoztathatok-immutable" title="Permanent link">&para;</a></h3>
 <p>A sztringek <strong>nem megváltoztathatók</strong> (angolul úgy mondjuk, hogy a sztring "immutable" típus).</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
 <span class="c1">// Ez nem működik, a []-szel csak olvasni lehet, írni nem!</span>
 <span class="n">s1</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="sc">&#39;b&#39;</span><span class="p">;</span>
 </code></pre></div>
 
-<p>Ha meg kell változtatni egy string tartalmát, két lehetőségünk van:</p>
-<p>Az első lehetőség, ha <strong>string helyett karakter tömböt (char[]) használunk</strong>. Vagy már eleve <code>char[]</code>-öt hozunk létre, vagy ha sztringből kell kiindulni, akkor karakter tömbbé alakítjuk és a végén vissza (ha szükséges):</p>
+<p>Ha meg kellene változtatni egy sztring tartalmát, két fő alternatív út van:</p>
+<p>I. Az első lehetőség, ha <strong>string helyett karakter tömböt (char[]) használunk</strong>. Vagy már eleve <code>char[]</code>-öt hozunk létre, vagy ha sztringből kell kiindulni, akkor karakter tömbbé alakítjuk és a végén vissza (ha szükséges):</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// cseréljük le az első betűt b-re</span>
 <span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
 <span class="c1">// Alakítsuk char[]-re</span>
@@ -1079,7 +1108,7 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 </code></pre></div>
 
 <p>A fenti kód alapján jegyezd meg, hogyan lehet sztringet karakter tömbbé alakítani (<code>ToCharArray()</code> művelet), illetve karatker tömböt sztringgé (ehhez létre kell hozni egy új sztringet a new-val, lásd fent a példában)!</p>
-<p>De ritkábban szoktunk karakter tömbbel dolgozni, a második lehetőség a string műveleteinek használata: pl. <code>Substring</code>, <code>Replace</code>, stb. Ezek becsapósak, nem az eredeti sztringet módosítják, hanem mindig egy új sztringet állítanak elő és azzal térnek vissza, vagyis <strong>ezek sem változtatják meg az eredeti sztringet!</strong> Íme egy példa a <code>Replace</code>-re:</p>
+<p>II. De ritkábban szoktunk karakter tömbbel dolgozni. A másik lehetőség: nem megváltozattjuk a sztringet (mert az nem lehet), hanem egy újat hozunk létre, mely a módosításnak megfelelő karaktereket tartalmazza. Így működik pl. a string  <code>Replace</code> művelete is. A  neve becsapós, nem az eredeti sztringet módosítja, hanem mindig egy új sztringet állít elő és azzal tér vissza. Íme egy példa a <code>Replace</code>-re:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma körte szilva&quot;</span><span class="p">;</span>
 <span class="c1">// Cseréljük ki a &quot;körte&quot; részt &quot;barack&quot;-ra a string Replace használatával.</span>
 
