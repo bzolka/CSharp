@@ -17,7 +17,7 @@
     
     
       
-        <title>String alapok - C# alapok</title>
+        <title>Stringkezelés alapok - C# alapok</title>
       
     
     
@@ -61,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#stringkezeles-alapok" class="md-skip">
+          Kihagyás
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -85,7 +90,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              String alapok
+              Stringkezelés alapok
             
           </span>
         </div>
@@ -147,14 +152,16 @@
         
           
 
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link">
         C# alapok
       </a>
     
@@ -179,7 +186,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../string-alapok-feladatcsoport-1/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link md-tabs__link--active">
           Stringek
         </a>
       
@@ -353,10 +360,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Stringek
@@ -373,6 +382,129 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Stringkezelés alapok
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Stringkezelés alapok" class="md-nav__link md-nav__link--active">
+      Stringkezelés alapok
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jellemzok" class="md-nav__link">
+    Jellemzők
+  </a>
+  
+    <nav class="md-nav" aria-label="Jellemzők">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-vs-char-vs-char-tomb" class="md-nav__link">
+    String vs. char vs. char tömb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-string-immutable-nem-megvaltoztathato-tipus" class="md-nav__link">
+    A string immutable (nem megváltoztatható) típus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fontosabb-string-muveletek" class="md-nav__link">
+    Fontosabb string műveletek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specialis-karakterek-escape-karakterek-specialis-stringek" class="md-nav__link">
+    Speciális karakterek, escape karakterek, speciális stringek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konverzio-stringbe" class="md-nav__link">
+    Konverzió stringbe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beolvasaskonverzio-stringbol" class="md-nav__link">
+    Beolvasás/konverzió stringből
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formazott-sztringek-sztringek-osszefuzese-formazasa" class="md-nav__link">
+    Formázott sztringek (sztringek összefűzése, formázása)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#egyebek-tisztazando" class="md-nav__link">
+    Egyebek (tisztázandó)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra" class="md-nav__link">
+    Extra
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
         
           
           
@@ -710,6 +842,107 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Tartalomjegyzék">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Tartalomjegyzék
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jellemzok" class="md-nav__link">
+    Jellemzők
+  </a>
+  
+    <nav class="md-nav" aria-label="Jellemzők">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-vs-char-vs-char-tomb" class="md-nav__link">
+    String vs. char vs. char tömb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a-string-immutable-nem-megvaltoztathato-tipus" class="md-nav__link">
+    A string immutable (nem megváltoztatható) típus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fontosabb-string-muveletek" class="md-nav__link">
+    Fontosabb string műveletek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specialis-karakterek-escape-karakterek-specialis-stringek" class="md-nav__link">
+    Speciális karakterek, escape karakterek, speciális stringek
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konverzio-stringbe" class="md-nav__link">
+    Konverzió stringbe
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beolvasaskonverzio-stringbol" class="md-nav__link">
+    Beolvasás/konverzió stringből
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formazott-sztringek-sztringek-osszefuzese-formazasa" class="md-nav__link">
+    Formázott sztringek (sztringek összefűzése, formázása)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#egyebek-tisztazando" class="md-nav__link">
+    Egyebek (tisztázandó)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra" class="md-nav__link">
+    Extra
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -723,18 +956,262 @@
                   
                 
                 
-                  <h1>String alapok</h1>
-                
-                <p>string immutable</p>
+                <h1 id="stringkezeles-alapok">Stringkezelés alapok<a class="headerlink" href="#stringkezeles-alapok" title="Permanent link">&para;</a></h1>
+<h2 id="jellemzok">Jellemzők<a class="headerlink" href="#jellemzok" title="Permanent link">&para;</a></h2>
+<p>A sztring típus neve <code>string</code> vagy <code>String</code>, a kettő ugyanazt jelenti.</p>
+<p>A sztring referencia típus. Vagyis a sztring változók hivatkozások, melynek értéke lehet null, vagy több hivatkozás is hivatkozhat ugyanarra a sztringre.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
+<span class="c1">// Az s2 is az s1 stringre hivatkozik, értéke &quot;alma&quot;</span>
+<span class="kt">string</span> <span class="n">s2</span> <span class="p">=</span> <span class="n">s1</span><span class="p">;</span>
+
+<span class="c1">// Az s3 értéke null, nem hivatkozik semmilyen stringre</span>
+<span class="kt">string</span> <span class="n">s3</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként. A szting ugyanakkor kicsit speciális, mert nem kötelező a new-val létrehozni:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;alma&quot;</span><span class="p">);</span>
+<span class="c1">// Így szoktuk, new nélkül</span>
+<span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Üres string:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Lehet így: &quot;&quot;</span>
+<span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+
+<span class="c1">// Vagy így, ez pontosan &quot;&quot;-nek felel meg</span>
+<span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+
+<span class="c1">// Így szoktuk, new nélkül</span>
+<span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Lényeges, hogy az üres sztring és a null string teljesen mást jelent! Ha egy sztring hivatkozás <code>null</code>, akkor nem hivatkozik semmilyen sztringre, ha üres (""), akkor pedig egy nulla hosszú sztringre hivatkozik.</p>
+<h3 id="string-vs-char-vs-char-tomb">String vs. char vs. char tömb<a class="headerlink" href="#string-vs-char-vs-char-tomb" title="Permanent link">&para;</a></h3>
+<p>Egy string több karakterből áll. A string konstansokat dupla idézőjelbe tesszük (<code>"alma"</code>), a char konstansokat szimplába <code>'a'</code>);
+A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdezhetők).</p>
+<h3 id="a-string-immutable-nem-megvaltoztathato-tipus">A string immutable (nem megváltoztatható) típus<a class="headerlink" href="#a-string-immutable-nem-megvaltoztathato-tipus" title="Permanent link">&para;</a></h3>
+<p>A sztringek <strong>nem megváltoztathatók</strong> (angolul úgy mondjuk, hogy a sztring "immutable" típus).</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
+<span class="c1">// Ez nem működik, a []-szel csak olvasni lehet, írni nem!</span>
+<span class="n">s1</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="sc">&#39;b&#39;</span><span class="p">;</span>
+</code></pre></div>
+
+<p>Ha meg kell változtatni egy string tartalmát, két lehetőségünk van:</p>
+<p>Az első lehetőség, ha <strong>string helyett karakter tömböt (char[]) használunk</strong>. Vagy már eleve <code>char[]</code>-öt hozunk létre, vagy ha sztringből kell kiindulni, akkor karakter tömbbé alakítjuk és a végén vissza (ha szükséges):</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// cseréljük le az első betűt b-re</span>
+<span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
+<span class="c1">// Alakítsuk char[]-re</span>
+<span class="kt">char</span><span class="p">[]</span> <span class="n">karakterek</span> <span class="p">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">ToCharArray</span><span class="p">();</span>
+<span class="c1">// Ez már módosítható</span>
+<span class="n">karakterek</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="sc">&#39;b&#39;</span><span class="p">;</span>
+<span class="c1">// Alakítsuk a karakter tömböt stringgé</span>
+<span class="kt">string</span> <span class="n">s2</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="n">karakterek</span><span class="p">);</span>
+<span class="c1">// Írjuk ki, &quot;blma&quot; lesz a kimenet</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>
+</code></pre></div>
+
+<p>A fenti kód alapján jegyezd meg, hogyan lehet sztringet karakter tömbbé alakítani (<code>ToCharArray()</code> művelet), illetve karatker tömböt sztringgé (ehhez létre kell hozni egy új sztringet a new-val, lásd fent a példában)!</p>
+<p>De ritkábban szoktunk karakter tömbbel dolgozni, a második lehetőség a string műveleteinek használata: pl. <code>Substring</code>, <code>Replace</code>, stb. Ezek becsapósak, nem az eredeti sztringet módosítják, hanem mindig egy új sztringet állítanak elő és azzal térnek vissza, vagyis <strong>ezek sem változtatják meg az eredeti sztringet!</strong> Íme egy példa a <code>Replace</code>-re:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma körte szilva&quot;</span><span class="p">;</span>
+<span class="c1">// Cseréljük ki a &quot;körte&quot; részt &quot;barack&quot;-ra a string Replace használatával.</span>
+
+<span class="c1">// 1. Próba (nem jó):</span>
+<span class="c1">// Ennek semmi értelme: nem az s1 sztringet változtatja, </span>
+<span class="c1">// hanem visszaad egy új sztringet, de azt nem tároljuk el:</span>
+<span class="n">s1</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;körte&quot;</span><span class="p">,</span> <span class="s">&quot;barack&quot;</span><span class="p">);</span>
+
+<span class="c1">// 2. Próba (jó):</span>
+<span class="c1">// Ez a jó, s2-ben eltároljuk az új sztringet</span>
+<span class="kt">string</span> <span class="n">s2</span> <span class="p">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;körte&quot;</span><span class="p">,</span> <span class="s">&quot;barack&quot;</span><span class="p">);</span>
+<span class="c1">// Ezt írja ki: &quot;alma barack szilva&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span> <span class="p">;</span>
+
+<span class="c1">// Nézzünk egy objektumon belül string tagra példát:</span>
+<span class="k">class</span> <span class="nc">Szemely</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">Kor</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Nev</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">...</span>
+<span class="n">Szemely</span> <span class="n">szemely1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Szemely</span><span class="p">();</span>
+<span class="n">szemely1</span><span class="p">.</span><span class="n">Kor</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
+
+<span class="c1">// Cseréljük le a személy1 nevében az &quot;á&quot;-t &quot;a&quot;-ra</span>
+<span class="c1">// Ez így értelmetlen, mert visszaada az új sztringet, de nem </span>
+<span class="c1">// kezdünk vele semmit:</span>
+<span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;á&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
+<span class="c1">// Így a jó:</span>
+<span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span> <span class="p">=</span> <span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;á&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
+</code></pre></div>
+
+<h3 id="fontosabb-string-muveletek">Fontosabb string műveletek<a class="headerlink" href="#fontosabb-string-muveletek" title="Permanent link">&para;</a></h3>
+<p>Console műveletek:</p>
+<ul>
+<li><code>Console.Write(string)</code> - Ez nem kezd új sort, ritkábban használt, de fontos!!!</li>
+<li><code>Console.WriteLine(string)</code></li>
+<li><code>Console.ReadLine()</code></li>
+</ul>
+<p>Sztring rész meghatározása:
+ <code>Substring</code> - TODO</p>
+<p>Keresés stringben:
+ <code>IndexOf</code>,<code>LastIndexOf</code> - TODO</p>
+<p>Csere:
+ <code>Replace</code> - TODO</p>
+<h3 id="specialis-karakterek-escape-karakterek-specialis-stringek">Speciális karakterek, escape karakterek, speciális stringek<a class="headerlink" href="#specialis-karakterek-escape-karakterek-specialis-stringek" title="Permanent link">&para;</a></h3>
+<p>Alapesetben a <code>'\'</code> egy escape szekvencia kezdetét jelzi. Példák:</p>
+<ul>
+<li><code>'\t'</code>: egy tab karakter</li>
+<li><code>"alma\tszilva"</code>: alma és szilva tabbal elválasztva</li>
+<li><code>"\r\n"</code>: Sortörés Windows operációs rendszerben. Két karakterből áll (<code>'\r'</code> és egy <code>'\n'</code> egymás után, melyek bájbeli értéke 13 és 10).</li>
+<li><code>"alma\r\nszilva\r\nkörte"</code>: három gyümölcs külön sorban (vagyis sortörésekkel elválasztva).</li>
+</ul>
+<p>Adódik a kérdés, hogyan tudunk akkor egyáltalán <code>'\'</code> karaktert megadni stringben. Két lehetőség van:</p>
+<ul>
+<li>Megduplázzuk minden előfordulási helyén, pl. <code>string fajlUtvonal = "c:\\temp\\gyumolcsok.txt"</code></li>
+<li>A <code>'@'</code> karaktert a szting elé írva kikapcsoljuk az escape-elést, ekkor nem kell duplázni, pl.: <code>string fajlUtvonal = @"c:\temp\gyumolcsok.txt"</code></li>
+</ul>
+<h3 id="konverzio-stringbe">Konverzió stringbe<a class="headerlink" href="#konverzio-stringbe" title="Permanent link">&para;</a></h3>
+<p>C#-ban minden típusra meghívható a <code>ToString()</code> művelet, ami az adott változót/objektumot sztringgé alakítja:</p>
+<ul>
+<li>Az <strong>egyszerű beépített típusoknál</strong> (<code>int</code>, <code>double</code>, stb.) a <code>ToString()</code> magában is jól használható</li>
+<li>
+<p><strong>Saját típusoknál (osztály, struktúra)</strong>: a ToString nem tudja, hogyan kell az objektumokat sztringgé alakítani, így alapesetben a <code>ToString()</code> csak az objektum típusát írja ki. Ezen legelegánsabban úgy tudunk segíteni, ha me az igényünknek megfelelő felülírjuk a <code>ToString()</code> függvényt az osztályunkban/struktúránkban.</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Szemely</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">Kor</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Nev</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">...</span>
+<span class="n">Szemely</span> <span class="n">szemely1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Szemely</span><span class="p">();</span>
+<span class="n">szemely1</span><span class="p">.</span><span class="n">Kor</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">sz</span> <span class="p">=</span> <span class="n">szemely1</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+<span class="c1">// Csak a típust írja ki, pl: Stringek.Szemely</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">sz</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Most írjuk felül a ToString() műveletet a Szemely osztályban (publikus kell legyen és az <strong>override</strong> szót is ki kell írni):</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Szemely</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">Kor</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Nev</span><span class="p">;</span>
+<span class="hll">
+</span><span class="hll">    <span class="c1">// Fontos: az override szór is ki kell írni!!!</span>
+</span><span class="hll">    <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToString</span><span class="p">()</span>
+</span><span class="hll">    <span class="p">{</span>
+</span><span class="hll">        <span class="c1">// A saját igényünknem megfelelően formázzuk az adatokat</span>
+</span>        <span class="k">return</span> <span class="s">&quot;Kor: &quot;</span> <span class="p">+</span> <span class="n">Kor</span> <span class="p">+</span> <span class="s">&quot; Nev: &quot;</span> <span class="p">+</span> <span class="n">Nev</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">...</span>
+<span class="n">Szemely</span> <span class="n">szemely1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Szemely</span><span class="p">();</span>
+<span class="hll"><span class="n">szemely1</span><span class="p">.</span><span class="n">Kor</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+</span><span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
+<span class="hll"><span class="c1">// Az általunk megírt ToString()-et hívja</span>
+</span><span class="kt">string</span> <span class="n">sz</span> <span class="p">=</span> <span class="n">szemely1</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+<span class="c1">// Ezt írja ki: &quot;Kor: 10Nev: István&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">sz</span><span class="p">);</span>
+</code></pre></div>
+
+</li>
+<li>
+<p><strong>Gyűjtemény (tömb/lista/stb.)</strong>: alapesetben csak tömb/lista típusát írja ki a <code>ToString()</code>. Vagy <code>foreach</code>-csel menjünk végig az elemeken és egyesével hívjunk <code>ToString()</code>-et, vagy sok esetben jól használható a <code>string.Join(szeparátor, elemek)</code>:</p>
+<ul>
+<li>A <code>szeparátor</code> egy string vagy karakter (a string nem minden esetben támogatott?).</li>
+<li>Az <code>elemek</code> lehet</li>
+<li>sztring gyűjtemény (pl. tömb, lista).
+   <div class="highlight"><pre><span></span><code> <span class="kt">string</span><span class="p">[]</span> <span class="n">gyumolcsok</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&quot;alma&quot;</span><span class="p">,</span> <span class="s">&quot;körte&quot;</span><span class="p">,</span> <span class="s">&quot;szilva&quot;</span> <span class="p">};</span>
+ <span class="kt">string</span> <span class="n">gyumolcsokEgyben</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span> <span class="n">gyumolcsok</span><span class="p">);</span>
+ <span class="c1">// Ezt írja ki: &quot;alma,körte,szilva&quot;</span>
+ <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">gyumolcsokEgyben</span><span class="p">);</span>
+</code></pre></div></li>
+<li>Vagy lehet bármilyen elemtípusú, akkor ToString()-et fog minden elemre hívni. Ez egyszerű típusok (pl. int, double) teljesen jól működik.
+   <div class="highlight"><pre><span></span><code> <span class="kt">int</span><span class="p">[]</span> <span class="n">szamok</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">12</span><span class="p">,</span> <span class="m">23</span><span class="p">,</span> <span class="m">11</span> <span class="p">};</span>
+ <span class="kt">string</span> <span class="n">szamokEgyben</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">,</span> <span class="n">szamok</span><span class="p">);</span>
+ <span class="c1">// Ezt írja ki: &quot;12,23,11&quot;</span>
+ <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">szamokEgyben</span><span class="p">);</span>
+</code></pre></div></li>
+<li>Ha az elemek típusa valamilyen saját osztály/struktúra, egy jó irány ebben az esetben <code>ToString()</code> felülírása az osztályunkban, erre fent láttunk példát.</li>
+<li>Ha az elemtípus nem string, a <code>Select()</code>-tel is leképezheted őket stringre (ha nem írod meg pl. a ToString-et). 
+   <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Szemely</span>
+ <span class="p">{</span>
+     <span class="k">public</span> <span class="kt">int</span> <span class="n">Kor</span><span class="p">;</span>
+     <span class="k">public</span> <span class="kt">string</span> <span class="n">Nev</span><span class="p">;</span>
+ <span class="p">}</span>
+ <span class="p">...</span>
+
+ <span class="c1">// A szemelyek tömbbe két személyt felveszünk:</span>
+ <span class="n">Szemely</span><span class="p">[]</span> <span class="n">szemelyek</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Szemely</span><span class="p">[]</span>
+ <span class="p">{</span>
+     <span class="k">new</span> <span class="n">Szemely</span> <span class="p">{</span> <span class="n">Kor</span> <span class="p">=</span> <span class="m">12</span><span class="p">,</span> <span class="n">Nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span> <span class="p">},</span>
+     <span class="k">new</span> <span class="n">Szemely</span> <span class="p">{</span> <span class="n">Kor</span> <span class="p">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">Nev</span> <span class="p">=</span> <span class="s">&quot;Géza&quot;</span> <span class="p">}</span>
+ <span class="p">};</span>
+
+ <span class="c1">// Gyársunk egy sztringet, melyben minden személy adata benne van külön sorokban, de egyetlen stringben</span>
+ <span class="c1">// Belülről kifele érdemes haladni:</span>
+ <span class="c1">// * a Select-tel a minden személyt egyesével leképezünk stringre</span>
+ <span class="c1">// * majd a string.Joinnal egyetlen sztringbe fűzzük</span>
+ <span class="kt">string</span> <span class="n">szemelyekEgybenString</span> <span class="p">=</span>
+     <span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&quot;\r\n&quot;</span><span class="p">,</span> <span class="n">szemelyek</span><span class="p">.</span><span class="n">Select</span><span class="p">(</span><span class="n">sz</span> <span class="p">=&gt;</span> <span class="s">&quot;Kor: &quot;</span> <span class="p">+</span> <span class="n">sz</span><span class="p">.</span><span class="n">Kor</span> <span class="p">+</span> <span class="s">&quot; Nev: &quot;</span> <span class="p">+</span> <span class="n">sz</span><span class="p">.</span><span class="n">Nev</span><span class="p">).</span><span class="n">ToArray</span><span class="p">());</span>
+ <span class="c1">// Ezt írja ki:</span>
+ <span class="c1">// Kor: 12 Nev: István</span>
+ <span class="c1">// Kor: 15 Nev: Géza</span>
+ <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">szemelyekEgybenString</span><span class="p">);</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h3 id="beolvasaskonverzio-stringbol">Beolvasás/konverzió stringből<a class="headerlink" href="#beolvasaskonverzio-stringbol" title="Permanent link">&para;</a></h3>
+<p>Az elemi típusok (<code>int</code>, <code>double</code>, stb.) többsége a <code>Convert</code> osztály segítségévek állítható elő sztringből.</p>
+<p>Ha egy sztringben szeparátorral elválaszott egyszerű elemek vannak, akkor a Split művelettel lehet a szeparátor mentén vágni és egy string tömbben az elemeket megkapni:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">sor</span> <span class="p">=</span> <span class="s">&quot;alma,körte,szilva&quot;</span><span class="p">;</span>
+<span class="c1">// A gyumolcsok egy háromelemű tömb</span>
+<span class="kt">string</span><span class="p">[]</span> <span class="n">gyumolcsok</span> <span class="p">=</span> <span class="n">sor</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="sc">&#39;,&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>FONTOS: a szeparátort <strong>karakterben</strong> kell megadni, ez minden C# változatban működik. A legújabb C# változatok már sztringet is elfogadnak, ez különösen jól jön akkor, ha pl. sortörések mentén kell vágni:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">sor</span> <span class="p">=</span> <span class="s">&quot;alma\r\nkörte\r\nszilva&quot;</span><span class="p">;</span>
+<span class="c1">// A gyumolcsok egy háromelemű tömb</span>
+<span class="kt">string</span><span class="p">[]</span> <span class="n">gyumolcsok</span> <span class="p">=</span> <span class="n">sor</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="err">&#39;\</span><span class="n">r</span><span class="err">\</span><span class="n">n</span><span class="err">&#39;</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Megjegyzés haladóknak: a régi C#-ban is lehet sztring a szeparátor, egy string[]-öt és egy plusz opció paramétert is meg kell adni, az online leírásban érdemes megnézni, ha szükség lenne rá.</p>
+<h3 id="formazott-sztringek-sztringek-osszefuzese-formazasa">Formázott sztringek (sztringek összefűzése, formázása)<a class="headerlink" href="#formazott-sztringek-sztringek-osszefuzese-formazasa" title="Permanent link">&para;</a></h3>
+<p>Gyakran van igény arra, hogy egy sztringbe több adatot belefűzzünk, "formázzunk".  A legegyszerűbb megoldás, ha a <code>'+'</code>-szal összefűzzük a sztring részeket, íme egy példa:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">kor</span> <span class="p">=</span> <span class="m">35</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">formazottString</span> <span class="p">=</span> <span class="s">&quot;Név: &quot;</span> <span class="p">+</span> <span class="n">nev</span> <span class="p">+</span> <span class="s">&quot;, Kor: &quot;</span> <span class="p">+</span> <span class="n">kor</span><span class="p">;</span>
+<span class="c1">// Ezt írja ki: &quot;Név: István, Kor: 35&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formazottString</span><span class="p">);</span>
+</code></pre></div>
+
+<p>A fenti megoldás működik, de kicst nehezen átlátható, könnyű elrontani. Egy alternatív, modern megoldás a string interpoláció használata. A hangzatos néz mögött egy nagyon egyszerű a mechanizmusa , könnyű megszeretni. Az alábbi példa illusztrálja a használatát. A lényege az, hogy egyetlen sztringet használunk, melyben <strong>{}</strong> között beírjuk a <strong>változókat</strong>, amiket az adott helyre be akarunk kell helyettesíteni. Az fontos még, hogy a sztring elé ki kell írni a <code>'$'</code> jelet:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">kor</span> <span class="p">=</span> <span class="m">35</span><span class="p">;</span>
+<span class="c1">// $-ral kezdjük, és {} között bármilyen változót megadva behelyettesítődik a változó értéke</span>
+<span class="kt">string</span> <span class="n">formazottString</span> <span class="p">=</span> <span class="err">$</span><span class="s">&quot;Név: {nev}, Kor: {kor}&quot;</span><span class="p">;</span>
+<span class="c1">// Ezt írja ki: &quot;Név: István, Kor: 35&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formazottString</span><span class="p">);</span>
+</code></pre></div>
+
+<p>Egy harmadik lehetőség a <code>string.Format</code> statikus művelet használata. Ennél elegánsabb a fenti sztring interpoláció, de régebbi kódokban még találkozhatunk vele:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">kor</span> <span class="p">=</span> <span class="m">35</span><span class="p">;</span>
+<span class="c1">// {} között számot adunk meg, a {0} helyébe a 0. paramétert írja be (esetünkben nev), </span>
+<span class="c1">// az {1} helyébe az elsőt (esetünkben kor), stb.</span>
+<span class="kt">string</span> <span class="n">formazottString</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Név: {0}, Kor: {1}&quot;</span><span class="p">,</span> <span class="n">nev</span><span class="p">,</span> <span class="n">kor</span><span class="p">);</span>
+<span class="c1">// Ezt írja ki: &quot;Név: István, Kor: 35&quot;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formazottString</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="egyebek-tisztazando">Egyebek (tisztázandó)<a class="headerlink" href="#egyebek-tisztazando" title="Permanent link">&para;</a></h2>
+<p>ASCII karakterekkel munka (minden karakter egy szám is)</p>
+<p>Case sensitive + ToLower/ToUpper</p>
+<p>whitespace-ek eltávolítása</p>
+<h2 id="extra">Extra<a class="headerlink" href="#extra" title="Permanent link">&para;</a></h2>
 <p><a href="http://csharptk.ektf.hu/download/csharp-ekf.pdf">http://csharptk.ektf.hu/download/csharp-ekf.pdf</a>
-Fontos megemlíteni, hogy a C alapú nyelvekben a  (backslash) karakter ún.: escape
-szekvencia. Az s="C:\hello" karakter sorozat hibás eredményt szolgáltat, ha elérési útként
-szeretnénk felhasználni, mivel a \h -nak nincs jelentése, viszont a rendszer megpróbálja
-értelmezni. Ilyen esetekben vagy s="C:\hello" vagy s=@"C:\hello" formulát használjuk! Az
-elsı megoldásban az elsı  jel elnyomja a második  jel hatását. A második megoldásnál a @
-jel gondoskodik arról, hogy az utána írt string a "C:\hello" formában megmaradjon az
-értékadásnál, vagy a kiíró utasításokban.</p>
-<p><a href="http://aries.ektf.hu/~hz/wiki7/mprog1ea/adattipusok">http://aries.ektf.hu/~hz/wiki7/mprog1ea/adattipusok</a>
+<a href="http://aries.ektf.hu/~hz/wiki7/mprog1ea/adattipusok">http://aries.ektf.hu/~hz/wiki7/mprog1ea/adattipusok</a>
 A kezdeti időkben úgy találták, hogy 256 féle karakter elég sokmindenre elég, ezért az ASCII kódtábla 0..255 közötti számkódokat tartalmaz. Idővel ennyi karakter, szimbólum kevésnek bizonyult, ezért másik kódtáblát készítettek, melyet UNICODE-nak neveznek. Ez az eredeti ASCII tábla bővítményének fogható fel. A UNICODE táblázatban nem áll meg a sorszámozás 255-nél, hanem újabb szimbólumok felvezetése mellett tart 65535-ig (alap UNICODE tábla). A UNICODE kódolás ennél a valóságban sokkal összetettebb, további információk az alábbi linken olvashatók.</p>
 <p>Mivel unicode sorszámok már 65535-ig tartanak, ezen sorszámok leírására nem elég 1 byte, hanem 2 byte kell. A C# char típusa a unicode kódtábla alapján működik, ezért egy karakterérték tárolásához 2 byte-ra van szükség a memóriában.</p>
                 

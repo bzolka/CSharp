@@ -186,7 +186,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../StringAlapgyakorlatok/string-alapok-feladatcsoport-1/" class="md-tabs__link">
+        <a href="../../StringAlapgyakorlatok/string-alapok/" class="md-tabs__link">
           Stringek
         </a>
       
@@ -380,6 +380,18 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../StringAlapgyakorlatok/string-alapok/" title="Stringkezelés alapok" class="md-nav__link">
+      Stringkezelés alapok
+    </a>
+  </li>
+
         
           
           
@@ -971,9 +983,9 @@ A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereke
 
 <p>Vagyis egy CR+LF-vel elválasztott "alma" és "szilva". Egyben, ha mint C# string nézzük "alma\r\nszilva".  Ez bizony szöveges tartalom, vagyis egy szövegfájllal van dolgunk. Ha megnyitjuk a Jegyzettömb (Notepad) alkalmazásban, így néz ki:</p>
 <p><img alt="image" src="../fajl-alapok-gyumolcsok-notepad.png" /></p>
-<p>A tisztázandó még, hogy mik a 10 (CR) és 13 (LF) bájt a közepén. Egyszerűen arról van szó, hogy van egy sortörés is az alma után, melyet Windows operációs rendszerben két speciális karakter jelöl. C#-ban '\r' és egy '\n' karakter, egy stringbe írva "\r\n". A '\r' számértéke 13, a '\n'-né 10.</p>
+<p>A tisztázandó még, hogy mik a 10 (CR) és 13 (LF) bájt a közepén. Egyszerűen arról van szó, hogy van egy sortörés is az alma után, melyet Windows operációs rendszerben két speciális karakter jelöl. C#-ban <code>'\r'</code> és egy <code>'\n'</code> karakter, egy stringbe írva <code>"\r\n"</code>. A '\r' számértéke 13, a '\n'-né 10.</p>
 <p>Megjegyzés: Linux operációs rendszer alatt csak egy karakter használatos sortörésre, a '\n'.</p>
-<p>Megjegyzés: A <code>'\n'</code> és a <code>'\n'</code>, bár C# nyelven a forráskódban két karakterrel jelöljük, csak egy bájt hosszú  mindkettő: a C# nyelven a <code>\</code> egy escape szekvencia kezdetét jelöli, vagyis pl. a <code>'\n'</code> nem egy <code>'\'</code> és egy <code>'n'</code> karakter egymásután, hanem a <code>'\n'</code> önmagában jelöl <strong>egyetlen</strong> speciális karaktert, melynek a számkódja 13.</p>
+<p>Megjegyzés: A <code>'\n'</code> és a <code>'\n'</code>, bár C# nyelven a forráskódban két karakterrel jelöljük,  mindkettő magában csak egy bájt hosszú: a C# nyelven a <code>\</code> egy escape szekvencia kezdetét jelöli, vagyis pl. a <code>'\n'</code> nem egy <code>'\'</code> és egy <code>'n'</code> karakter egymásután, hanem a <code>'\n'</code> önmagában jelöl <strong>egyetlen</strong> speciális karaktert, melynek a számkódja 13.</p>
 <p>A szövegfájlok írására/olvasására egyszerűbb lehetőségünk is van, mint nyers bájtokkal, bájtömbökkel dolgozni. Egyszerű <strong>sztringekkel</strong> dolgozunk.</p>
 <h3 id="szovegfajl-irasa">Szövegfájl írása<a class="headerlink" href="#szovegfajl-irasa" title="Permanent link">&para;</a></h3>
 <p>Szövegfájlba írni a <code>StreamWriter</code> osztály <code>Write</code>, illetve <code>WriteLine</code> műveletével tudunk: a <code>Write</code> egyszerűen kiírja a fájl végére a paraméterként kapott sztringet. A <code>WriteLine</code> is kiírja a paraméterként kapott stringet, de a végére még egy sortörést is hozzáfűz ("\r\n"), így a későbbi írás már egy új sorba történik majd (ha még írunk a fájlba).</p>
@@ -1073,10 +1085,12 @@ A szövegfájlban is bájtok vannak, csak ezek a bájtok szövegbeli karaktereke
 Feladat: hogyan tudjuk ezt a stringet sortörések mentén vágni, és egy sztring tömbben a sorokat megkapni? (a válasz szoveg.Split("\r\n")).</p>
 <p>Pl. itt találsz még jó magyarázatot és példákat szövegfájl írására és olvasására is: <a href="http://aries.ektf.hu/~hz/wiki7/mprog1ea/text_file">http://aries.ektf.hu/~hz/wiki7/mprog1ea/text_file</a></p>
 <h2 id="tovabbi-lenyeges-informaciok">További lényeges információk<a class="headerlink" href="#tovabbi-lenyeges-informaciok" title="Permanent link">&para;</a></h2>
-<p>TODO 
-* Biztos fájl lezárás, using blokk
-* Unicode
-* Memóriában is bitek vannak</p>
+<p>TODO</p>
+<ul>
+<li>Biztos fájl lezárás, using blokk</li>
+<li>Unicode</li>
+<li>Memóriában is bitek vannak</li>
+</ul>
                 
               
               
