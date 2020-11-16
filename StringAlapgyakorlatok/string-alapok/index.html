@@ -1063,7 +1063,7 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 <ul>
 <li><code>'\t'</code>: egy tab karakter</li>
 <li><code>"alma\tszilva"</code>: alma és szilva tabbal elválasztva</li>
-<li><code>"\r\n"</code>: Sortörés Windows operációs rendszerben. Két karakterből áll (<code>'\r'</code> és egy <code>'\n'</code> egymás után, melyek bájbeli értéke 13 és 10).</li>
+<li><code>"\r\n"</code>: Sortörés Windows operációs rendszerben. Két karakterből áll (<code>'\r'</code> és egy <code>'\n'</code> egymás után, melyek bájtbeli értéke 13 és 10).</li>
 <li><code>"alma\r\nszilva\r\nkörte"</code>: három gyümölcs külön sorban (vagyis sortörésekkel elválasztva).</li>
 </ul>
 <p>Adódik a kérdés, hogyan tudunk akkor egyáltalán <code>'\'</code> karaktert megadni stringben. Két lehetőség van:</p>
@@ -1091,27 +1091,27 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">sz</span><span class="p">);</span>
 </code></pre></div>
 
-<p>Most írjuk felül a ToString() műveletet a Szemely osztályban (publikus kell legyen és az <strong>override</strong> szót is ki kell írni):</p>
+<p>Most írjuk felül a <code>ToString()</code> műveletet a <code>Szemely</code> osztályban (publikus kell legyen és az <strong>override</strong> szót is ki kell írni):</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Szemely</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="kt">int</span> <span class="n">Kor</span><span class="p">;</span>
     <span class="k">public</span> <span class="kt">string</span> <span class="n">Nev</span><span class="p">;</span>
-<span class="hll">
-</span><span class="hll">    <span class="c1">// Fontos: az override szór is ki kell írni!!!</span>
+
+<span class="hll">    <span class="c1">// Fontos: az override szór is ki kell írni!!!</span>
 </span><span class="hll">    <span class="k">public</span> <span class="k">override</span> <span class="kt">string</span> <span class="nf">ToString</span><span class="p">()</span>
 </span><span class="hll">    <span class="p">{</span>
 </span><span class="hll">        <span class="c1">// A saját igényünknem megfelelően formázzuk az adatokat</span>
-</span>        <span class="k">return</span> <span class="s">&quot;Kor: &quot;</span> <span class="p">+</span> <span class="n">Kor</span> <span class="p">+</span> <span class="s">&quot; Nev: &quot;</span> <span class="p">+</span> <span class="n">Nev</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+</span><span class="hll">        <span class="k">return</span> <span class="s">&quot;Kor: &quot;</span> <span class="p">+</span> <span class="n">Kor</span> <span class="p">+</span> <span class="s">&quot;, Nev: &quot;</span> <span class="p">+</span> <span class="n">Nev</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="p">}</span>
 <span class="p">...</span>
 <span class="n">Szemely</span> <span class="n">szemely1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Szemely</span><span class="p">();</span>
-<span class="hll"><span class="n">szemely1</span><span class="p">.</span><span class="n">Kor</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
-</span><span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
+<span class="n">szemely1</span><span class="p">.</span><span class="n">Kor</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+<span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
 <span class="hll"><span class="c1">// Az általunk megírt ToString()-et hívja</span>
 </span><span class="kt">string</span> <span class="n">sz</span> <span class="p">=</span> <span class="n">szemely1</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
-<span class="c1">// Ezt írja ki: &quot;Kor: 10Nev: István&quot;</span>
-<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">sz</span><span class="p">);</span>
+<span class="hll"><span class="c1">// Ezt írja ki: &quot;Kor: 10, Nev: István&quot;</span>
+</span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">sz</span><span class="p">);</span>
 </code></pre></div>
 
 </li>
@@ -1148,7 +1148,8 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
      <span class="k">new</span> <span class="n">Szemely</span> <span class="p">{</span> <span class="n">Kor</span> <span class="p">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">Nev</span> <span class="p">=</span> <span class="s">&quot;Géza&quot;</span> <span class="p">}</span>
  <span class="p">};</span>
 
- <span class="c1">// Gyársunk egy sztringet, melyben minden személy adata benne van külön sorokban, de egyetlen stringben</span>
+ <span class="c1">// Gyársunk egy sztringet, melyben minden személy adata benne van külön </span>
+ <span class="c1">// sorokban, de egyetlen stringben</span>
  <span class="c1">// Belülről kifele érdemes haladni:</span>
  <span class="c1">// * a Select-tel a minden személyt egyesével leképezünk stringre</span>
  <span class="c1">// * majd a string.Joinnal egyetlen sztringbe fűzzük</span>
@@ -1189,7 +1190,8 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 <p>A fenti megoldás működik, de kicst nehezen átlátható, könnyű elrontani. Egy alternatív, modern megoldás a string interpoláció használata. A hangzatos néz mögött egy nagyon egyszerű a mechanizmusa , könnyű megszeretni. Az alábbi példa illusztrálja a használatát. A lényege az, hogy egyetlen sztringet használunk, melyben <strong>{}</strong> között beírjuk a <strong>változókat</strong>, amiket az adott helyre be akarunk kell helyettesíteni. Az fontos még, hogy a sztring elé ki kell írni a <code>'$'</code> jelet:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">kor</span> <span class="p">=</span> <span class="m">35</span><span class="p">;</span>
-<span class="c1">// $-ral kezdjük, és {} között bármilyen változót megadva behelyettesítődik a változó értéke</span>
+<span class="c1">// $-ral kezdjük, és {} között bármilyen változót megadva behelyettesítődik</span>
+<span class="c1">// a változó értéke</span>
 <span class="kt">string</span> <span class="n">formazottString</span> <span class="p">=</span> <span class="err">$</span><span class="s">&quot;Név: {nev}, Kor: {kor}&quot;</span><span class="p">;</span>
 <span class="c1">// Ezt írja ki: &quot;Név: István, Kor: 35&quot;</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formazottString</span><span class="p">);</span>
@@ -1198,7 +1200,8 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 <p>Egy harmadik lehetőség a <code>string.Format</code> statikus művelet használata. Ennél elegánsabb a fenti sztring interpoláció, de régebbi kódokban még találkozhatunk vele:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">kor</span> <span class="p">=</span> <span class="m">35</span><span class="p">;</span>
-<span class="c1">// {} között számot adunk meg, a {0} helyébe a 0. paramétert írja be (esetünkben nev), </span>
+<span class="c1">// {} között számot adunk meg, a {0} helyébe a 0. paramétert írja be</span>
+<span class="c1">//  (esetünkben nev), </span>
 <span class="c1">// az {1} helyébe az elsőt (esetünkben kor), stb.</span>
 <span class="kt">string</span> <span class="n">formazottString</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Név: {0}, Kor: {1}&quot;</span><span class="p">,</span> <span class="n">nev</span><span class="p">,</span> <span class="n">kor</span><span class="p">);</span>
 <span class="c1">// Ezt írja ki: &quot;Név: István, Kor: 35&quot;</span>
