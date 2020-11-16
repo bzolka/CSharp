@@ -19,15 +19,15 @@ namespace Stringek
     {
         static void Main(string[] args)
         {
-            string s1 = "alma körte szilva";
-            // Ennek semmi értelme: nem az s1 sztringet változtatja, 
-            // hanem visszaad egy új stringet, de azt nem tároljuk el:
-            s1.Replace("körte", "barack");
+            //string s1 = "alma körte szilva";
+            //// Ennek semmi értelme: nem az s1 sztringet változtatja, 
+            //// hanem visszaad egy új stringet, de azt nem tároljuk el:
+            //s1.Replace("körte", "barack");
 
-            // Ez a jó, s2-ben eltároljuk az új stringet
-            string s2 = s1.Replace("körte", "barack");
-            // Ezt írja ki: "alma barack szilva"
-            Console.WriteLine(s2); ;
+            //// Ez a jó, s2-ben eltároljuk az új stringet
+            //string s2 = s1.Replace("körte", "barack");
+            //// Ezt írja ki: "alma barack szilva"
+            //Console.WriteLine(s2); ;
 
 
             //string s = string.Empty;
@@ -80,6 +80,39 @@ namespace Stringek
 
             // Ezt írja ki: "Név: István, Kor: 35"
             Console.WriteLine(formazottString);
+
+            //string s1 = " színű";
+            //string subString = s1.Substring(s1.Length - 6, 6);
+            //Console.WriteLine(subString);
+
+            //string s1 = "alma körte szilva";
+
+            //// 6. -tól 4 darab karaktert vesz
+            //string subString2 = s1.Substring(6, 4);
+            //// Ezt írja ki: "örte"
+            //Console.WriteLine(subString2);
+
+            //string nev1 = "  Körte\t   ";
+            //// az {1} helyébe az elsőt (esetünkben kor), stb.
+            //string whitespaceNelkul = nev1.Trim();
+            //// Ezt írja ki: "Körte"
+            //Console.WriteLine(whitespaceNelkul);
+
+            //char c = '0';
+
+            //if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+            //    Console.WriteLine("Betű");
+
+            //string s1 = "Alma";
+            //string s2 = "alma";
+
+            //if (string.Equals(s1, s2, StringComparison.CurrentCultureIgnoreCase))
+            //    Console.WriteLine("Egyformák!");
+
+            char c = 'a';
+
+            // Írjuk a fenti c változó ASCII kódját
+            Console.WriteLine((int)c);
         }
     }
 }

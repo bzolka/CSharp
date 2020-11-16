@@ -110,20 +110,41 @@ szemely1.Nev = szemely1.Nev.Replace("á", "a");
 
 ### Fontosabb string műveletek
 
-Console műveletek:
+Console-ra írás, Console-ról olvasás
 
 * `Console.Write(string)` - Ez nem kezd új sort, ritkábban használt, de fontos!!!
 * `Console.WriteLine(string)`
 * `Console.ReadLine()`
 
-Sztring rész meghatározása:
- `Substring` - TODO
+Sztring adott részének kinyerése - `Substring`. Van egy és kétparaméteres változata is, az alábbi példában mindkettő szerepel:
 
-Keresés stringben:
- `IndexOf`,`LastIndexOf` - TODO
+```csharp
+string s1 = "alma körte szilva";
+// Egyparaméteres SubString, adott indextől a végéig minden 
+// karaktert visszaad. Pl.:Substring
+string subString = s1.Substring(s1.Length - 6);
+// Ezt írja ki: "szilva"
+Console.WriteLine(subString);
 
-Csere:
- `Replace` - TODO
+// 6. -tól 4 darab karaktert vesz
+string subString2 = s1.Substring(6, 4);
+// Ezt írja ki: "örte"
+Console.WriteLine(subString2);
+```
+
+Sztring részének lecserélése - `Replace`
+
+```csharp
+string s1 = "alma körte szilva";
+// Minden "körte" előfordulás cseréje "barack"-ra
+s1 = s1.Replace("körte", "barack");
+// Ezt írja ki: "alma barack szilva"
+Console.WriteLine(subString);
+```
+
+Keresés stringben: `IndexOf`, `LastIndexOf` - TODO PÉLDA
+
+Tartalmazás vizsgálat - `Contains`, `StartsWidth`, `EndsWidth` - TODO PÉLDA
 
 ### Speciális karakterek, escape karakterek, speciális stringek
 
@@ -295,11 +316,66 @@ Console.WriteLine(formazottString);
 
 ## Egyebek (tisztázandó)
 
-ASCII karakterekkel munka (minden karakter egy szám is)
+### ASCII karakterekkel munka (minden karakter egy szám is)
 
-Case sensitive + ToLower/ToUpper
+C#-ban minden karakter egy szám is, az adott karakter ASCII kódja. Erre építve hatékonyan lehet pár "trükkös" feladatot megoldani.
+Pl. Az `'a'` ASCII kódja 97, az `'A'` kódja pedig 65.
+Példa  annak eldöntése, valami betű-e (és nem szám, vagy speciális karakter), ha nem foglalkozunk az ékezetes karakterekkel:
 
-whitespace-ek eltávolítása
+```csharp
+char c = 'a';
+
+if ( (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') )
+    Console.WriteLine("Betű");
+```
+
+```csharp
+// Írjuk az alábbi c változó ASCII kódját
+char c = 'a';
+// 97-et ír ki
+Console.WriteLine( (int)c );
+```
+
+### Case sensitive + ToLower/ToUpper
+
+A sztringek ú.n. case sensitive-ek, vagyis a kis és nagybetűk megkülönböztetettek. Vagyis az `'a'` nem egyenlő az `'A'` karakterrel, vagy az "Alma" sem az "alma" sztringgel.
+Egy sztringet csupa nagybetűssé alakítani a `ToUpper()`-rel, csupa kisbetűssé a `ToLower()`-rel lehet.
+
+Ha például két sztringre a kis és nagybetűket nem megkülönböztetve szeretnénk eldönteni, egyenlők-e, akkor alakítsuk mindkettőt csupa kis vagy nagybetűssé, és így hasonlítsuk össze őket. Pl.:
+
+```csharp
+string s1 = "Alma";
+string s2 = "alma";
+
+if (s1.ToUpper() == s2.ToUpper())
+   Console.WriteLine("Egyformák");
+```
+
+Ez azonban nem a leghatékonyabb módja a probléma megoldásának, helyette ez, vagy ehhez hasonló megoldás javasolt:
+
+```csharp
+string s1 = "Alma";
+string s2 = "alma";
+
+if (string.Equals(s1, s2, StringComparison.CurrentCultureIgnoreCase))
+    Console.WriteLine("Egyformák");
+```
+
+### whitespace-ek eltávolítása
+
+Gyakran van szükség arra, hogy a szting elején/végén levő space/tab karaktereket (ezek ún. whitespace kaarkterek) eltávolítsuk. Erre a string osztály `Trim` művelete való:
+
+```csharp
+string nev = "  Körte\t   ";
+string whitespaceNelkul = nev.Trim();
+// Ezt írja ki: "Körte"
+Console.WriteLine(whitespaceNelkul);
+```
+
+### Sztring hossz
+
+A sztring `Length` tulajdonsága adja vissza.
+
 
 ## Extra
 
