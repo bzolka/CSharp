@@ -17,7 +17,7 @@
     
     
       
-        <title>Stringkezelés alapok - C# alapok</title>
+        <title>Sztringkezelés alapok - C# alapok</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stringkezeles-alapok" class="md-skip">
+        <a href="#sztringkezeles-alapok" class="md-skip">
           Kihagyás
         </a>
       
@@ -90,7 +90,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Stringkezelés alapok
+              Sztringkezelés alapok
             
           </span>
         </div>
@@ -398,14 +398,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Stringkezelés alapok
+        Sztringkezelés alapok
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="Stringkezelés alapok" class="md-nav__link md-nav__link--active">
-      Stringkezelés alapok
+    <a href="./" title="Sztringkezelés alapok" class="md-nav__link md-nav__link--active">
+      Sztringkezelés alapok
     </a>
     
       
@@ -453,8 +453,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#a-stringek-nem-megvaltoztathatok-immutable" class="md-nav__link">
-    A stringek nem megváltoztathatók (immutable)
+  <a href="#a-sztringek-nem-megvaltoztathatok-immutable" class="md-nav__link">
+    A sztringek nem megváltoztathatók (immutable)
   </a>
   
 </li>
@@ -467,22 +467,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#specialis-karakterek-escape-karakterek-specialis-stringek" class="md-nav__link">
-    Speciális karakterek, escape karakterek, speciális stringek
+  <a href="#specialis-karakterek-escape-karakterek-specialis-sztringek" class="md-nav__link">
+    Speciális karakterek, escape karakterek, speciális sztringek
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#konverzio-stringbe" class="md-nav__link">
-    Konverzió stringbe
+  <a href="#konverzio-sztringbe" class="md-nav__link">
+    Konverzió sztringbe
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#beolvasaskonverzio-stringbol" class="md-nav__link">
-    Beolvasás/konverzió stringből
+  <a href="#beolvasaskonverzio-sztringbol" class="md-nav__link">
+    Beolvasás/konverzió sztringből
   </a>
   
 </li>
@@ -938,8 +938,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#a-stringek-nem-megvaltoztathatok-immutable" class="md-nav__link">
-    A stringek nem megváltoztathatók (immutable)
+  <a href="#a-sztringek-nem-megvaltoztathatok-immutable" class="md-nav__link">
+    A sztringek nem megváltoztathatók (immutable)
   </a>
   
 </li>
@@ -952,22 +952,22 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#specialis-karakterek-escape-karakterek-specialis-stringek" class="md-nav__link">
-    Speciális karakterek, escape karakterek, speciális stringek
+  <a href="#specialis-karakterek-escape-karakterek-specialis-sztringek" class="md-nav__link">
+    Speciális karakterek, escape karakterek, speciális sztringek
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#konverzio-stringbe" class="md-nav__link">
-    Konverzió stringbe
+  <a href="#konverzio-sztringbe" class="md-nav__link">
+    Konverzió sztringbe
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#beolvasaskonverzio-stringbol" class="md-nav__link">
-    Beolvasás/konverzió stringből
+  <a href="#beolvasaskonverzio-sztringbol" class="md-nav__link">
+    Beolvasás/konverzió sztringből
   </a>
   
 </li>
@@ -1052,20 +1052,20 @@
                   
                 
                 
-                <h1 id="stringkezeles-alapok">Stringkezelés alapok<a class="headerlink" href="#stringkezeles-alapok" title="Permanent link">&para;</a></h1>
+                <h1 id="sztringkezeles-alapok">Sztringkezelés alapok<a class="headerlink" href="#sztringkezeles-alapok" title="Permanent link">&para;</a></h1>
 <h2 id="alapjellemzok">Alapjellemzők<a class="headerlink" href="#alapjellemzok" title="Permanent link">&para;</a></h2>
 <p>A sztring típus neve <code>string</code> vagy <code>String</code>, a kettő ugyanazt jelenti.</p>
 <h3 id="a-string-referencia-tipus">A string referencia típus<a class="headerlink" href="#a-string-referencia-tipus" title="Permanent link">&para;</a></h3>
 <p>A sztring referencia típus, vagyis a sztring változók hivatkozások, melynek értéke lehet <code>null</code>, vagy több hivatkozás is hivatkozhat ugyanarra a sztringre.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
-<span class="c1">// Az s2 is az s1 által hivatkozott &quot;alma&quot; stringre hivatkozik</span>
+<span class="c1">// Az s2 is az s1 által hivatkozott &quot;alma&quot; sztringre hivatkozik</span>
 <span class="kt">string</span> <span class="n">s2</span> <span class="p">=</span> <span class="n">s1</span><span class="p">;</span>
 
-<span class="c1">// Az s3 értéke null, nem hivatkozik semmilyen stringre</span>
+<span class="c1">// Az s3 értéke null, nem hivatkozik semmilyen sztringre</span>
 <span class="kt">string</span> <span class="n">s3</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
 </code></pre></div>
 
-<p>Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként (ez sokkal gyorsabb és hatékonyabb, mint a teljes sztring tartalmat átmásolni a függvény számára). A sztring ugyanakkor kicsit speciális, mert a többi referencia típussal (pl. osztályok) szemben nem kötelező a <code>new</code>-val létrehozni:</p>
+<p>Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paraméterként (ez sokkal gyorsabb és hatékonyabb, mint a teljes sztring tartalmat átmásolni a függvény számára). A sztring ugyanakkor kicsit speciális, mert a többi referencia típussal (pl. osztályok) szemben nem kötelező a <code>new</code>-val létrehozni:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// Lehet ugyan a new-val, de nem így szoktuk</span>
 <span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;alma&quot;</span><span class="p">);</span>
 <span class="c1">// Így szoktuk, new nélkül</span>
@@ -1084,7 +1084,7 @@
 <h3 id="string-vs-char-vs-char-tomb">String vs. char vs. char tömb<a class="headerlink" href="#string-vs-char-vs-char-tomb" title="Permanent link">&para;</a></h3>
 <p>Egy string több karakterből áll. A string konstansokat dupla idézőjelbe tesszük (<code>"alma"</code>), a char konstansokat szimplába <code>'a'</code>);
 A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdezhetők).</p>
-<h3 id="a-stringek-nem-megvaltoztathatok-immutable">A stringek nem megváltoztathatók (immutable)<a class="headerlink" href="#a-stringek-nem-megvaltoztathatok-immutable" title="Permanent link">&para;</a></h3>
+<h3 id="a-sztringek-nem-megvaltoztathatok-immutable">A sztringek nem megváltoztathatók (immutable)<a class="headerlink" href="#a-sztringek-nem-megvaltoztathatok-immutable" title="Permanent link">&para;</a></h3>
 <p>A sztringek <strong>nem megváltoztathatók</strong> (angolul úgy mondjuk, hogy a sztring "immutable" típus).</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma&quot;</span><span class="p">;</span>
 <span class="c1">// Ez nem működik, a []-szel csak olvasni lehet, írni nem!</span>
@@ -1099,14 +1099,14 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 <span class="kt">char</span><span class="p">[]</span> <span class="n">karakterek</span> <span class="p">=</span> <span class="n">s1</span><span class="p">.</span><span class="n">ToCharArray</span><span class="p">();</span>
 <span class="c1">// Ez már módosítható</span>
 <span class="n">karakterek</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="sc">&#39;b&#39;</span><span class="p">;</span>
-<span class="c1">// Alakítsuk a karakter tömböt stringgé</span>
+<span class="c1">// Alakítsuk a karakter tömböt sztringgé</span>
 <span class="kt">string</span> <span class="n">s2</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="n">karakterek</span><span class="p">);</span>
 <span class="c1">// Írjuk ki, &quot;blma&quot; lesz a kimenet</span>
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>
 </code></pre></div>
 
-<p>A fenti kód alapján jegyezd meg, hogyan lehet sztringet karakter tömbbé alakítani (<code>ToCharArray()</code> művelet), illetve karatker tömböt sztringgé (ehhez létre kell hozni egy új sztringet a new-val, lásd fent a példában)!</p>
-<p>II. De ritkábban szoktunk karakter tömbbel dolgozni. A másik lehetőség: nem megváltozattjuk a sztringet (mert az nem lehet), hanem egy újat hozunk létre, mely a módosításnak megfelelő karaktereket tartalmazza. Így működik pl. a string  <code>Replace</code> művelete is. A  neve becsapós, nem az eredeti sztringet módosítja, hanem mindig egy új sztringet állít elő és azzal tér vissza. Íme egy példa a <code>Replace</code>-re:</p>
+<p>A fenti kód alapján jegyezd meg, hogyan lehet sztringet karakter tömbbé alakítani (<code>ToCharArray()</code> művelet), illetve karakter tömböt sztringgé (ehhez létre kell hozni egy új sztringet a new-val, lásd fent a példában)!</p>
+<p>II. De ritkábban szoktunk karakter tömbbel dolgozni. A másik lehetőség: nem megváltoztatjuk a sztringet (mert az nem lehet), hanem egy újat hozunk létre, mely a módosításnak megfelelő karaktereket tartalmazza. Így működik pl. a string <code>Replace</code> művelete is. A neve becsapós, nem az eredeti sztringet módosítja, hanem mindig egy új sztringet állít elő és azzal tér vissza. Íme egy példa a <code>Replace</code>-re:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">s1</span> <span class="p">=</span> <span class="s">&quot;alma körte szilva&quot;</span><span class="p">;</span>
 <span class="c1">// Cseréljük ki a &quot;körte&quot; részt &quot;barack&quot;-ra a string Replace használatával.</span>
 
@@ -1133,7 +1133,7 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 <span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
 
 <span class="c1">// Cseréljük le a személy1 nevében az &quot;á&quot;-t &quot;a&quot;-ra</span>
-<span class="c1">// Ez így értelmetlen, mert visszaada az új sztringet, de nem </span>
+<span class="c1">// Ez így értelmetlen, mert visszaadja az új sztringet, de nem </span>
 <span class="c1">// kezdünk vele semmit:</span>
 <span class="n">szemely1</span><span class="p">.</span><span class="n">Nev</span><span class="p">.</span><span class="n">Replace</span><span class="p">(</span><span class="s">&quot;á&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">);</span>
 <span class="c1">// Így a jó:</span>
@@ -1171,7 +1171,7 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 
 <p>Keresés stringben: <code>IndexOf</code>, <code>LastIndexOf</code> - TODO PÉLDA</p>
 <p>Tartalmazás vizsgálat - <code>Contains</code>, <code>StartsWidth</code>, <code>EndsWidth</code> - TODO PÉLDA</p>
-<h3 id="specialis-karakterek-escape-karakterek-specialis-stringek">Speciális karakterek, escape karakterek, speciális stringek<a class="headerlink" href="#specialis-karakterek-escape-karakterek-specialis-stringek" title="Permanent link">&para;</a></h3>
+<h3 id="specialis-karakterek-escape-karakterek-specialis-sztringek">Speciális karakterek, escape karakterek, speciális sztringek<a class="headerlink" href="#specialis-karakterek-escape-karakterek-specialis-sztringek" title="Permanent link">&para;</a></h3>
 <p>Alapesetben a <code>'\'</code> egy escape szekvencia kezdetét jelzi. Példák:</p>
 <ul>
 <li><code>'\t'</code>: egy tab karakter</li>
@@ -1184,7 +1184,7 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 <li>Megduplázzuk minden előfordulási helyén, pl. <code>string fajlUtvonal = "c:\\temp\\gyumolcsok.txt"</code></li>
 <li>A <code>'@'</code> karaktert a szting elé írva kikapcsoljuk az escape-elést, ekkor nem kell duplázni, pl.: <code>string fajlUtvonal = @"c:\temp\gyumolcsok.txt"</code></li>
 </ul>
-<h3 id="konverzio-stringbe">Konverzió stringbe<a class="headerlink" href="#konverzio-stringbe" title="Permanent link">&para;</a></h3>
+<h3 id="konverzio-sztringbe">Konverzió sztringbe<a class="headerlink" href="#konverzio-sztringbe" title="Permanent link">&para;</a></h3>
 <p>C#-ban minden típusra meghívható a <code>ToString()</code> művelet, ami az adott változót/objektumot sztringgé alakítja:</p>
 <ul>
 <li>Az <strong>egyszerű beépített típusoknál</strong> (<code>int</code>, <code>double</code>, stb.) a <code>ToString()</code> magában is jól használható</li>
@@ -1246,7 +1246,7 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">szamokEgyben</span><span class="p">);</span>
 </code></pre></div></li>
 <li>Ha az elemek típusa valamilyen saját osztály/struktúra, egy jó irány ebben az esetben <code>ToString()</code> felülírása az osztályunkban, erre fent láttunk példát.</li>
-<li>Ha az elemtípus nem string, a <code>Select()</code>-tel is leképezheted őket stringre (ha nem írod meg pl. a ToString-et). 
+<li>Ha az elemtípus nem string, a <code>Select()</code>-tel is leképezheted őket sztringre (ha nem írod meg pl. a ToString-et). 
    <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Szemely</span>
  <span class="p">{</span>
      <span class="k">public</span> <span class="kt">int</span> <span class="n">Kor</span><span class="p">;</span>
@@ -1276,7 +1276,7 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 </ul>
 </li>
 </ul>
-<h3 id="beolvasaskonverzio-stringbol">Beolvasás/konverzió stringből<a class="headerlink" href="#beolvasaskonverzio-stringbol" title="Permanent link">&para;</a></h3>
+<h3 id="beolvasaskonverzio-sztringbol">Beolvasás/konverzió sztringből<a class="headerlink" href="#beolvasaskonverzio-sztringbol" title="Permanent link">&para;</a></h3>
 <p>Az elemi típusok (<code>int</code>, <code>double</code>, stb.) többsége a <code>Convert</code> osztály segítségévek állítható elő sztringből.</p>
 <p>Ha egy sztringben szeparátorral elválaszott egyszerű elemek vannak, akkor a Split művelettel lehet a szeparátor mentén vágni és egy string tömbben az elemeket megkapni:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">sor</span> <span class="p">=</span> <span class="s">&quot;alma,körte,szilva&quot;</span><span class="p">;</span>
@@ -1300,7 +1300,7 @@ A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdez
 <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formazottString</span><span class="p">);</span>
 </code></pre></div>
 
-<p>A fenti megoldás működik, de kicst nehezen átlátható, könnyű elrontani. Egy alternatív, modern megoldás a string interpoláció használata. A hangzatos néz mögött egy nagyon egyszerű a mechanizmusa , könnyű megszeretni. Az alábbi példa illusztrálja a használatát. A lényege az, hogy egyetlen sztringet használunk, melyben <strong>{}</strong> között beírjuk a <strong>változókat</strong>, amiket az adott helyre be akarunk kell helyettesíteni. Az fontos még, hogy a sztring elé ki kell írni a <code>'$'</code> jelet:</p>
+<p>A fenti megoldás működik, de kicsit nehezen átlátható, könnyű elrontani. Egy alternatív, modern megoldás a string interpoláció használata. A hangzatos néz mögött egy nagyon egyszerű a mechanizmusa , könnyű megszeretni. Az alábbi példa illusztrálja a használatát. A lényege az, hogy egyetlen sztringet használunk, melyben <strong>{}</strong> között beírjuk a <strong>változókat</strong>, amiket az adott helyre be akarunk kell helyettesíteni. Az fontos még, hogy a sztring elé ki kell írni a <code>'$'</code> jelet:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">string</span> <span class="n">nev</span> <span class="p">=</span> <span class="s">&quot;István&quot;</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">kor</span> <span class="p">=</span> <span class="m">35</span><span class="p">;</span>
 <span class="c1">// $-ral kezdjük, és {} között bármilyen változót megadva behelyettesítődik</span>
@@ -1370,7 +1370,7 @@ Egy sztringet csupa nagybetűssé alakítani a <code>ToUpper()</code>-rel, csupa
 <h2 id="extra">Extra<a class="headerlink" href="#extra" title="Permanent link">&para;</a></h2>
 <p><a href="http://csharptk.ektf.hu/download/csharp-ekf.pdf">http://csharptk.ektf.hu/download/csharp-ekf.pdf</a>
 <a href="http://aries.ektf.hu/~hz/wiki7/mprog1ea/adattipusok">http://aries.ektf.hu/~hz/wiki7/mprog1ea/adattipusok</a>
-A kezdeti időkben úgy találták, hogy 256 féle karakter elég sokmindenre elég, ezért az ASCII kódtábla 0..255 közötti számkódokat tartalmaz. Idővel ennyi karakter, szimbólum kevésnek bizonyult, ezért másik kódtáblát készítettek, melyet UNICODE-nak neveznek. Ez az eredeti ASCII tábla bővítményének fogható fel. A UNICODE táblázatban nem áll meg a sorszámozás 255-nél, hanem újabb szimbólumok felvezetése mellett tart 65535-ig (alap UNICODE tábla). A UNICODE kódolás ennél a valóságban sokkal összetettebb, további információk az alábbi linken olvashatók.</p>
+A kezdeti időkben úgy találták, hogy 256 féle karakter elég sok mindenre elég, ezért az ASCII kódtábla 0..255 közötti számkódokat tartalmaz. Idővel ennyi karakter, szimbólum kevésnek bizonyult, ezért másik kódtáblát készítettek, melyet UNICODE-nak neveznek. Ez az eredeti ASCII tábla bővítményének fogható fel. A UNICODE táblázatban nem áll meg a sorszámozás 255-nél, hanem újabb szimbólumok felvezetése mellett tart 65535-ig (alap UNICODE tábla). A UNICODE kódolás ennél a valóságban sokkal összetettebb, további információk az alábbi linken olvashatók.</p>
 <p>Mivel unicode sorszámok már 65535-ig tartanak, ezen sorszámok leírására nem elég 1 byte, hanem 2 byte kell. A C# char típusa a unicode kódtábla alapján működik, ezért egy karakterérték tárolásához 2 byte-ra van szükség a memóriában.</p>
                 
               
