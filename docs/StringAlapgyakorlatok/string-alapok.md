@@ -1,4 +1,4 @@
-# Stringkezelés alapok
+﻿# Sztringkezelés alapok
 
 ## Alapjellemzők
 
@@ -10,14 +10,14 @@ A sztring referencia típus, vagyis a sztring változók hivatkozások, melynek 
 
 ```csharp
 string s1 = "alma";
-// Az s2 is az s1 által hivatkozott "alma" stringre hivatkozik
+// Az s2 is az s1 által hivatkozott "alma" sztringre hivatkozik
 string s2 = s1;
 
-// Az s3 értéke null, nem hivatkozik semmilyen stringre
+// Az s3 értéke null, nem hivatkozik semmilyen sztringre
 string s3 = null;
 ```
 
-Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paramétertként (ez sokkal gyorsabb és hatékonyabb, mint a teljes sztring tartalmat átmásolni a függvény számára). A sztring ugyanakkor kicsit speciális, mert a többi referencia típussal (pl. osztályok) szemben nem kötelező a `new`-val létrehozni:
+Amikor egy függvényt meghívunk, csak a hivatkozás adódik át paraméterként (ez sokkal gyorsabb és hatékonyabb, mint a teljes sztring tartalmat átmásolni a függvény számára). A sztring ugyanakkor kicsit speciális, mert a többi referencia típussal (pl. osztályok) szemben nem kötelező a `new`-val létrehozni:
 
 ```csharp
 // Lehet ugyan a new-val, de nem így szoktuk
@@ -43,7 +43,7 @@ Lényeges, hogy az üres sztring és a null string teljesen mást jelent! Ha egy
 Egy string több karakterből áll. A string konstansokat dupla idézőjelbe tesszük (`"alma"`), a char konstansokat szimplába `'a'`);
 A karakter tömb elemei megváltoztathatók, a string elemei nem (csak lekérdezhetők).
 
-### A stringek nem megváltoztathatók (immutable)
+### A sztringek nem megváltoztathatók (immutable)
 
 A sztringek **nem megváltoztathatók** (angolul úgy mondjuk, hogy a sztring "immutable" típus).
 
@@ -64,15 +64,15 @@ string s1 = "alma";
 char[] karakterek = s1.ToCharArray();
 // Ez már módosítható
 karakterek[0] = 'b';
-// Alakítsuk a karakter tömböt stringgé
+// Alakítsuk a karakter tömböt sztringgé
 string s2 = new string(karakterek);
 // Írjuk ki, "blma" lesz a kimenet
 Console.WriteLine(s2);
 ```
 
-A fenti kód alapján jegyezd meg, hogyan lehet sztringet karakter tömbbé alakítani (`ToCharArray()` művelet), illetve karatker tömböt sztringgé (ehhez létre kell hozni egy új sztringet a new-val, lásd fent a példában)!
+A fenti kód alapján jegyezd meg, hogyan lehet sztringet karakter tömbbé alakítani (`ToCharArray()` művelet), illetve karakter tömböt sztringgé (ehhez létre kell hozni egy új sztringet a new-val, lásd fent a példában)!
 
-II. De ritkábban szoktunk karakter tömbbel dolgozni. A másik lehetőség: nem megváltozattjuk a sztringet (mert az nem lehet), hanem egy újat hozunk létre, mely a módosításnak megfelelő karaktereket tartalmazza. Így működik pl. a string  `Replace` művelete is. A  neve becsapós, nem az eredeti sztringet módosítja, hanem mindig egy új sztringet állít elő és azzal tér vissza. Íme egy példa a `Replace`-re:
+II. De ritkábban szoktunk karakter tömbbel dolgozni. A másik lehetőség: nem megváltoztatjuk a sztringet (mert az nem lehet), hanem egy újat hozunk létre, mely a módosításnak megfelelő karaktereket tartalmazza. Így működik pl. a string `Replace` művelete is. A neve becsapós, nem az eredeti sztringet módosítja, hanem mindig egy új sztringet állít elő és azzal tér vissza. Íme egy példa a `Replace`-re:
 
 ```csharp
 string s1 = "alma körte szilva";
@@ -101,7 +101,7 @@ szemely1.Kor = 10;
 szemely1.Nev = "István";
 
 // Cseréljük le a személy1 nevében az "á"-t "a"-ra
-// Ez így értelmetlen, mert visszaada az új sztringet, de nem 
+// Ez így értelmetlen, mert visszaadja az új sztringet, de nem 
 // kezdünk vele semmit:
 szemely1.Nev.Replace("á", "a");
 // Így a jó:
@@ -146,7 +146,7 @@ Keresés stringben: `IndexOf`, `LastIndexOf` - TODO PÉLDA
 
 Tartalmazás vizsgálat - `Contains`, `StartsWidth`, `EndsWidth` - TODO PÉLDA
 
-### Speciális karakterek, escape karakterek, speciális stringek
+### Speciális karakterek, escape karakterek, speciális sztringek
 
 Alapesetben a `'\'` egy escape szekvencia kezdetét jelzi. Példák:
 
@@ -160,7 +160,7 @@ Adódik a kérdés, hogyan tudunk akkor egyáltalán `'\'` karaktert megadni str
 * Megduplázzuk minden előfordulási helyén, pl. `string fajlUtvonal = "c:\\temp\\gyumolcsok.txt"`
 * A `'@'` karaktert a szting elé írva kikapcsoljuk az escape-elést, ekkor nem kell duplázni, pl.: `string fajlUtvonal = @"c:\temp\gyumolcsok.txt"`
 
-### Konverzió stringbe
+### Konverzió sztringbe
 
 C#-ban minden típusra meghívható a `ToString()` művelet, ami az adott változót/objektumot sztringgé alakítja:
 
@@ -226,7 +226,7 @@ C#-ban minden típusra meghívható a `ToString()` művelet, ami az adott válto
         Console.WriteLine(szamokEgyben);
        ```
        * Ha az elemek típusa valamilyen saját osztály/struktúra, egy jó irány ebben az esetben `ToString()` felülírása az osztályunkban, erre fent láttunk példát.
-       * Ha az elemtípus nem string, a `Select()`-tel is leképezheted őket stringre (ha nem írod meg pl. a ToString-et). 
+       * Ha az elemtípus nem string, a `Select()`-tel is leképezheted őket sztringre (ha nem írod meg pl. a ToString-et). 
        ```csharp
        class Szemely
         {
@@ -255,7 +255,7 @@ C#-ban minden típusra meghívható a `ToString()` művelet, ami az adott válto
         Console.WriteLine(szemelyekEgybenString);
        ```
 
-### Beolvasás/konverzió stringből
+### Beolvasás/konverzió sztringből
 
 Az elemi típusok (`int`, `double`, stb.) többsége a `Convert` osztály segítségévek állítható elő sztringből.
 
@@ -289,7 +289,7 @@ string formazottString = "Név: " + nev + ", Kor: " + kor;
 Console.WriteLine(formazottString);
 ```
 
-A fenti megoldás működik, de kicst nehezen átlátható, könnyű elrontani. Egy alternatív, modern megoldás a string interpoláció használata. A hangzatos néz mögött egy nagyon egyszerű a mechanizmusa , könnyű megszeretni. Az alábbi példa illusztrálja a használatát. A lényege az, hogy egyetlen sztringet használunk, melyben **{}** között beírjuk a **változókat**, amiket az adott helyre be akarunk kell helyettesíteni. Az fontos még, hogy a sztring elé ki kell írni a `'$'` jelet:
+A fenti megoldás működik, de kicsit nehezen átlátható, könnyű elrontani. Egy alternatív, modern megoldás a string interpoláció használata. A hangzatos néz mögött egy nagyon egyszerű a mechanizmusa , könnyű megszeretni. Az alábbi példa illusztrálja a használatát. A lényege az, hogy egyetlen sztringet használunk, melyben **{}** között beírjuk a **változókat**, amiket az adott helyre be akarunk kell helyettesíteni. Az fontos még, hogy a sztring elé ki kell írni a `'$'` jelet:
 
 ```csharp
 string nev = "István";
@@ -381,6 +381,6 @@ A sztring `Length` tulajdonsága adja vissza.
 
 http://csharptk.ektf.hu/download/csharp-ekf.pdf
 http://aries.ektf.hu/~hz/wiki7/mprog1ea/adattipusok
-A kezdeti időkben úgy találták, hogy 256 féle karakter elég sokmindenre elég, ezért az ASCII kódtábla 0..255 közötti számkódokat tartalmaz. Idővel ennyi karakter, szimbólum kevésnek bizonyult, ezért másik kódtáblát készítettek, melyet UNICODE-nak neveznek. Ez az eredeti ASCII tábla bővítményének fogható fel. A UNICODE táblázatban nem áll meg a sorszámozás 255-nél, hanem újabb szimbólumok felvezetése mellett tart 65535-ig (alap UNICODE tábla). A UNICODE kódolás ennél a valóságban sokkal összetettebb, további információk az alábbi linken olvashatók.
+A kezdeti időkben úgy találták, hogy 256 féle karakter elég sok mindenre elég, ezért az ASCII kódtábla 0..255 közötti számkódokat tartalmaz. Idővel ennyi karakter, szimbólum kevésnek bizonyult, ezért másik kódtáblát készítettek, melyet UNICODE-nak neveznek. Ez az eredeti ASCII tábla bővítményének fogható fel. A UNICODE táblázatban nem áll meg a sorszámozás 255-nél, hanem újabb szimbólumok felvezetése mellett tart 65535-ig (alap UNICODE tábla). A UNICODE kódolás ennél a valóságban sokkal összetettebb, további információk az alábbi linken olvashatók.
 
 Mivel unicode sorszámok már 65535-ig tartanak, ezen sorszámok leírására nem elég 1 byte, hanem 2 byte kell. A C# char típusa a unicode kódtábla alapján működik, ezért egy karakterérték tárolásához 2 byte-ra van szükség a memóriában.
